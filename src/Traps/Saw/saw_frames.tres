@@ -1,0 +1,24 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=2]
+
+[ext_resource path="res://assets/Traps/Saw/Active/saw_active_003.png" type="Texture" id=1]
+[ext_resource path="res://assets/Traps/Saw/Active/saw_active_004.png" type="Texture" id=2]
+[ext_resource path="res://assets/Traps/Saw/Active/saw_active_002.png" type="Texture" id=3]
+[ext_resource path="res://assets/Traps/Saw/Active/saw_active_005.png" type="Texture" id=4]
+[ext_resource path="res://assets/Traps/Saw/Active/saw_active_007.png" type="Texture" id=5]
+[ext_resource path="res://assets/Traps/Saw/Active/saw_active_006.png" type="Texture" id=6]
+[ext_resource path="res://assets/Traps/Saw/saw_inactive.png" type="Texture" id=7]
+[ext_resource path="res://assets/Traps/Saw/Active/saw_active_000.png" type="Texture" id=8]
+[ext_resource path="res://assets/Traps/Saw/Active/saw_active_001.png" type="Texture" id=9]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "active",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "inactive",
+"speed": 5.0
+} ]

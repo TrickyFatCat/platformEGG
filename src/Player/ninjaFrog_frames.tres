@@ -1,0 +1,62 @@
+[gd_resource type="SpriteFrames" load_steps=33 format=2]
+
+[ext_resource path="res://assets/Player/NinjaFrog/Idle/ninjaFrog_hit_001.png" type="Texture" id=1]
+[ext_resource path="res://assets/Player/NinjaFrog/Idle/ninjaFrog_hit_005.png" type="Texture" id=2]
+[ext_resource path="res://assets/Player/NinjaFrog/Idle/ninjaFrog_hit_004.png" type="Texture" id=3]
+[ext_resource path="res://assets/Player/NinjaFrog/Idle/ninjaFrog_hit_006.png" type="Texture" id=4]
+[ext_resource path="res://assets/Player/NinjaFrog/Idle/ninjaFrog_hit_007.png" type="Texture" id=5]
+[ext_resource path="res://assets/Player/NinjaFrog/Idle/ninjaFrog_hit_008.png" type="Texture" id=6]
+[ext_resource path="res://assets/Player/NinjaFrog/Idle/ninjaFrog_hit_003.png" type="Texture" id=7]
+[ext_resource path="res://assets/Player/NinjaFrog/Idle/ninjaFrog_hit_000.png" type="Texture" id=8]
+[ext_resource path="res://assets/Player/NinjaFrog/Idle/ninjaFrog_hit_002.png" type="Texture" id=9]
+[ext_resource path="res://assets/Player/NinjaFrog/Idle/ninjaFrog_hit_010.png" type="Texture" id=10]
+[ext_resource path="res://assets/Player/NinjaFrog/Idle/ninjaFrog_hit_009.png" type="Texture" id=11]
+[ext_resource path="res://assets/Player/NinjaFrog/Run/ninjaFrog_run_010.png" type="Texture" id=12]
+[ext_resource path="res://assets/Player/NinjaFrog/Run/ninjaFrog_run_001.png" type="Texture" id=13]
+[ext_resource path="res://assets/Player/NinjaFrog/Run/ninjaFrog_run_005.png" type="Texture" id=14]
+[ext_resource path="res://assets/Player/NinjaFrog/Run/ninjaFrog_run_003.png" type="Texture" id=15]
+[ext_resource path="res://assets/Player/NinjaFrog/Run/ninjaFrog_run_006.png" type="Texture" id=16]
+[ext_resource path="res://assets/Player/NinjaFrog/Run/ninjaFrog_run_007.png" type="Texture" id=17]
+[ext_resource path="res://assets/Player/NinjaFrog/Run/ninjaFrog_run_004.png" type="Texture" id=18]
+[ext_resource path="res://assets/Player/NinjaFrog/Run/ninjaFrog_run_002.png" type="Texture" id=19]
+[ext_resource path="res://assets/Player/NinjaFrog/Run/ninjaFrog_run_000.png" type="Texture" id=20]
+[ext_resource path="res://assets/Player/NinjaFrog/Run/ninjaFrog_run_009.png" type="Texture" id=21]
+[ext_resource path="res://assets/Player/NinjaFrog/Run/ninjaFrog_run_011.png" type="Texture" id=22]
+[ext_resource path="res://assets/Player/NinjaFrog/Run/ninjaFrog_run_008.png" type="Texture" id=23]
+[ext_resource path="res://assets/Player/NinjaFrog/Hit/ninjaFrog_hit_000.png" type="Texture" id=24]
+[ext_resource path="res://assets/Player/NinjaFrog/Hit/ninjaFrog_hit_006.png" type="Texture" id=25]
+[ext_resource path="res://assets/Player/NinjaFrog/Hit/ninjaFrog_hit_004.png" type="Texture" id=26]
+[ext_resource path="res://assets/Player/NinjaFrog/Hit/ninjaFrog_hit_001.png" type="Texture" id=27]
+[ext_resource path="res://assets/Player/NinjaFrog/Hit/ninjaFrog_hit_002.png" type="Texture" id=28]
+[ext_resource path="res://assets/Player/NinjaFrog/Hit/ninjaFrog_hit_005.png" type="Texture" id=29]
+[ext_resource path="res://assets/Player/NinjaFrog/Hit/ninjaFrog_hit_003.png" type="Texture" id=30]
+[ext_resource path="res://assets/Player/NinjaFrog/ninjaFrog_fall.png" type="Texture" id=31]
+[ext_resource path="res://assets/Player/NinjaFrog/ninjaFrog_jump.png" type="Texture" id=32]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 1 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "idle",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 24 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 30 ), ExtResource( 26 ), ExtResource( 29 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "hit",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 32 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 31 ) ],
+"loop": true,
+"name": "fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 13 ), ExtResource( 19 ), ExtResource( 15 ), ExtResource( 18 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 23 ), ExtResource( 21 ), ExtResource( 12 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "run",
+"speed": 20.0
+} ]
