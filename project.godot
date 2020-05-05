@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://src/Player/Player.gd"
+}, {
 "base": "Node",
 "class": "State",
 "language": "GDScript",
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://src/Main/StateMachine/StateMachine.gd"
 } ]
 _global_script_class_icons={
+"Player": "",
 "State": "res://assets/EngineIcons/icon_state.svg",
 "StateMachine": "res://assets/EngineIcons/icon_stateMachine.svg"
 }
@@ -28,7 +34,12 @@ _global_script_class_icons={
 
 config/name="platformEGG"
 config/description="A hardcore puzzle platformer, where you play as a ninja frog who have to deliver the egg to a finish line."
+run/main_scene="res://levels/Level_Test.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Events="*res://src/Singletons/Events.gd"
 
 [display]
 

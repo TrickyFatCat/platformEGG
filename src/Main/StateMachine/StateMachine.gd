@@ -4,11 +4,10 @@ class_name StateMachine, "res://assets/EngineIcons/icon_stateMachine.svg"
 Generic state machine.
 """
 
-
 export(NodePath) var initial_state = NodePath()
 
 onready var state: State = get_node(initial_state) setget set_state
-onready var _state_name: = state.name
+#onready var _state_name: = state.name
 
 
 func _init() -> void:
@@ -40,4 +39,4 @@ func transition_to(target_state_path: String, msg: Dictionary = {}) -> void:
 
 func set_state(value: State) -> void:
 	state = value
-	_state_name = state.name
+#	_state_name = state.name
