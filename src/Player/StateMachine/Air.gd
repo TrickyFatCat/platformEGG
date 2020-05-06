@@ -3,6 +3,7 @@ extends State
 export(float) var acceleration_x = 5000.0
 
 onready var move: State = get_parent()
+onready var SpriteNode: AnimatedSprite = get_node("../../../Sprite")
 
 
 func unhandled_input(event: InputEvent) -> void:
@@ -11,6 +12,11 @@ func unhandled_input(event: InputEvent) -> void:
 
 func physics_process(delta: float) -> void:
 	move.physics_process(delta)
+	
+	if move.velocity.y < 0:
+		SpriteNode.play("jump")
+	elif move.velocity.y > 0:
+		SpriteNode.play("fall")
 	
 	if owner.is_on_floor():
 		var target_state: = "Move/Idle" if move.get_move_direction().x == 0.0 else "Move/Run"

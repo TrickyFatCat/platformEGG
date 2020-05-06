@@ -1,6 +1,7 @@
 extends State
 
 onready var move: State = get_parent()
+onready var SpriteNode: AnimatedSprite = get_node("../../../Sprite")
 
 
 func unhandled_input(event: InputEvent) -> void:
@@ -16,6 +17,7 @@ func physics_process(delta: float) -> void:
 
 func enter(msg: Dictionary = {}) -> void:
 	var move: = get_parent()
+	SpriteNode.play("idle")
 	move.enter(msg)
 	move.max_velocity = move.max_velocity_default
 	move.velocity = Vector2.ZERO
