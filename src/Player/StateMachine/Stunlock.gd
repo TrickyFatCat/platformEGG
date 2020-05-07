@@ -34,11 +34,13 @@ func enter(msg: Dictionary = {}) -> void:
 		else:
 			stunlock_direction.x = 1.0 if SpriteNode.flip_h else -1.0
 	
-	if "impulse" in msg:
-		if move.velocity.y > 0:
-			move.velocity.y = 0
-		
-		move.velocity += calculate_stunlock_velocity(msg.impulse)
+	if "area_position" in msg:
+		if msg.area_position.y > owner.global_position.y:
+			if "impulse" in msg:
+				if move.velocity.y > 0:
+					move.velocity.y = 0
+				
+				move.velocity += calculate_stunlock_velocity(msg.impulse)
 
 
 func exit() -> void:

@@ -13,6 +13,7 @@ func physics_process(delta: float) -> void:
 		_state_machine.transition_to("Move/Run")
 	elif !owner.is_on_floor():
 		_state_machine.transition_to("Move/Air")
+	move.physics_process(delta)
 
 
 func enter(msg: Dictionary = {}) -> void:
@@ -20,7 +21,7 @@ func enter(msg: Dictionary = {}) -> void:
 	SpriteNode.play("idle")
 	move.enter(msg)
 	move.max_velocity = move.max_velocity_default
-	move.velocity = Vector2.ZERO
+#	move.velocity = Vector2.ZERO
 
 
 func exit() -> void:

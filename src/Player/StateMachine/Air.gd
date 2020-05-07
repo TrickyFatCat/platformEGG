@@ -32,7 +32,8 @@ func enter(msg: Dictionary = {}) -> void:
 		move.max_velocity.x = max(abs(msg.velocity.x), move.max_velocity_default.x)
 	
 	if "impulse" in msg:
-		move.velocity += calculate_jump_velocity(msg.impulse)
+#		move.velocity += calculate_jump_velocity(msg.impulse)
+		calculate_jump_velocity(msg.impulse)
 
 
 func exit() -> void:
@@ -41,10 +42,11 @@ func exit() -> void:
 
 
 func calculate_jump_velocity(impulse: float = 0.0) -> Vector2:
-	return move.calculate_velocity(
-		move.velocity,
-		move.max_velocity,
-		Vector2(0.0, impulse),
-		1.0,
-		Vector2.UP
-	)
+	return move.calculate_velocity_y(impulse, -1)
+#	return move.calculate_velocity(
+#		move.velocity,
+#		move.max_velocity,
+#		Vector2(0.0, impulse),
+#		1.0,
+#		Vector2.UP
+#	)
