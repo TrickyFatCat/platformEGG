@@ -1,6 +1,7 @@
 extends State
 
 export(float) var acceleration_x = 5000.0
+export(float) var air_friction_x = 0
 
 onready var move: State = get_parent()
 onready var SpriteNode: AnimatedSprite = get_node("../../../Sprite")
@@ -32,21 +33,16 @@ func enter(msg: Dictionary = {}) -> void:
 		move.max_velocity.x = max(abs(msg.velocity.x), move.max_velocity_default.x)
 	
 	if "impulse" in msg:
-#		move.velocity += calculate_jump_velocity(msg.impulse)
+		move.friction.x = air_friction_x
 		calculate_jump_velocity(msg.impulse)
 
 
 func exit() -> void:
 	move.exit()
 	move.acceleration.x = move.acceleration_default.x
+	move.friction = move.friction_default
+	move.velocity.x = 0
 
 
 func calculate_jump_velocity(impulse: float = 0.0) -> Vector2:
 	return move.calculate_velocity_y(impulse, -1)
-#	return move.calculate_velocity(
-#		move.velocity,
-#		move.max_velocity,
-#		Vector2(0.0, impulse),
-#		1.0,
-#		Vector2.UP
-#	)

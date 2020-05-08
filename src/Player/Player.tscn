@@ -23,7 +23,7 @@ script = ExtResource( 7 )
 position = Vector2( 0, -16 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 3
+frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -45,8 +45,6 @@ initial_state = NodePath("Move/Idle")
 
 [node name="Move" type="Node" parent="StateMachine"]
 script = ExtResource( 2 )
-max_velocity_default = Vector2( 250, 550 )
-acceleration_default = Vector2( 300, 3000 )
 
 [node name="Idle" type="Node" parent="StateMachine/Move"]
 script = ExtResource( 4 )

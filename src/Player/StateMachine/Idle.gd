@@ -21,7 +21,6 @@ func enter(msg: Dictionary = {}) -> void:
 	SpriteNode.play("idle")
 	move.enter(msg)
 	move.max_velocity = move.max_velocity_default
-#	move.velocity = Vector2.ZERO
 
 
 func exit() -> void:

@@ -14,7 +14,7 @@ func unhandled_input(event: InputEvent) -> void:
 
 func physics_process(delta: float) -> void:
 	var direction: = Vector2(stunlock_direction.x, 1)
-	move.velocity = move.calculate_velocity(move.velocity, move.max_velocity, move.acceleration, delta, direction)
+#	move.velocity = move.calculate_velocity(move.velocity, move.max_velocity, move.acceleration, delta, direction)
 	move.velocity = owner.move_and_slide(move.velocity, owner.FLOOR_NORMAL)
 	if owner.is_on_ceiling():
 		move.velocity.y = 0
@@ -50,13 +50,14 @@ func exit() -> void:
 
 
 func calculate_stunlock_velocity(impulse: float = 0.0) -> Vector2:
-	return move.calculate_velocity(
-		move.velocity,
-		move.max_velocity,
-		Vector2(0.0, impulse),
-		1.0,
-		stunlock_direction
-	)
+#	return move.calculate_velocity(
+#		move.velocity,
+#		move.max_velocity,
+#		Vector2(0.0, impulse),
+#		1.0,
+#		stunlock_direction
+#	)
+	return Vector2.ZERO
 
 
 func _on_Sprite_animation_finished() -> void:

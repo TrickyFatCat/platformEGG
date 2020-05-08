@@ -1,8 +1,8 @@
 extends State
 
-export(Vector2) var max_velocity_default = Vector2(500.0, 1500.0)
-export(Vector2) var acceleration_default = Vector2(400.0, 3000.0)
-export(Vector2) var friction_default = Vector2(50.0, 300.0)
+export(Vector2) var max_velocity_default = Vector2(250.0, 1500.0)
+export(Vector2) var acceleration_default = Vector2(1500.0, 3000.0)
+export(Vector2) var friction_default = Vector2(1500.0, 300.0)
 export(float) var jump_impulse = 600.0
 export(float) var stunlock_impulse = 350.0
 
@@ -22,7 +22,6 @@ func physics_process(delta: float) -> void:
 	var direction = get_move_direction()
 	calculate_velocity_x(delta, direction)
 	apply_gravity(delta)
-#	velocity = calculate_velocity(velocity, max_velocity, acceleration, delta, get_move_direction())
 	velocity = owner.move_and_slide(velocity, owner.FLOOR_NORMAL)
 	print(velocity.x)
 	Events.emit_signal("player_moved", owner)
@@ -31,20 +30,6 @@ func physics_process(delta: float) -> void:
 		SpriteNode.flip_h = false
 	elif get_move_direction().x < 0:
 		SpriteNode.flip_h = true
-
-
-static func calculate_velocity(
-		old_velocity: Vector2,
-		max_velocity: Vector2,
-		acceleration: Vector2,
-		delta: float,
-		move_direction: Vector2
-	)-> Vector2:
-	var new_velocity = old_velocity
-	new_velocity += move_direction * acceleration * delta
-	new_velocity.x = clamp(new_velocity.x, -max_velocity.x, max_velocity.x)
-	new_velocity.y = clamp(new_velocity.y, -max_velocity.y, max_velocity.y)
-	return new_velocity
 
 
 func calculate_velocity_x(delta: float, direction: Vector2) -> void:
