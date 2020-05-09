@@ -4,7 +4,7 @@ export(Vector2) var max_velocity_default = Vector2(250.0, 1500.0)
 export(Vector2) var acceleration_default = Vector2(1500.0, 3000.0)
 export(Vector2) var friction_default = Vector2(1500.0, 300.0)
 export(float) var jump_impulse = 600.0
-export(float) var stunlock_impulse = 350.0
+export(float) var stunlock_impulse = 400.0
 
 var acceleration: Vector2 = acceleration_default
 var friction: Vector2 = friction_default
@@ -15,7 +15,7 @@ onready var SpriteNode : AnimatedSprite = get_node("../../Sprite")
 
 func unhandled_input(event: InputEvent) -> void:
 	if owner.is_on_floor() && event.is_action_pressed("jump"):
-		_state_machine.transition_to("Move/Air", { impulse = jump_impulse })
+		_state_machine.transition_to("Move/Air", { velocity = Vector2(300 * get_move_direction().x, 0), impulse = jump_impulse })
 
 
 func physics_process(delta: float) -> void:

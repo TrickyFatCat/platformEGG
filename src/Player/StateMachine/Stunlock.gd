@@ -1,7 +1,7 @@
 extends State
 
 var acceleration_x: float = 10000.0
-var max_velocity_x: float = 150.0
+var max_velocity_x: float = 175.0
 var stunlock_direction: Vector2 = Vector2.UP
 
 onready var move: State = get_parent()
@@ -14,10 +14,13 @@ func unhandled_input(event: InputEvent) -> void:
 
 func physics_process(delta: float) -> void:
 	var direction: = Vector2(stunlock_direction.x, 1)
-#	move.velocity = move.calculate_velocity(move.velocity, move.max_velocity, move.acceleration, delta, direction)
+	move.calculate_velocity_x(delta, direction)
+	move.apply_gravity(delta)
 	move.velocity = owner.move_and_slide(move.velocity, owner.FLOOR_NORMAL)
+	
 	if owner.is_on_ceiling():
 		move.velocity.y = 0
+	
 	Events.emit_signal("player_moved", owner)
 	pass
 
@@ -26,6 +29,7 @@ func enter(msg: Dictionary = {}) -> void:
 	move.enter(msg)
 	move.acceleration.x = acceleration_x
 	move.max_velocity.x = max_velocity_x
+	move.velocity.x *= -1
 	SpriteNode.play("stunlock")
 	
 	if "direction" in msg:
@@ -40,24 +44,13 @@ func enter(msg: Dictionary = {}) -> void:
 				if move.velocity.y > 0:
 					move.velocity.y = 0
 				
-				move.velocity += calculate_stunlock_velocity(msg.impulse)
+				move.calculate_velocity_y(msg.impulse, stunlock_direction.y)
 
 
 func exit() -> void:
 	move.exit()
 	move.acceleration.x = move.acceleration_default.x
 	move.max_velocity.x = move.max_velocity_default.x
-
-
-func calculate_stunlock_velocity(impulse: float = 0.0) -> Vector2:
-#	return move.calculate_velocity(
-#		move.velocity,
-#		move.max_velocity,
-#		Vector2(0.0, impulse),
-#		1.0,
-#		stunlock_direction
-#	)
-	return Vector2.ZERO
 
 
 func _on_Sprite_animation_finished() -> void:

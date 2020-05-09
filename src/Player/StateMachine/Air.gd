@@ -41,7 +41,10 @@ func exit() -> void:
 	move.exit()
 	move.acceleration.x = move.acceleration_default.x
 	move.friction = move.friction_default
-	move.velocity.x = 0
+	move.max_velocity = move.max_velocity_default
+	
+	if move.get_move_direction().x == 0:
+		move.velocity.x = 0
 
 
 func calculate_jump_velocity(impulse: float = 0.0) -> Vector2:
