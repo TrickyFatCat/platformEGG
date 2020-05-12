@@ -24,4 +24,4 @@ func enter(msg: Dictionary = {}) -> void:
 
 
 func exit() -> void:
-	get_parent().exit() 
+	get_parent().exit()

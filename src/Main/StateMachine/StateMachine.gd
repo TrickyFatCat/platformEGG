@@ -33,8 +33,10 @@ func transition_to(target_state_path: String, msg: Dictionary = {}) -> void:
 	
 	var target_state: = get_node(target_state_path)
 	state.exit()
+	print("Exit state ", self.state.name)
 	self.state = target_state
 	state.enter(msg)
+	print("Enter state ", self.state.name)
 
 
 func set_state(value: State) -> void:

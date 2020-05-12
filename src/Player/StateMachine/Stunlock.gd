@@ -1,7 +1,7 @@
 extends State
 
 var acceleration_x: float = 10000.0
-var max_velocity_x: float = 175.0
+var max_velocity_x: float = 125.0
 var stunlock_direction: Vector2 = Vector2.UP
 
 onready var move: State = get_parent()
@@ -22,27 +22,30 @@ func physics_process(delta: float) -> void:
 		move.velocity.y = 0
 	
 	Events.emit_signal("player_moved", owner)
-	pass
 
 
 func enter(msg: Dictionary = {}) -> void:
 	move.enter(msg)
-	move.acceleration.x = acceleration_x
+#	move.acceleration.x = acceleration_x
 	move.max_velocity.x = max_velocity_x
-	move.velocity.x *= -1
+#	move.friction.x = 0
 	SpriteNode.play("stunlock")
 	
-	if "direction" in msg:
-		if msg.direction.x != 0:
-			stunlock_direction.x = -msg.direction.x
-		else:
-			stunlock_direction.x = 1.0 if SpriteNode.flip_h else -1.0
+#	if "direction" in msg:
+#		if msg.direction.x != 0:
+#			stunlock_direction.x = -msg.direction.x
+#		else:
+	stunlock_direction.x = 1.0 if SpriteNode.flip_h else -1.0
+	
+	move.velocity.x = stunlock_direction.x * max_velocity_x
 	
 	if "area_position" in msg:
+		if move.velocity.y != 0:
+			move.velocity.y = 0
+		
 		if msg.area_position.y > owner.global_position.y:
+			print(msg.area_position.y, " | ", owner.global_position.y)
 			if "impulse" in msg:
-				if move.velocity.y > 0:
-					move.velocity.y = 0
 				
 				move.calculate_velocity_y(msg.impulse, stunlock_direction.y)
 
@@ -51,9 +54,4 @@ func exit() -> void:
 	move.exit()
 	move.acceleration.x = move.acceleration_default.x
 	move.max_velocity.x = move.max_velocity_default.x
-
-
-func _on_Sprite_animation_finished() -> void:
-	if SpriteNode.animation == "stunlock":
-		var target_state: = "Move/Idle" if owner.is_on_floor() else "Move/Air"
-		_state_machine.transition_to(target_state)
+	move.friction.x = move.friction_default.x

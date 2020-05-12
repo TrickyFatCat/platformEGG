@@ -4,7 +4,7 @@ export(Vector2) var max_velocity_default = Vector2(250.0, 1500.0)
 export(Vector2) var acceleration_default = Vector2(1500.0, 3000.0)
 export(Vector2) var friction_default = Vector2(1500.0, 300.0)
 export(float) var jump_impulse = 600.0
-export(float) var stunlock_impulse = 400.0
+export(float) var stunlock_impulse = 500.0
 
 var acceleration: Vector2 = acceleration_default
 var friction: Vector2 = friction_default
@@ -12,6 +12,21 @@ var max_velocity: Vector2 = max_velocity_default
 var velocity: Vector2 = Vector2.ZERO
 
 onready var SpriteNode : AnimatedSprite = get_node("../../Sprite")
+
+
+func _on_DamageDetector_area_entered(area: Area2D) -> void:
+	_state_machine.transition_to("Move/Stunlock", { 
+		impulse = stunlock_impulse,
+		direction = get_move_direction(),
+		area_position = area.global_position
+	})
+
+
+func _on_Sprite_animation_finished() -> void:
+	if SpriteNode.animation == "stunlock":
+		var target_state: = "Move/Idle" if owner.is_on_floor() else "Move/Air"
+		_state_machine.transition_to(target_state)
+
 
 func unhandled_input(event: InputEvent) -> void:
 	if owner.is_on_floor() && event.is_action_pressed("jump"):
@@ -23,7 +38,6 @@ func physics_process(delta: float) -> void:
 	calculate_velocity_x(delta, direction)
 	apply_gravity(delta)
 	velocity = owner.move_and_slide(velocity, owner.FLOOR_NORMAL)
-	print(velocity.x)
 	Events.emit_signal("player_moved", owner)
 	
 	if get_move_direction().x > 0:
@@ -39,7 +53,6 @@ func calculate_velocity_x(delta: float, direction: Vector2) -> void:
 	elif velocity.x != 0 or abs(velocity.x) > max_velocity.x:
 		direction.x = -sign(velocity.x)
 		velocity.x += friction.x * direction.x * delta
-		print(velocity.x)
 		
 		if direction.x < 0:
 			velocity.x = max(velocity.x, 0)
@@ -60,12 +73,3 @@ static func get_move_direction() -> Vector2:
 		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
 		1.0
 	)
-
-
-func _on_DamageDetector_area_entered(area: Area2D) -> void:
-	_state_machine.transition_to("Move/Stunlock", { 
-		impulse = stunlock_impulse,
-		direction = get_move_direction(),
-		area_position = area.global_position
-	})
-	pass
