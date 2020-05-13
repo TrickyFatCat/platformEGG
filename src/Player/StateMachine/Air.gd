@@ -25,6 +25,7 @@ func physics_process(delta: float) -> void:
 
 
 func enter(msg: Dictionary = {}) -> void:
+	#Have to fix this state as after exiting stunlock the character immediately jumps instead of fall
 	move.enter(msg)
 	move.acceleration.x = acceleration_x
 	
