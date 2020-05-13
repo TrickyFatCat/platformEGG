@@ -7,6 +7,7 @@ Generic state machine.
 export(NodePath) var initial_state = NodePath()
 
 onready var state: State = get_node(initial_state) setget set_state
+onready var previous_state: State = state
 #onready var _state_name: = state.name
 
 
@@ -40,5 +41,6 @@ func transition_to(target_state_path: String, msg: Dictionary = {}) -> void:
 
 
 func set_state(value: State) -> void:
+	previous_state = state
 	state = value
 #	_state_name = state.name
