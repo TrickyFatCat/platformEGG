@@ -15,13 +15,11 @@ onready var SpriteNode : AnimatedSprite = get_node("../../Sprite")
 
 
 func _on_DamageDetector_area_entered(area: Area2D) -> void:
-	print("Previous state ", _state_machine.previous_state.name)
-	if _state_machine.previous_state.name != "Stunlock":
-		_state_machine.transition_to("Move/Stunlock", { 
-			impulse = stunlock_impulse,
-			direction = get_move_direction(),
-			area_position = area.global_position
-		})
+	_state_machine.transition_to("Move/Stunlock", { 
+		impulse = stunlock_impulse,
+		direction = get_move_direction(),
+		area_position = area.global_position
+	})
 
 
 func unhandled_input(event: InputEvent) -> void:

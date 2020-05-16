@@ -29,13 +29,11 @@ func physics_process(delta: float) -> void:
 
 func enter(msg: Dictionary = {}) -> void:
 #	move.enter(msg)
-	print(move.velocity)
-	move.max_velocity.x = max_velocity_x
 	SpriteNode.play("stunlock")
+	SpriteNode.frame = 0
 	stunlock_direction.x = 1.0 if SpriteNode.flip_h else -1.0
-	print(stunlock_direction)
+	move.max_velocity.x = max_velocity_x
 	move.velocity.x = stunlock_direction.x * max_velocity_x
-	print(move.velocity)
 	
 	if "area_position" in msg:
 		if move.velocity.y != 0:
