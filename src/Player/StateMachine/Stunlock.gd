@@ -28,21 +28,24 @@ func physics_process(delta: float) -> void:
 
 
 func enter(msg: Dictionary = {}) -> void:
-#	move.enter(msg)
+	move.enter(msg)
 	SpriteNode.play("stunlock")
 	SpriteNode.frame = 0
-	stunlock_direction.x = 1.0 if SpriteNode.flip_h else -1.0
 	move.max_velocity.x = max_velocity_x
-	move.velocity.x = stunlock_direction.x * max_velocity_x
 	
 	if "area_position" in msg:
 		if move.velocity.y != 0:
 			move.velocity.y = 0
 		
-		if msg.area_position.y > owner.global_position.y:
+		if msg.area_position.y >= owner.global_position.y:
+			stunlock_direction.x = 1.0 if SpriteNode.flip_h else -1.0
 			if "impulse" in msg:
 				move.calculate_velocity_y(msg.impulse, stunlock_direction.y)
-
+		else:
+			stunlock_direction.x = (owner.global_position - msg.area_position).normalized().x
+			print("Change velocity x")
+	
+	move.velocity.x = stunlock_direction.x * max_velocity_x
 
 func exit() -> void:
 	move.exit()
