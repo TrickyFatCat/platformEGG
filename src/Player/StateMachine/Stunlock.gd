@@ -43,7 +43,6 @@ func enter(msg: Dictionary = {}) -> void:
 				move.calculate_velocity_y(msg.impulse, stunlock_direction.y)
 		else:
 			stunlock_direction.x = (owner.global_position - msg.area_position).normalized().x
-			print("Change velocity x")
 	
 	move.velocity.x = stunlock_direction.x * max_velocity_x
 
