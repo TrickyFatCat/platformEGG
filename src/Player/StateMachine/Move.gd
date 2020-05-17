@@ -11,11 +11,11 @@ var friction: Vector2 = friction_default
 var max_velocity: Vector2 = max_velocity_default
 var velocity: Vector2 = Vector2.ZERO
 
-onready var SpriteNode : AnimatedSprite = get_node("../../Sprite")
+onready var sprite : AnimatedSprite = get_node("../../Sprite")
 
 
 func _on_DamageDetector_area_entered(area: Area2D) -> void:
-	_state_machine.transition_to("Move/Stunlock", { 
+	stateMachine.transition_to("Move/Stunlock", { 
 		impulse = stunlock_impulse,
 		direction = get_move_direction(),
 		area_position = area.global_position
@@ -24,7 +24,7 @@ func _on_DamageDetector_area_entered(area: Area2D) -> void:
 
 func unhandled_input(event: InputEvent) -> void:
 	if owner.is_on_floor() && event.is_action_pressed("jump"):
-		_state_machine.transition_to("Move/Air", { velocity = Vector2(300 * get_move_direction().x, 0), impulse = jump_impulse })
+		stateMachine.transition_to("Move/Air", { velocity = Vector2(300 * get_move_direction().x, 0), impulse = jump_impulse })
 
 
 func physics_process(delta: float) -> void:
@@ -35,9 +35,9 @@ func physics_process(delta: float) -> void:
 	Events.emit_signal("player_moved", owner)
 	
 	if get_move_direction().x > 0:
-		SpriteNode.flip_h = false
+		sprite.flip_h = false
 	elif get_move_direction().x < 0:
-		SpriteNode.flip_h = true
+		sprite.flip_h = true
 
 
 func calculate_velocity_x(delta: float, direction: Vector2) -> void:

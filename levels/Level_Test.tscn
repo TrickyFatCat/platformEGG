@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Environment/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Tilesets/terrain.tres" type="TileSet" id=2]
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Egg/Egg.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -60,3 +61,6 @@ shape = SubResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 49.6375, 333.022 )
+
+[node name="Egg" parent="." instance=ExtResource( 4 )]
+position = Vector2( 84.6375, 333.022 )

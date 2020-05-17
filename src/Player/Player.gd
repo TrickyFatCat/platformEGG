@@ -3,10 +3,8 @@ class_name Player
 
 const FLOOR_NORMAL: Vector2 = Vector2.UP
 
-var is_with_egg: bool = false
-
-onready var StateMachineNode: StateMachine = $StateMachine
-onready var Collider: CollisionShape2D = $CollisionShape2D
+onready var stateMachine: StateMachine = $StateMachine
+onready var collider: CollisionShape2D = $CollisionShape2D
 
 var is_active: bool = true setget set_is_active
 
@@ -14,7 +12,7 @@ var is_active: bool = true setget set_is_active
 func set_is_active(value: bool) -> void:
 	is_active = value
 	
-	if !Collider:
+	if !collider:
 		return
 	
-	Collider.disabled = !value
+	collider.disabled = !value
