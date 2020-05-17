@@ -28,10 +28,11 @@ script = ExtResource( 7 )
 position = Vector2( 0, -16 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 3
+frame = 1
 playing = true
 
 [node name="EggSprite" type="Sprite" parent="."]
+visible = false
 position = Vector2( 2, -11 )
 texture = ExtResource( 9 )
 
@@ -53,7 +54,7 @@ __meta__ = {
 shape = SubResource( 2 )
 
 [node name="EggDetector" type="Area2D" parent="."]
-position = Vector2( 35, -23 )
+position = Vector2( 0, -13 )
 monitorable = false
 collision_layer = 0
 collision_mask = 2
@@ -62,7 +63,6 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EggDetector"]
-position = Vector2( -35, 11 )
 shape = SubResource( 3 )
 
 [node name="StateMachine" type="Node" parent="."]
