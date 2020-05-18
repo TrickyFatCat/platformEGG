@@ -31,7 +31,7 @@ func physics_process(delta: float) -> void:
 	var direction = get_move_direction()
 	calculate_velocity_x(delta, direction)
 	apply_gravity(delta)
-	velocity = owner.move_and_slide(velocity, owner.FLOOR_NORMAL)
+	velocity = owner.move_and_slide(velocity, Global.FLOOR_NORMAL)
 	Events.emit_signal("player_moved", owner)
 	
 	if get_move_direction().x > 0:

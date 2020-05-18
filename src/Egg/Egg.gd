@@ -1,14 +1,14 @@
 extends KinematicBody2D
-class_name Player
+class_name Egg
 
 onready var stateMachine: StateMachine = $StateMachine
-onready var collider: CollisionShape2D = $CollisionShape2D
+onready var collider: CollisionPolygon2D = $CollisionPolygon2D
 
 var is_active: bool = true setget set_is_active
 
 
 func _init() -> void:
-	Global.player = self
+	Global.egg = self
 
 
 func set_is_active(value: bool) -> void:

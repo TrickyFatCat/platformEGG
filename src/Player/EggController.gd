@@ -4,20 +4,24 @@ class_name EggController
 var is_with_egg: bool = false setget set_is_with_egg
 var is_egg_inside: bool = false
 
+onready var player: Player = Global.player
+onready var egg: Egg = Global.egg
 onready var eggDetector: Area2D = get_node("../EggDetector")
-onready var eggSprite: Sprite = get_node("../EggSprite")
+onready var eggPosition: Position2D = get_node("../EggPosition")
+onready var eggDefaultParent: Node = Global.egg.get_parent()
 
 
-func _on_EggDetector_body_entered(body):
+func _on_EggDetector_body_entered(body: KinematicBody2D) -> void:
 	is_egg_inside = true
 
 
-func _on_EggDetector_body_exited(body):
+func _on_EggDetector_body_exited(body: KinematicBody2D) -> void:
 	is_egg_inside = false
 
 
 func _on_DamageDetector_area_entered(area):
-	throw_egg()
+	if is_with_egg:
+		throw_egg()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -32,15 +36,22 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func set_is_with_egg(value: bool) -> void:
 	is_with_egg = value
-	eggSprite.visible = true if is_with_egg else false
 
 
 func take_egg() -> void:
 	self.is_with_egg = true
+	eggDefaultParent.remove_child(egg)
+	player.add_child(egg)
+	egg.position = eggPosition.position
+	egg.is_active = false
 
 
 func throw_egg() -> void:
 	self.is_with_egg = false
+	player.remove_child(egg)
+	eggDefaultParent.call_deferred("add_child", egg)
+	egg.global_position = eggPosition.global_position
+	egg.is_active = true
 
 
 

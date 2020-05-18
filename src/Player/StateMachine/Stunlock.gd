@@ -15,7 +15,7 @@ func physics_process(delta: float) -> void:
 	var direction: = Vector2(stunlock_direction.x, 1)
 	move.calculate_velocity_x(delta, direction)
 	move.apply_gravity(delta)
-	move.velocity = owner.move_and_slide(move.velocity, owner.FLOOR_NORMAL)
+	move.velocity = owner.move_and_slide(move.velocity, Global.FLOOR_NORMAL)
 	
 	if owner.is_on_ceiling():
 		move.velocity.y = 0
