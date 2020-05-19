@@ -11,7 +11,7 @@
 [ext_resource path="res://src/Player/EggController.gd" type="Script" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5, 9 )
+extents = Vector2( 6, 9 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 10 )
@@ -27,7 +27,7 @@ script = ExtResource( 7 )
 position = Vector2( 0, -16 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 5
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

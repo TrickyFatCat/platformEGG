@@ -45,9 +45,11 @@ func enter(msg: Dictionary = {}) -> void:
 			stunlock_direction.x = (owner.global_position - msg.area_position).normalized().x
 	
 	move.velocity.x = stunlock_direction.x * max_velocity_x
+	Events.emit_signal("player_stunlock_entered")
 
 func exit() -> void:
 	move.exit()
 	move.acceleration.x = move.acceleration_default.x
 	move.max_velocity.x = move.max_velocity_default.x
 	move.friction.x = move.friction_default.x
+	Events.emit_signal("player_stunlock_exited")

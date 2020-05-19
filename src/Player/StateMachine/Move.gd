@@ -11,7 +11,8 @@ var friction: Vector2 = friction_default
 var max_velocity: Vector2 = max_velocity_default
 var velocity: Vector2 = Vector2.ZERO
 
-onready var sprite : AnimatedSprite = get_node("../../Sprite")
+onready var sprite: AnimatedSprite = get_node("../../Sprite")
+onready var eggController: EggController = get_node("../../EggController")
 
 
 func _on_DamageDetector_area_entered(area: Area2D) -> void:
@@ -23,7 +24,7 @@ func _on_DamageDetector_area_entered(area: Area2D) -> void:
 
 
 func unhandled_input(event: InputEvent) -> void:
-	if owner.is_on_floor() && event.is_action_pressed("jump"):
+	if owner.is_on_floor() && event.is_action_pressed("jump") && !eggController.is_with_egg:
 		stateMachine.transition_to("Move/Air", { velocity = Vector2(300 * get_move_direction().x, 0), impulse = jump_impulse })
 
 

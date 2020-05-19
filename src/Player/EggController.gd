@@ -24,6 +24,12 @@ func _on_DamageDetector_area_entered(area):
 		throw_egg()
 
 
+func _ready() -> void:
+	Events.connect("player_stunlock_entered", self, "disable_input")
+	Events.connect("player_stunlock_exited", self, "enable_input")
+	pass
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	match is_with_egg:
 		true:
@@ -54,4 +60,9 @@ func throw_egg() -> void:
 	egg.is_active = true
 
 
+func disable_input() -> void:
+	set_process_unhandled_input(false)
 
+
+func enable_input() -> void:
+	set_process_unhandled_input(true)
