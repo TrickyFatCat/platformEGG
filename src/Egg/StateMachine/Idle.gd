@@ -1,8 +1,10 @@
 extends State
 
+onready var move: State = get_parent()
+
 
 func physics_process(delta: float) -> void:
-	return
+	move.physics_process(delta)
 
 
 func enter(msg: Dictionary = {}) -> void:

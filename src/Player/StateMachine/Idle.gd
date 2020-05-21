@@ -9,7 +9,7 @@ func unhandled_input(event: InputEvent) -> void:
 
 
 func physics_process(delta: float) -> void:
-	if owner.is_on_floor() && move.get_move_direction().x != 0.0:
+	if owner.is_on_floor() and move.get_move_direction().x != 0.0:
 		stateMachine.transition_to("Move/Run")
 	elif !owner.is_on_floor():
 		stateMachine.transition_to("Move/Air")

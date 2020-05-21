@@ -24,7 +24,7 @@ func _on_DamageDetector_area_entered(area: Area2D) -> void:
 
 
 func unhandled_input(event: InputEvent) -> void:
-	if owner.is_on_floor() && event.is_action_pressed("jump") && !eggController.is_with_egg:
+	if owner.is_on_floor() and event.is_action_pressed("jump") and !eggController.is_with_egg:
 		stateMachine.transition_to("Move/Air", { velocity = Vector2(300 * get_move_direction().x, 0), impulse = jump_impulse })
 
 

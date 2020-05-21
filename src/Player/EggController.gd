@@ -58,6 +58,7 @@ func throw_egg() -> void:
 	eggDefaultParent.call_deferred("add_child", egg)
 	egg.global_position = eggPosition.global_position
 	egg.is_active = true
+	egg.throw(-1, Vector2(400, 300))
 
 
 func disable_input() -> void:
