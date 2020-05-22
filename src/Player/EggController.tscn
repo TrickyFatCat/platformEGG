@@ -25,5 +25,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EggDetector"]
 shape = SubResource( 1 )
+
+[node name="EggTween" type="Tween" parent="."]
 [connection signal="body_entered" from="EggDetector" to="." method="_on_EggDetector_body_entered"]
 [connection signal="body_exited" from="EggDetector" to="." method="_on_EggDetector_body_exited"]
