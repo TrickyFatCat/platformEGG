@@ -1,12 +1,12 @@
 extends Node2D
 class_name EggController
 
-const EGG_TWEEN_DURATION: float = 0.04
+const EGG_TWEEN_DURATION: float = 0.0075
 
 export(Vector2) var throw_impulse: = Vector2(250, 600)
 export(Vector2) var damage_throw_impulse: = Vector2(175, 375)
 
-var is_with_egg: bool = false setget set_is_with_egg
+var is_with_egg: bool = false
 var is_egg_inside: bool = false
 
 onready var player: Player = Global.player
@@ -40,18 +40,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		take_egg()
 
 
-func set_is_with_egg(value: bool) -> void:
-	is_with_egg = value
-
-
 func take_egg() -> void:
 	if !is_with_egg:
-		self.is_with_egg = true
+		is_with_egg = true
 		egg.is_active = false
 		var egg_last_position = egg.global_position
-		eggDefaultParent.remove_child(egg)
-		player.call_deferred("add_child")
-		player.add_child(egg)
+		switch_egg_parent(is_with_egg)
 		egg.global_position = egg_last_position
 		activate_tween()
 
@@ -70,13 +64,21 @@ func activate_tween() -> void:
 
 func drop_egg(impulse: Vector2) -> void:
 	if is_with_egg:
-		self.is_with_egg = false
-		player.remove_child(egg)
-		eggDefaultParent.call_deferred("add_child", egg)
-		var facing_direction = -1 if sprite.flip_h else 1
+		is_with_egg = false
+		switch_egg_parent(is_with_egg)
 		egg.global_position = eggPosition.global_position
 		egg.is_active = true
+		var facing_direction = -1 if sprite.flip_h else 1
 		egg.throw(facing_direction, impulse)
+
+
+func switch_egg_parent(is_parent_player: bool) -> void:
+	if is_parent_player:
+		eggDefaultParent.remove_child(egg)
+		player.call_deferred("add_child", egg)
+	else:
+		player.remove_child(egg)
+		eggDefaultParent.call_deferred("add_child", egg)
 
 
 func throw_egg_normal() -> void:
