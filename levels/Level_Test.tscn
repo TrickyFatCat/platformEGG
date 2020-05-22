@@ -40,8 +40,8 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="Area2D2" type="Area2D" parent="."]
-position = Vector2( 320.34, 333.022 )
-scale = Vector2( 5, 1 )
+position = Vector2( 317, 336 )
+scale = Vector2( 2.4, 1 )
 monitoring = false
 collision_layer = 16
 collision_mask = 0
@@ -68,7 +68,7 @@ shape = SubResource( 1 )
 position = Vector2( 49, 335 )
 
 [node name="Egg" parent="." instance=ExtResource( 4 )]
-position = Vector2( 96, 329 )
+position = Vector2( 85, 333 )
 
 [node name="StaticBody2D" type="KinematicBody2D" parent="."]
 position = Vector2( 95, 180 )

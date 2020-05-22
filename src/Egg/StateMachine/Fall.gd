@@ -5,11 +5,10 @@ onready var egg: Egg = Global.egg
 
 
 func physics_process(delta: float) -> void:
-	move.apply_gravity(delta)
-	egg.move_and_slide(move.velocity, Global.FLOOR_NORMAL)
+	move.physics_process(delta)
 	
-	if move.velocity.x != 0 and move.velocity.y != 0:
-		stateMachine.transition_to("Move/Fall")
+	if move.velocity.x == 0:
+		stateMachine.transition_to("Move/Idle")
 
 
 func enter(msg: Dictionary = {}) -> void:

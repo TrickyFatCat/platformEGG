@@ -16,11 +16,11 @@ onready var eggController: EggController = get_node("../../EggController")
 
 
 func _on_DamageDetector_area_entered(area: Area2D) -> void:
-	stateMachine.transition_to("Move/Stunlock", { 
-		impulse = stunlock_impulse,
-		direction = get_move_direction(),
-		area_position = area.global_position
-	})
+	transit_to_stunlock(area.global_position)
+
+
+func _on_DamageDetector_body_entered(body: PhysicsBody2D) -> void:
+	transit_to_stunlock(body.global_position)
 
 
 func unhandled_input(event: InputEvent) -> void:
@@ -68,3 +68,12 @@ static func get_move_direction() -> Vector2:
 		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
 		1.0
 	)
+
+
+func transit_to_stunlock(position: Vector2) -> void:
+	stateMachine.transition_to("Move/Stunlock", { 
+		impulse = stunlock_impulse,
+		direction = get_move_direction(),
+		area_position = position
+	})
+	Events.emit_signal("player_took_damage")
