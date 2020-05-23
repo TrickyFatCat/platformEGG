@@ -3,8 +3,8 @@ class_name EggController
 
 const EGG_TWEEN_DURATION: float = 0.0075
 
-export(Vector2) var throw_impulse: = Vector2(250, 600)
-export(Vector2) var damage_throw_impulse: = Vector2(175, 375)
+export(Vector2) var throw_distance: = Vector2(128, 64)
+export(Vector2) var drop_distance: = Vector2(32, 32)
 
 var is_with_egg: bool = false
 var is_egg_inside: bool = false
@@ -47,8 +47,7 @@ func take_egg() -> void:
 		var egg_last_position = egg.global_position
 		switch_egg_parent(is_with_egg)
 		egg.global_position = egg_last_position
-		activate_tween()
-
+		egg.position = eggPosition.position
 
 func activate_tween() -> void:
 	eggTween.interpolate_property(
@@ -62,14 +61,15 @@ func activate_tween() -> void:
 	eggTween.start()
 
 
-func drop_egg(impulse: Vector2) -> void:
+func drop_egg(throw_distance: Vector2) -> void:
 	if is_with_egg:
 		is_with_egg = false
 		switch_egg_parent(is_with_egg)
 		egg.global_position = eggPosition.global_position
 		egg.is_active = true
-		var facing_direction = -1 if sprite.flip_h else 1
-		egg.throw(facing_direction, impulse)
+		var facing_direction: = 1 if sprite.flip_h else -1
+		var direction: = Vector2(facing_direction, 1)
+		egg.call_deferred("throw", eggPosition.global_position, direction, throw_distance)
 
 
 func switch_egg_parent(is_parent_player: bool) -> void:
@@ -82,11 +82,11 @@ func switch_egg_parent(is_parent_player: bool) -> void:
 
 
 func throw_egg_normal() -> void:
-	drop_egg(throw_impulse)
+	drop_egg(throw_distance)
 
 
 func throw_egg_damage() -> void:
-	drop_egg(damage_throw_impulse)
+	drop_egg(drop_distance)
 
 
 func disable_input() -> void:
