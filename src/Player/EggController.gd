@@ -1,8 +1,6 @@
 extends Node2D
 class_name EggController
 
-const EGG_TWEEN_DURATION: float = 0.0075
-
 export(Vector2) var throw_distance: = Vector2(128, 64)
 export(Vector2) var drop_distance: = Vector2(32, 32)
 
@@ -28,12 +26,12 @@ func _on_EggDetector_body_exited(body: KinematicBody2D) -> void:
 func _ready() -> void:
 	Events.connect("player_stunlock_entered", self, "disable_input")
 	Events.connect("player_stunlock_exited", self, "enable_input")
-	Events.connect("player_took_damage", self, "throw_egg_damage")
+	Events.connect("player_took_damage", self, "drop_egg")
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("throw"):
-		throw_egg_normal()
+		throw_egg(throw_distance)
 	
 	if event.is_action_pressed("interact") and is_egg_inside:
 		take_egg()
@@ -49,7 +47,7 @@ func take_egg() -> void:
 		egg.position = eggPosition.position
 
 
-func drop_egg(throw_distance: Vector2) -> void:
+func throw_egg(throw_distance: Vector2) -> void:
 	if is_with_egg:
 		is_with_egg = false
 		switch_egg_parent(is_with_egg)
@@ -69,12 +67,8 @@ func switch_egg_parent(is_parent_player: bool) -> void:
 		eggDefaultParent.call_deferred("add_child", egg)
 
 
-func throw_egg_normal() -> void:
-	drop_egg(throw_distance)
-
-
-func throw_egg_damage() -> void:
-	drop_egg(drop_distance)
+func drop_egg() -> void:
+	throw_egg(drop_distance)
 
 
 func disable_input() -> void:
