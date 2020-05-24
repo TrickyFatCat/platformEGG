@@ -11,33 +11,34 @@ var friction: Vector2 = friction_default
 var max_velocity: Vector2 = max_velocity_default
 var velocity: Vector2 = Vector2.ZERO
 
-onready var SpriteNode : AnimatedSprite = get_node("../../Sprite")
+onready var sprite: AnimatedSprite = get_node("../../Sprite")
+onready var eggController: EggController = get_node("../../EggController")
 
 
 func _on_DamageDetector_area_entered(area: Area2D) -> void:
-	_state_machine.transition_to("Move/Stunlock", { 
-		impulse = stunlock_impulse,
-		direction = get_move_direction(),
-		area_position = area.global_position
-	})
+	transit_to_stunlock(area.global_position)
+
+
+func _on_DamageDetector_body_entered(body: PhysicsBody2D) -> void:
+	transit_to_stunlock(body.global_position)
 
 
 func unhandled_input(event: InputEvent) -> void:
-	if owner.is_on_floor() && event.is_action_pressed("jump"):
-		_state_machine.transition_to("Move/Air", { velocity = Vector2(300 * get_move_direction().x, 0), impulse = jump_impulse })
+	if owner.is_on_floor() and event.is_action_pressed("jump") and !eggController.is_with_egg:
+		stateMachine.transition_to("Move/Air", { velocity = Vector2(300 * get_move_direction().x, 0), impulse = jump_impulse })
 
 
 func physics_process(delta: float) -> void:
 	var direction = get_move_direction()
 	calculate_velocity_x(delta, direction)
 	apply_gravity(delta)
-	velocity = owner.move_and_slide(velocity, owner.FLOOR_NORMAL)
+	velocity = owner.move_and_slide(velocity, Global.FLOOR_NORMAL)
 	Events.emit_signal("player_moved", owner)
 	
 	if get_move_direction().x > 0:
-		SpriteNode.flip_h = false
+		sprite.flip_h = false
 	elif get_move_direction().x < 0:
-		SpriteNode.flip_h = true
+		sprite.flip_h = true
 
 
 func calculate_velocity_x(delta: float, direction: Vector2) -> void:
@@ -67,3 +68,12 @@ static func get_move_direction() -> Vector2:
 		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
 		1.0
 	)
+
+
+func transit_to_stunlock(position: Vector2) -> void:
+	stateMachine.transition_to("Move/Stunlock", { 
+		impulse = stunlock_impulse,
+		direction = get_move_direction(),
+		area_position = position
+	})
+	Events.emit_signal("player_took_damage")

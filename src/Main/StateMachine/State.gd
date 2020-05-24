@@ -4,8 +4,7 @@ class_name State, "res://assets/EngineIcons/icon_state.svg"
 State interface to use in Hierarchical  State Machine
 """
 
-onready var _state_machine = _get_state_machine(self)
-
+onready var stateMachine = _get_state_machine(self)
 
 
 func unhandled_input(event: InputEvent) -> void:
@@ -25,6 +24,6 @@ func exit() -> void:
 
 
 func _get_state_machine(node: Node) -> Node:
-	if node != null && !node.is_in_group("state_machine"):
+	if node != null and !node.is_in_group("state_machine"):
 		return  _get_state_machine(node.get_parent())
 	return node

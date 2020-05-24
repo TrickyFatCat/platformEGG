@@ -1,3 +1,4 @@
+tool
 extends Node
 class_name StateMachine, "res://assets/EngineIcons/icon_stateMachine.svg"
 """
@@ -15,6 +16,11 @@ func _init() -> void:
 	add_to_group("state_machine")
 
 
+func _get_configuration_warning() -> String:
+	var warning: String = "The initial state must be defined."
+	return warning if !initial_state else ""
+
+
 func _ready() -> void:
 	yield(owner, "ready")
 	state.enter()
@@ -25,7 +31,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	state.physics_process(delta)
+	if !Engine.editor_hint:
+		state.physics_process(delta)
 
 
 func transition_to(target_state_path: String, msg: Dictionary = {}) -> void:
@@ -34,10 +41,10 @@ func transition_to(target_state_path: String, msg: Dictionary = {}) -> void:
 	
 	var target_state: = get_node(target_state_path)
 	state.exit()
-	print("Exit state ", self.state.name)
+#	print("Exit state ", self.state.name)
 	self.state = target_state
 	state.enter(msg)
-	print("Enter state ", self.state.name)
+#	print("Enter state ", self.state.name)
 
 
 func set_state(value: State) -> void:

@@ -10,6 +10,16 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "KinematicBody2D",
+"class": "Egg",
+"language": "GDScript",
+"path": "res://src/Egg/Egg.gd"
+}, {
+"base": "Node2D",
+"class": "EggController",
+"language": "GDScript",
+"path": "res://src/Player/EggController.gd"
+}, {
+"base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://src/Player/Player.gd"
@@ -25,6 +35,8 @@ _global_script_classes=[ {
 "path": "res://src/Main/StateMachine/StateMachine.gd"
 } ]
 _global_script_class_icons={
+"Egg": "",
+"EggController": "",
 "Player": "",
 "State": "res://assets/EngineIcons/icon_state.svg",
 "StateMachine": "res://assets/EngineIcons/icon_stateMachine.svg"
@@ -40,6 +52,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Events="*res://src/Singletons/Events.gd"
+Global="*res://src/Singletons/Global.gd"
 
 [display]
 
