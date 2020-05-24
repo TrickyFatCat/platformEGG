@@ -9,7 +9,7 @@ func physics_process(delta: float) -> void:
 	egg.move_and_slide(move.velocity, Global.FLOOR_NORMAL)
 	
 	if move.velocity.x != 0 and move.velocity.y != 0:
-		stateMachine.transition_to("Move/Fall")
+		stateMachine.transition_to("Move/Throw")
 
 
 func enter(msg: Dictionary = {}) -> void:

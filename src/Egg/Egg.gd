@@ -4,7 +4,6 @@ class_name Egg
 const DAMAGE_THROW_IMPULSE: Vector2 = Vector2(32, 32)
 
 onready var stateMachine: StateMachine = $StateMachine
-onready var move: State = $StateMachine/Move
 onready var collider: CollisionPolygon2D = $CollisionPolygon2D
 
 var is_active: bool = true setget set_is_active
@@ -32,10 +31,9 @@ func set_is_active(value: bool) -> void:
 	stateMachine.set_physics_process(value)
 
 
-func apply_throw(target_direction: Vector2) -> void:
-	var direction: = Vector2.ZERO
-	direction.x = 1 if move.velocity.x > 0 else -1
-	direction.y = -1 if target_direction.y <= global_position.y else 1
+func apply_throw(target_position: Vector2) -> void:
+	var direction: = Vector2(1.0, 1.0)
+	direction.y = -1 if target_position.y < global_position.y else 1
 	throw(global_position, direction, DAMAGE_THROW_IMPULSE)
 
 
@@ -43,27 +41,7 @@ func throw(start_point: Vector2, direction: Vector2, throw_distance: Vector2) ->
 	var target_point : = start_point + Vector2(throw_distance.x, 0)
 	var arc_height = target_point.y - global_position.y - throw_distance.y
 	arc_height = min(arc_height, -throw_distance.y)
-	move.velocity = calculate_velocity(start_point, target_point, arc_height)
-	move.velocity.x *= direction.x
-	move.velocity.y *= direction.y
-	stateMachine.transition_to("Move/Fall")
-
-
-static func calculate_velocity(
-		start_point: Vector2, 
-		target_point: Vector2, 
-		arc_height: float, 
-		up_gravity: float = Global.GRAVITY,
-		down_gravity: float = -1
-	):
-	if down_gravity == -1:
-		down_gravity = up_gravity
-	
-	var velocity: = Vector2.ZERO
-	var displacement: = start_point - target_point
-	var time_up = sqrt(-2 * arc_height / up_gravity)
-	var time_down = sqrt(2 * (displacement.y - arc_height) / down_gravity)
-	velocity.y = -sqrt(-2 * up_gravity * arc_height)
-	velocity.x = displacement.x / float(time_up + time_down)
-
-	return velocity
+	var velocity = Global.calculate_arch_velocity(start_point, target_point, arc_height)
+	velocity.x *= direction.x
+	velocity.y *= direction.y
+	stateMachine.transition_to("Move/Throw", {throw_velocity = velocity})

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/Egg/egg.png" type="Texture" id=1]
-[ext_resource path="res://src/Egg/StateMachine/Fall.gd" type="Script" id=2]
+[ext_resource path="res://src/Egg/StateMachine/Throw.gd" type="Script" id=2]
 [ext_resource path="res://src/Main/StateMachine/StateMachine.gd" type="Script" id=3]
 [ext_resource path="res://src/Egg/StateMachine/Move.gd" type="Script" id=4]
 [ext_resource path="res://src/Egg/StateMachine/Idle.gd" type="Script" id=5]
@@ -39,7 +39,7 @@ script = ExtResource( 4 )
 [node name="Idle" type="Node" parent="StateMachine/Move"]
 script = ExtResource( 5 )
 
-[node name="Fall" type="Node" parent="StateMachine/Move"]
+[node name="Throw" type="Node" parent="StateMachine/Move"]
 script = ExtResource( 2 )
 [connection signal="area_entered" from="DamageDetector" to="." method="_on_DamageDetector_area_entered"]
 [connection signal="body_entered" from="DamageDetector" to="." method="_on_DamageDetector_body_entered"]

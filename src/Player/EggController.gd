@@ -14,7 +14,6 @@ onready var sprite: Sprite = get_node("../Sprite")
 onready var egg: Egg = Global.egg
 onready var eggDetector: Area2D = $EggDetector
 onready var eggPosition: Position2D = $EggPosition
-onready var eggTween: Tween = $EggTween
 onready var eggDefaultParent: Node = Global.egg.get_parent()
 
 
@@ -48,17 +47,6 @@ func take_egg() -> void:
 		switch_egg_parent(is_with_egg)
 		egg.global_position = egg_last_position
 		egg.position = eggPosition.position
-
-func activate_tween() -> void:
-	eggTween.interpolate_property(
-		egg, "global_position",
-		egg.global_position,
-		eggPosition.global_position,
-		EGG_TWEEN_DURATION, 
-		Tween.TRANS_LINEAR, 
-		Tween.EASE_IN
-	)
-	eggTween.start()
 
 
 func drop_egg(throw_distance: Vector2) -> void:

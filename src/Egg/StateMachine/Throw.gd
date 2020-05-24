@@ -12,7 +12,8 @@ func physics_process(delta: float) -> void:
 
 
 func enter(msg: Dictionary = {}) -> void:
-	move.enter(msg)
+	if "throw_velocity" in msg:
+		move.velocity = msg.throw_velocity
 
 
 func exit() -> void:
