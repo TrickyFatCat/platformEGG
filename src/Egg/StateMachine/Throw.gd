@@ -12,8 +12,13 @@ func physics_process(delta: float) -> void:
 
 
 func enter(msg: Dictionary = {}) -> void:
+	move.gravity = 0
+	
 	if "throw_velocity" in msg:
 		move.velocity = msg.throw_velocity
+	
+	yield(get_tree(), "idle_frame")
+	move.gravity = Global.GRAVITY
 
 
 func exit() -> void:

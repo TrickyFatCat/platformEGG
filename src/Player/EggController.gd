@@ -41,8 +41,8 @@ func take_egg() -> void:
 	if !is_with_egg:
 		is_with_egg = true
 		egg.is_active = false
-		var egg_last_position = egg.global_position
 		switch_egg_parent(is_with_egg)
+		var egg_last_position = egg.global_position
 		egg.global_position = egg_last_position
 		egg.position = eggPosition.position
 
@@ -51,10 +51,10 @@ func throw_egg(throw_distance: Vector2) -> void:
 	if is_with_egg:
 		is_with_egg = false
 		switch_egg_parent(is_with_egg)
-		egg.global_position = eggPosition.global_position
-		egg.is_active = true
 		var facing_direction: = 1 if sprite.flip_h else -1
 		var direction: = Vector2(facing_direction, 1)
+		egg.global_position = eggPosition.global_position
+		egg.is_active = true
 		egg.call_deferred("throw", eggPosition.global_position, direction, throw_distance)
 
 

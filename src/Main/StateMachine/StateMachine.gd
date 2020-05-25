@@ -1,9 +1,7 @@
 tool
 extends Node
 class_name StateMachine, "res://assets/EngineIcons/icon_stateMachine.svg"
-"""
-Generic state machine.
-"""
+
 
 export(NodePath) var initial_state = NodePath()
 

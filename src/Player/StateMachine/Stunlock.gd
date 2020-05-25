@@ -32,6 +32,7 @@ func enter(msg: Dictionary = {}) -> void:
 	sprite.play("stunlock")
 	sprite.frame = 0
 	move.max_velocity.x = max_velocity_x
+	move.gravity = 0
 	
 	if "area_position" in msg:
 		if move.velocity.y != 0:
@@ -46,6 +47,8 @@ func enter(msg: Dictionary = {}) -> void:
 	
 	move.velocity.x = stunlock_direction.x * max_velocity_x
 	Events.emit_signal("player_stunlock_entered")
+	yield(get_tree(), "idle_frame")
+	move.gravity = Global.GRAVITY
 
 func exit() -> void:
 	move.exit()

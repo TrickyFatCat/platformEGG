@@ -12,7 +12,7 @@ func physics_process(delta: float) -> void:
 		if move.get_move_direction().x == 0.0:
 			stateMachine.transition_to("Move/Idle")
 	else:
-		stateMachine.transition_to("Move/Air")
+		stateMachine.transition_to("Move/Fall")
 	move.physics_process(delta)
 
 
