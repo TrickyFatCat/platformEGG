@@ -2,7 +2,7 @@ extends State
 
 onready var player: Player = Global.player
 onready var move: State = get_parent()
-onready var sprite: AnimatedSprite = get_node("../../../Sprite")
+onready var sprite: AnimatedSprite = player.get_node("Sprite")
 
 
 func unhandled_input(event: InputEvent) -> void:
@@ -14,18 +14,16 @@ func physics_process(delta: float) -> void:
 	if player.is_on_floor() and move.get_move_direction().x != 0.0:
 		stateMachine.transition_to("Move/Run")
 	elif !player.is_on_floor():
-		stateMachine.transition_to("Move/Fall")
+		stateMachine.transition_to("Move/Fall", { is_coyote_time_active = true })
 
 
 func enter(msg: Dictionary = {}) -> void:
+	move.enter(msg)
 	sprite.play("idle")
-	if stateMachine.previous_state.name == "Fall":
+	
+	if is_previous_state("Fall"):
 		move.velocity.x *= 0.35
-#	move.enter(msg)
-#	move.max_velocity = move.max_velocity_default
-	pass
 
 
 func exit() -> void:
-	pass
-#	get_parent().exit()
+	move.exit()

@@ -4,7 +4,6 @@ class_name EggController
 export(Vector2) var throw_distance: = Vector2(128, 64)
 export(Vector2) var drop_distance: = Vector2(32, 32)
 
-var is_with_egg: bool = false
 var is_egg_inside: bool = false
 
 onready var player: Player = Global.player
@@ -38,19 +37,19 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func take_egg() -> void:
-	if !is_with_egg:
-		is_with_egg = true
+	if !player.is_with_egg:
+		player.is_with_egg = true
 		egg.is_active = false
-		switch_egg_parent(is_with_egg)
+		switch_egg_parent(player.is_with_egg)
 		var egg_last_position = egg.global_position
 		egg.global_position = egg_last_position
 		egg.position = eggPosition.position
 
 
 func throw_egg(throw_distance: Vector2) -> void:
-	if is_with_egg:
-		is_with_egg = false
-		switch_egg_parent(is_with_egg)
+	if player.is_with_egg:
+		player.is_with_egg = false
+		switch_egg_parent(player.is_with_egg)
 		var facing_direction: = 1 if sprite.flip_h else -1
 		var direction: = Vector2(facing_direction, 1)
 		egg.global_position = eggPosition.global_position

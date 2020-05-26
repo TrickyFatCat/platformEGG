@@ -3,10 +3,10 @@ extends State
 var velocity: Vector2 = Vector2.ZERO
 var movement_buffer: int = 3
 var movement_buffer_counter: int = 0
+var is_coyote_time_active: bool = false
 
 onready var player: Player = Global.player
 onready var sprite: AnimatedSprite = player.get_node("Sprite")
-onready var eggController: EggController = player.get_node("EggController")
 onready var acceleration: Vector2 = player.acceleration
 onready var velocity_max: Vector2 = player.velocity_max
 onready var velocity_jump: Vector2 = player.velocity_jump
@@ -24,8 +24,8 @@ func _on_DamageDetector_body_entered(body: PhysicsBody2D) -> void:
 
 
 func unhandled_input(event: InputEvent) -> void:
-	if player.is_on_floor() and event.is_action_pressed("jump") and !eggController.is_with_egg:
-		stateMachine.transition_to("Move/Jump", { velocity = velocity_jump, direction = get_move_direction() })
+	if player.is_on_floor() and event.is_action_pressed("jump") and !player.is_with_egg:
+		apply_jump()
 
 
 func physics_process(delta: float) -> void:
@@ -48,6 +48,10 @@ func calculate_velocity_x(delta: float, direction: Vector2) -> void:
 			velocity.x = max(velocity.x, 0)
 		elif direction.x > 0:
 			velocity.x = min(velocity.x, 0)
+
+
+func apply_jump() -> void:
+	stateMachine.transition_to("Move/Jump", { velocity = velocity_jump, direction = get_move_direction() })
 
 
 func apply_gravity(delta: float) -> void:
