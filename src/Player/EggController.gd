@@ -40,8 +40,8 @@ func take_egg() -> void:
 	if !player.is_with_egg:
 		player.is_with_egg = true
 		egg.is_active = false
-		switch_egg_parent(player.is_with_egg)
 		var egg_last_position = egg.global_position
+		switch_egg_parent(player.is_with_egg)
 		egg.global_position = egg_last_position
 		egg.position = eggPosition.position
 
