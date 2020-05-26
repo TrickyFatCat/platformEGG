@@ -1,12 +1,5 @@
 extends State
 
-#export(Vector2) var velocity_max_default: = Vector2(250.0, 600.0)
-#export(Vector2) var acceleration_default: = Vector2(1500.0, 3000.0)
-#export(Vector2) var friction_default: = Vector2(1700.0, 300.0)
-#export(float) var jump_impulse: = 600.0
-#export(float) var jump_velocity_x: = 325.0
-#export(float) var stunlock_impulse: = 400.0
-
 var velocity: Vector2 = Vector2.ZERO
 var movement_buffer: int = 3
 var movement_buffer_counter: int = 0
@@ -32,9 +25,7 @@ func _on_DamageDetector_body_entered(body: PhysicsBody2D) -> void:
 
 func unhandled_input(event: InputEvent) -> void:
 	if player.is_on_floor() and event.is_action_pressed("jump") and !eggController.is_with_egg:
-		var velocity_jump_x: = velocity_jump.x * get_move_direction().x
-		stateMachine.transition_to("Move/Jump", { velocity = Vector2(velocity_jump_x, velocity_jump.y) })
-	pass
+		stateMachine.transition_to("Move/Jump", { velocity = velocity_jump, direction = get_move_direction() })
 
 
 func physics_process(delta: float) -> void:
@@ -59,20 +50,16 @@ func calculate_velocity_x(delta: float, direction: Vector2) -> void:
 			velocity.x = min(velocity.x, 0)
 
 
-func calculate_velocity_y(impulse: float, direction: float):
-	velocity.y = impulse * direction
-
-
 func apply_gravity(delta: float) -> void:
 	velocity.y += gravity * delta
 	velocity.y = clamp(velocity.y, -velocity_max.y, velocity_max.y)
 
 
 static func get_move_direction() -> Vector2:
-	return Vector2(
-		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
-		1.0
-	)
+	var direction = Vector2.ZERO
+	direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	direction.y = -1 if Input.is_action_just_pressed("jump") else 1
+	return direction
 
 
 func transit_to_stunlock(position: Vector2) -> void:

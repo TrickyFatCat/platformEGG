@@ -19,6 +19,8 @@ func physics_process(delta: float) -> void:
 
 func enter(msg: Dictionary = {}) -> void:
 	sprite.play("idle")
+	if stateMachine.previous_state.name == "Fall":
+		move.velocity.x *= 0.35
 #	move.enter(msg)
 #	move.max_velocity = move.max_velocity_default
 	pass

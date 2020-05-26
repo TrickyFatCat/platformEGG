@@ -23,7 +23,7 @@ func physics_process(delta: float) -> void:
 	Events.emit_signal("player_moved", owner)
 	
 	if sprite.frame == sprite.frames.get_frame_count(sprite.animation) - 1:
-		var target_state: = "Move/Idle" if owner.is_on_floor() else "Move/Air"
+		var target_state: = "Move/Idle" if owner.is_on_floor() else "Move/Fall"
 		stateMachine.transition_to(target_state)
 
 

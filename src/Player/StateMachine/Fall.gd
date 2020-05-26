@@ -1,10 +1,8 @@
 extends State
 
-export(float) var acceleration_x = 5000.0
-export(float) var air_friction_x = 0
-
+onready var player: Player = Global.player
 onready var move: State = get_parent()
-onready var sprite: AnimatedSprite = get_node("../../../Sprite")
+onready var sprite: AnimatedSprite = player.get_node("Sprite")
 
 
 func unhandled_input(event: InputEvent) -> void:
@@ -20,22 +18,17 @@ func physics_process(delta: float) -> void:
 
 
 func enter(msg: Dictionary = {}) -> void:
-#	move.enter(msg)
-#	sprite.play("fall")
-#	move.friction = Vector2.ZERO
-	pass
+	move.enter(msg)
+	sprite.play("fall")
+	move.friction = 0
 
 
 func exit() -> void:
-#	move.exit()
+	move.exit()
 #	move.acceleration.x = move.acceleration_default.x
-#	move.friction = move.friction_default
+#	move.velocity.x *= 0.35
+	move.friction = player.ground_friction
 #	move.max_velocity = move.max_velocity_default
 #
 #	if move.get_move_direction().x == 0:
 #		move.velocity.x = 0
-	pass
-
-
-func calculate_jump_velocity(impulse: float = 0.0) -> Vector2:
-	return move.calculate_velocity_y(impulse, -1)
