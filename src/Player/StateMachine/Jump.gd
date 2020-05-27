@@ -35,7 +35,7 @@ func enter(msg: Dictionary = {}) -> void:
 		velocity_x = msg.velocity.x
 		move.friction = 0
 		move.velocity_max.x = max(abs(msg.velocity.x), player.velocity_max.x)
-		move.velocity = calculate_jump_velocity(msg.velocity, msg.direction)
+		move.calculate_jump_velocity(msg.velocity, msg.direction)
 	
 	yield(get_tree(), "idle_frame")
 	move.gravity = Global.GRAVITY
@@ -43,7 +43,3 @@ func enter(msg: Dictionary = {}) -> void:
 
 func exit() -> void:
 	move.exit()
-
-
-func calculate_jump_velocity(velocity: Vector2, direction: Vector2) -> Vector2:
-	return velocity * direction
