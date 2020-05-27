@@ -11,7 +11,7 @@ onready var sprite: AnimatedSprite = player.get_node("Sprite")
 
 func unhandled_input(event: InputEvent) -> void:
 	move.unhandled_input(event)
-
+	
 	if move.get_move_direction().x != 0:
 		move.velocity.x = velocity_x * move.get_move_direction().x
 	
@@ -43,7 +43,6 @@ func enter(msg: Dictionary = {}) -> void:
 
 func exit() -> void:
 	move.exit()
-	move.velocity_max = player.velocity_max
 
 
 func calculate_jump_velocity(velocity: Vector2, direction: Vector2) -> Vector2:

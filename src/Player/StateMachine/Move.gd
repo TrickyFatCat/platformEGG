@@ -1,5 +1,7 @@
 extends State
 
+const AIR_CONTROL_DEFAULT: float = 1.0
+
 var velocity: Vector2 = Vector2.ZERO
 var movement_buffer: int = 3
 var movement_buffer_counter: int = 0
@@ -13,6 +15,7 @@ onready var velocity_jump: Vector2 = player.velocity_jump
 onready var velocity_stunlock: Vector2 = player.velocity_stunlock
 onready var gravity: float = Global.GRAVITY
 onready var friction: float = player.ground_friction
+onready var air_control_factor: float = AIR_CONTROL_DEFAULT
 
 
 func _on_DamageDetector_area_entered(area: Area2D) -> void:
@@ -38,7 +41,7 @@ func physics_process(delta: float) -> void:
 
 func calculate_velocity_x(delta: float, direction: Vector2) -> void:
 	if direction.x != 0 and abs(velocity.x) <= velocity_max.x:
-		velocity.x += acceleration.x * direction.x * delta
+		velocity.x += acceleration.x * air_control_factor * direction.x * delta
 		velocity.x = clamp(velocity.x, -velocity_max.x, velocity_max.x)
 	elif velocity.x != 0 or abs(velocity.x) > velocity_max.x:
 		direction.x = -sign(velocity.x)

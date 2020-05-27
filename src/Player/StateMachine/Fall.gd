@@ -1,6 +1,7 @@
 extends State
 
 const COYOTE_TIME_DURATION: float = 0.25
+const VELOCITY_LANDING_FACTOR: float = 0.4
 
 var is_coyote_time_active: bool = false
 
@@ -38,6 +39,8 @@ func physics_process(delta: float) -> void:
 func enter(msg: Dictionary = {}) -> void:
 	move.enter(msg)
 	sprite.play("fall")
+	move.air_control_factor = player.air_control_factor
+	move.friction = player.air_friction
 	
 	if "is_coyote_time_active" in msg:
 		is_coyote_time_active = msg.is_coyote_time_active
@@ -48,11 +51,8 @@ func enter(msg: Dictionary = {}) -> void:
 func exit() -> void:
 	move.exit()
 	is_coyote_time_active = false
-#	move.acceleration.x = move.acceleration_default.x
-	move.velocity.x *= 0.35
 	move.friction = player.ground_friction
-#	move.max_velocity = move.max_velocity_default
-#
-#	if move.get_move_direction().x == 0:
-#		move.velocity.x = 0
-
+	move.velocity.x *= VELOCITY_LANDING_FACTOR
+	move.velocity_max = player.velocity_max
+	move.acceleration.x = player.acceleration.x
+	move.air_control_factor = move.AIR_CONTROL_DEFAULT
