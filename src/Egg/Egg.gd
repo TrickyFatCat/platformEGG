@@ -1,7 +1,7 @@
 extends KinematicBody2D
 class_name Egg
 
-const DAMAGE_THROW_IMPULSE: Vector2 = Vector2(32, 32)
+const DAMAGE_THROW_IMPULSE: Vector2 = Vector2(200, 300)
 
 onready var stateMachine: StateMachine = $StateMachine
 onready var collider: CollisionPolygon2D = $CollisionPolygon2D
@@ -33,15 +33,23 @@ func set_is_active(value: bool) -> void:
 
 func apply_throw(target_position: Vector2) -> void:
 	var direction: = Vector2(1.0, 1.0)
+	direction.x = sign((target_position - global_position).normalized().x)
 	direction.y = -1 if target_position.y < global_position.y else 1
-	throw(global_position, direction, DAMAGE_THROW_IMPULSE)
+	throw(DAMAGE_THROW_IMPULSE, direction)
 
 
-func throw(start_point: Vector2, direction: Vector2, throw_distance: Vector2) -> void:
-	var target_point : = start_point + Vector2(throw_distance.x, 0)
-	var arc_height = target_point.y - global_position.y - throw_distance.y
-	arc_height = min(arc_height, -throw_distance.y)
-	var velocity = Global.calculate_arch_velocity(start_point, target_point, arc_height)
-	velocity.x *= direction.x
-	velocity.y *= direction.y
-	stateMachine.transition_to("Move/Throw", {throw_velocity = velocity})
+func throw(throw_velocity: Vector2, throw_direction: Vector2) -> void:
+	throw_direction.y = -1
+	stateMachine.transition_to("Move/Throw", { velocity = throw_velocity, direction = throw_direction })
+	pass
+
+
+
+
+
+
+
+
+
+
+

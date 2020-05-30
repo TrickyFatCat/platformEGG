@@ -20,8 +20,9 @@ func _get_configuration_warning() -> String:
 
 
 func _ready() -> void:
-	yield(owner, "ready")
-	state.enter()
+	if !Engine.editor_hint:
+		yield(owner, "ready")
+		state.enter()
 
 
 func _unhandled_input(event: InputEvent) -> void:

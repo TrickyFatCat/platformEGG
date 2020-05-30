@@ -1,8 +1,8 @@
 extends Node2D
 class_name EggController
 
-export(Vector2) var throw_distance: = Vector2(128, 64)
-export(Vector2) var drop_distance: = Vector2(32, 32)
+export(Vector2) var throw_impulse: = Vector2(300, 600)
+export(Vector2) var drop_impulse: = Vector2(200, 600)
 
 var is_egg_inside: bool = false
 
@@ -30,7 +30,7 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("throw"):
-		throw_egg(throw_distance)
+		throw_egg(throw_impulse)
 	
 	if event.is_action_pressed("interact") and is_egg_inside:
 		take_egg()
@@ -46,15 +46,15 @@ func take_egg() -> void:
 		egg.position = eggPosition.position
 
 
-func throw_egg(throw_distance: Vector2) -> void:
+func throw_egg(throw_impulse: Vector2) -> void:
 	if player.is_with_egg:
 		player.is_with_egg = false
 		switch_egg_parent(player.is_with_egg)
-		var facing_direction: = 1 if sprite.flip_h else -1
+		var facing_direction: = -1 if sprite.flip_h else 1
 		var direction: = Vector2(facing_direction, 1)
 		egg.global_position = eggPosition.global_position
 		egg.is_active = true
-		egg.call_deferred("throw", eggPosition.global_position, direction, throw_distance)
+		egg.call_deferred("throw", throw_impulse, direction)
 
 
 func switch_egg_parent(is_parent_player: bool) -> void:
@@ -67,7 +67,7 @@ func switch_egg_parent(is_parent_player: bool) -> void:
 
 
 func drop_egg() -> void:
-	throw_egg(drop_distance)
+	throw_egg(drop_impulse)
 
 
 func disable_input() -> void:

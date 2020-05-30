@@ -41,17 +41,19 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="Area2D2" type="StaticBody2D" parent="."]
-position = Vector2( 317, 336 )
+position = Vector2( 320, 336 )
 scale = Vector2( 2.4, 1 )
 collision_layer = 16
 collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2( 1.24999, -112 )
 shape = SubResource( 1 )
 
 [node name="Area2D3" type="Area2D" parent="."]
-position = Vector2( 220, 239 )
+position = Vector2( 320, 144 )
 monitoring = false
 collision_layer = 16
 collision_mask = 0
@@ -63,10 +65,10 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 213, 216 )
+position = Vector2( 49, 335 )
 
 [node name="Egg" parent="." instance=ExtResource( 4 )]
-position = Vector2( 85, 333 )
+position = Vector2( 81, 335 )
 
 [node name="StaticBody2D" type="KinematicBody2D" parent="."]
 position = Vector2( 95, 180 )

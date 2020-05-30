@@ -5,7 +5,7 @@ const WALL_BOUNCE_FACTOR: Vector2 = Vector2(0.2, 1)
 
 var gravity: float = Global.GRAVITY
 var velocity: Vector2 = Vector2.ZERO
-var max_velocity: Vector2 = Vector2(-1, 600)
+var max_velocity: Vector2 = Vector2(600, 600)
 
 onready var egg: Egg = Global.egg
 
@@ -13,7 +13,6 @@ onready var egg: Egg = Global.egg
 func physics_process(delta: float) -> void:
 	apply_gravity(delta)
 	egg.move_and_slide(velocity, Global.FLOOR_NORMAL)
-	apply_bounce()
 
 
 func enter(msg: Dictionary = {}) -> void:
@@ -37,3 +36,7 @@ func apply_bounce() -> void:
 	if egg.is_on_wall():
 		var direction = -sign(velocity.x)
 		velocity.x *= -WALL_BOUNCE_FACTOR.x
+
+
+func calculate_throw_velocity(velocity_new: Vector2, direction: Vector2) -> void:
+	velocity = velocity_new * direction
