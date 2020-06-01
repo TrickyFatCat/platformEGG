@@ -1,7 +1,7 @@
 extends Node2D
 class_name EggController
 
-export(Vector2) var throw_impulse: = Vector2(300, 600)
+export(Vector2) var throw_impulse: = Vector2(350, 625)
 export(Vector2) var drop_impulse: = Vector2(200, 600)
 
 var is_egg_inside: bool = false
@@ -40,6 +40,7 @@ func take_egg() -> void:
 	if !player.is_with_egg:
 		player.is_with_egg = true
 		egg.is_active = false
+		Events.emit_signal("player_took_egg")
 		var egg_last_position = egg.global_position
 		switch_egg_parent(player.is_with_egg)
 		egg.global_position = egg_last_position
@@ -53,7 +54,6 @@ func throw_egg(throw_impulse: Vector2) -> void:
 		var facing_direction: = -1 if sprite.flip_h else 1
 		var direction: = Vector2(facing_direction, 1)
 		egg.global_position = eggPosition.global_position
-		egg.is_active = true
 		egg.call_deferred("throw", throw_impulse, direction)
 
 
