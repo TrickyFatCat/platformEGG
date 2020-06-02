@@ -1,7 +1,7 @@
 extends Node2D
 class_name EggController
 
-export(Vector2) var throw_impulse: = Vector2(350, 625)
+export(Vector2) var throw_impulse: = Vector2(300, 625)
 export(Vector2) var drop_impulse: = Vector2(200, 600)
 
 var is_egg_inside: bool = false

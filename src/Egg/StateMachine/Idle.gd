@@ -18,12 +18,8 @@ func physics_process(delta: float) -> void:
 
 func enter(msg: Dictionary = {}) -> void:
 	move.enter(msg)
-	print("=== Enter Idle ===")
-	print(move.velocity)
-#	move.direction_move = Vector2.ZERO
+	move.direction = Vector2.ZERO
 
 
 func exit() -> void:
 	move.exit()
-	print(move.velocity)
-	print("=== Exit Idle ===")

@@ -21,14 +21,10 @@ func enter(msg: Dictionary = {}) -> void:
 	
 	if "velocity" and "direction" in msg:
 		move.velocity = msg.velocity * msg.direction
-	
-	print("+++ Enter Soar +++")
-	print(move.velocity)
+
 	yield(get_tree(), "idle_frame")
 	move.gravity = Global.GRAVITY
 
 
 func exit() -> void:
 	move.exit()
-	print(move.velocity)
-	print("+++ Exit Soar +++")

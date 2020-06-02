@@ -11,17 +11,12 @@ func physics_process(delta: float) -> void:
 	if abs(move.velocity.x) < 1:
 		move.velocity.x = 0
 		stateMachine.transition_to("Move/Idle")
-	
 
 
 func enter(msg: Dictionary = {}) -> void:
 	move.enter(msg)
-	print("--- Enter Fall---")
-	print(move.velocity)
 
 
 func exit() -> void:
 	move.exit()
 	move.velocity.y = 0
-	print(move.velocity)
-	print("--- Exit Fall ---")
