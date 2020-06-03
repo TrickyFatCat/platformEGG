@@ -7,21 +7,7 @@ var player: Player
 var egg: Egg
 
 
-static func calculate_arch_velocity(
-		start_point: Vector2, 
-		target_point: Vector2, 
-		arc_height: float, 
-		up_gravity: float = Global.GRAVITY,
-		down_gravity: float = -1
-	):
-	if down_gravity == -1:
-		down_gravity = up_gravity
-	
-	var velocity: = Vector2.ZERO
-	var displacement: = start_point - target_point
-	var time_up = sqrt(-2 * arc_height / up_gravity)
-	var time_down = sqrt(2 * (displacement.y - arc_height) / down_gravity)
-	velocity.y = -sqrt(-2 * up_gravity * arc_height)
-	velocity.x = displacement.x / float(time_up + time_down)
-	
-	return velocity
+static func clamp_vector2(original_vector: Vector2, min_vector: Vector2, max_vector: Vector2) -> Vector2:
+	original_vector.x = clamp(original_vector.x, min_vector.x, max_vector.x)
+	original_vector.y = clamp(original_vector.y, min_vector.y, max_vector.y)
+	return original_vector

@@ -14,7 +14,6 @@ onready var coyoteTimer: Timer = $CoyoteTimer
 func _on_CoyoteTimer_timeout():
 	if is_coyote_time_active:
 		is_coyote_time_active = false
-		print("Coyote is over")
 
 
 func _ready() -> void:

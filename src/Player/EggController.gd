@@ -1,15 +1,14 @@
 extends Node2D
 class_name EggController
 
-export(Vector2) var throw_distance: = Vector2(128, 64)
-export(Vector2) var drop_distance: = Vector2(32, 32)
+export(Vector2) var throw_impulse: = Vector2(300, 625)
+export(Vector2) var drop_impulse: = Vector2(200, 600)
 
 var is_egg_inside: bool = false
 
 onready var player: Player = Global.player
-onready var sprite: Sprite = get_node("../Sprite")
+onready var player_sprite: AnimatedSprite = player.get_node("Sprite")
 onready var egg: Egg = Global.egg
-onready var eggDetector: Area2D = $EggDetector
 onready var eggPosition: Position2D = $EggPosition
 onready var eggDefaultParent: Node = Global.egg.get_parent()
 
@@ -30,7 +29,7 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("throw"):
-		throw_egg(throw_distance)
+		throw_egg(throw_impulse)
 	
 	if event.is_action_pressed("interact") and is_egg_inside:
 		take_egg()
@@ -38,36 +37,37 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func take_egg() -> void:
 	if !player.is_with_egg:
-		player.is_with_egg = true
-		egg.is_active = false
-		var egg_last_position = egg.global_position
-		switch_egg_parent(player.is_with_egg)
-		egg.global_position = egg_last_position
-		egg.position = eggPosition.position
+		Events.emit_signal("player_took_egg")
+		switch_egg_parent(true)
 
 
-func throw_egg(throw_distance: Vector2) -> void:
+func throw_egg(throw_impulse: Vector2) -> void:
 	if player.is_with_egg:
-		player.is_with_egg = false
-		switch_egg_parent(player.is_with_egg)
-		var facing_direction: = 1 if sprite.flip_h else -1
-		var direction: = Vector2(facing_direction, 1)
-		egg.global_position = eggPosition.global_position
-		egg.is_active = true
-		egg.call_deferred("throw", eggPosition.global_position, direction, throw_distance)
+		Events.emit_signal("player_threw_egg")
+		switch_egg_parent(false)
+		egg.call_deferred("throw", throw_impulse, get_throw_direction())
 
 
-func switch_egg_parent(is_parent_player: bool) -> void:
-	if is_parent_player:
+func switch_egg_parent(is_with_egg: bool) -> void:
+	player.is_with_egg = is_with_egg
+	
+	if is_with_egg:
 		eggDefaultParent.remove_child(egg)
+		egg.position = eggPosition.position
 		player.call_deferred("add_child", egg)
 	else:
 		player.remove_child(egg)
+		egg.global_position = eggPosition.global_position
 		eggDefaultParent.call_deferred("add_child", egg)
 
 
 func drop_egg() -> void:
-	throw_egg(drop_distance)
+	throw_egg(drop_impulse)
+
+
+func get_throw_direction() -> Vector2:
+	var facing_direction: = -1 if player_sprite.flip_h else 1
+	return Vector2(facing_direction, 1)
 
 
 func disable_input() -> void:

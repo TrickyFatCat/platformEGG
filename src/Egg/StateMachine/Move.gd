@@ -1,19 +1,24 @@
 extends State
 
-const BOUNCE_FACTOR: Vector2 = Vector2(0.3, 0.5)
-const WALL_BOUNCE_FACTOR: Vector2 = Vector2(0.2, 1)
+const BOUNCE_FACTOR: Vector2 = Vector2(0.35, 0.5)
+const WALL_BOUNCE_FACTOR: Vector2 = Vector2(0.35, 1)
 
 var gravity: float = Global.GRAVITY
 var velocity: Vector2 = Vector2.ZERO
-var max_velocity: Vector2 = Vector2(-1, 600)
+var direction: Vector2 = Vector2.ZERO
 
 onready var egg: Egg = Global.egg
+onready var on_damage_impulse: Vector2 = egg.on_damage_impulse
+
+
+func _ready() -> void:
+	Events.connect("egg_took_damage", self, "on_damage_throw")
+	Events.connect("player_took_egg", self, "reset_state")
 
 
 func physics_process(delta: float) -> void:
 	apply_gravity(delta)
 	egg.move_and_slide(velocity, Global.FLOOR_NORMAL)
-	apply_bounce()
 
 
 func enter(msg: Dictionary = {}) -> void:
@@ -26,7 +31,6 @@ func exit() -> void:
 
 func apply_gravity(delta: float) -> void:
 	velocity.y += gravity * delta
-	velocity.y = clamp(velocity.y, -max_velocity.y, max_velocity.y)
 
 
 func apply_bounce() -> void:
@@ -35,5 +39,21 @@ func apply_bounce() -> void:
 		velocity.x *= BOUNCE_FACTOR.x
 	
 	if egg.is_on_wall():
-		var direction = -sign(velocity.x)
 		velocity.x *= -WALL_BOUNCE_FACTOR.x
+	
+	egg.velocity = velocity
+
+
+func on_damage_throw(hazard_position: Vector2) -> void:
+	if direction == Vector2.ZERO:
+		var is_hazard_beneath = hazard_position.y <= egg.global_position.y
+		direction.x = sign(velocity.x) if is_hazard_beneath else -sign(velocity.x)
+		direction.y = 1 if is_hazard_beneath else -1
+	
+	stateMachine.transition_to("Move/Soar", { velocity = on_damage_impulse, direction = direction })
+
+
+func reset_state() -> void:
+	egg.is_active = false
+	velocity = Vector2.ZERO
+	stateMachine.transition_to("Move/Idle")

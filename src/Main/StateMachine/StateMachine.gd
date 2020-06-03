@@ -20,8 +20,9 @@ func _get_configuration_warning() -> String:
 
 
 func _ready() -> void:
-	yield(owner, "ready")
-	state.enter()
+	if !Engine.editor_hint:
+		yield(owner, "ready")
+		state.enter()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -49,3 +50,7 @@ func set_state(value: State) -> void:
 	previous_state = state
 	state = value
 #	_state_name = state.name
+
+
+func is_previous_state(state_name: String) -> bool:
+	return previous_state.name == state_name

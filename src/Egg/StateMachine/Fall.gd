@@ -6,20 +6,17 @@ onready var egg: Egg = Global.egg
 
 func physics_process(delta: float) -> void:
 	move.physics_process(delta)
+	move.apply_bounce()
 	
-	if move.velocity.x == 0:
+	if abs(move.velocity.x) < 1:
+		move.velocity.x = 0
 		stateMachine.transition_to("Move/Idle")
 
 
 func enter(msg: Dictionary = {}) -> void:
-	move.gravity = 0
-	
-	if "throw_velocity" in msg:
-		move.velocity = msg.throw_velocity
-	
-	yield(get_tree(), "idle_frame")
-	move.gravity = Global.GRAVITY
+	move.enter(msg)
 
 
 func exit() -> void:
 	move.exit()
+	move.velocity.y = 0
