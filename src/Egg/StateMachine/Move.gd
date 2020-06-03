@@ -47,12 +47,13 @@ func apply_bounce() -> void:
 func on_damage_throw(hazard_position: Vector2) -> void:
 	if direction == Vector2.ZERO:
 		var is_hazard_beneath = hazard_position.y <= egg.global_position.y
-		direction.x = sign(velocity.x)
+		direction.x = sign(velocity.x) if is_hazard_beneath else -sign(velocity.x)
 		direction.y = 1 if is_hazard_beneath else -1
 	
 	stateMachine.transition_to("Move/Soar", { velocity = on_damage_impulse, direction = direction })
 
 
 func reset_state() -> void:
+	egg.is_active = false
 	velocity = Vector2.ZERO
 	stateMachine.transition_to("Move/Idle")
