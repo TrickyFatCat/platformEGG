@@ -54,3 +54,7 @@ func set_state(value: State) -> void:
 
 func is_previous_state(state_name: String) -> bool:
 	return previous_state.name == state_name
+
+
+func is_current_state(state_name: String) -> bool:
+	return state.name == state_name

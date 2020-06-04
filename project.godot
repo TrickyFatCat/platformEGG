@@ -53,6 +53,7 @@ config/icon="res://icon.png"
 
 Events="*res://src/Singletons/Events.gd"
 Global="*res://src/Singletons/Global.gd"
+TransitionScreen="*res://src/TransitionScreen/TransitionScreen.tscn"
 
 [display]
 
