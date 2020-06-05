@@ -5,6 +5,12 @@ const MAX_CUTOFF: float = 1.0
 const TRANSITION_DURATION: float = 0.75
 
 var target_state: String = ""
+var masks: Array = [
+	preload("res://materials/TransitionScreen/TransitionMasks/shader_mask_shards_1.png"),
+	preload("res://materials/TransitionScreen/TransitionMasks/shader_mask_shards_2.png"),
+	preload("res://materials/TransitionScreen/TransitionMasks/shader_mask_shards_3.png"),
+	preload("res://materials/TransitionScreen/TransitionMasks/shader_mask_shards_4.png")
+]
 
 onready var stateMachine: StateMachine = $StateMachine
 onready var transitionTween: Tween = $TransitionTween
@@ -26,6 +32,8 @@ func _ready() -> void:
 func start_transition() -> void:
 	if !stateMachine.is_current_state(state_transition):
 		target_state = state_opened if stateMachine.is_current_state(state_closed) else state_closed
+		var new_mask = masks[randi() % masks.size()]
+		screen_shader.set_shader_param("mask", new_mask)
 		
 		match target_state:
 			state_opened:

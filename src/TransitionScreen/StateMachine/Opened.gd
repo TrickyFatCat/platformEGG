@@ -8,7 +8,7 @@ func unhandled_input(event: InputEvent) -> void:
 
 
 func enter(msg: Dictionary = {}) -> void:
-	return
+	Events.emit_signal("transition_screen_opened")
 
 
 func exit() -> void:

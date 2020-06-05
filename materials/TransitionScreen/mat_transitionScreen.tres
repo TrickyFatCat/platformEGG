@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=2]
 
 [ext_resource path="res://materials/TransitionScreen/shd_transitionScreen.shader" type="Shader" id=1]
-[ext_resource path="res://materials/TransitionScreen/TransitionMasks/shader_mask_shards.png" type="Texture" id=2]
+[ext_resource path="res://materials/TransitionScreen/TransitionMasks/shader_mask_shards_2.png" type="Texture" id=2]
 
 [resource]
 shader = ExtResource( 1 )

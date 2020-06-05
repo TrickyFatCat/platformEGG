@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shader_mask_shards.png-e3655add7fd94e8d253fd40d5a90cf96.stex"
+path="res://.import/shader_mask_shards_4.png-d365f268481b86bc3c19e654b7b5063e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://materials/TransitionScreen/TransitionMasks/shader_mask_shards.png"
-dest_files=[ "res://.import/shader_mask_shards.png-e3655add7fd94e8d253fd40d5a90cf96.stex" ]
+source_file="res://materials/TransitionScreen/TransitionMasks/shader_mask_shards_4.png"
+dest_files=[ "res://.import/shader_mask_shards_4.png-d365f268481b86bc3c19e654b7b5063e.stex" ]
 
 [params]
 
