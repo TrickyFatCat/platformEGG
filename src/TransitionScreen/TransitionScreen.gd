@@ -1,5 +1,8 @@
 extends CanvasLayer
 
+signal screen_opened()
+signal screen_closed()
+
 const MIN_CUTOFF: float = 0.0
 const MAX_CUTOFF: float = 1.0
 const TRANSITION_DURATION: float = 0.75

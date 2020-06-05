@@ -21,10 +21,16 @@ func _init() -> void:
 	Global.player = self
 
 
+func _ready() -> void:
+	self.is_active = false
+
+
 func set_is_active(value: bool) -> void:
 	is_active = value
 	
 	if !collider:
 		return
-	
-	collider.disabled = !value
+
+	$DamageDetector/CollisionShape2D.disabled = !value
+	stateMachine.set_process_unhandled_input(value)
+	$EggController.set_process_unhandled_input(value)

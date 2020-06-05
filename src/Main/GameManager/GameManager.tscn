@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/Main/StateMachine/StateMachine.gd" type="Script" id=1]
+[ext_resource path="res://src/Main/GameManager/StateMachine/Paused.gd" type="Script" id=2]
+[ext_resource path="res://src/Main/GameManager/StateMachine/Active.gd" type="Script" id=3]
+[ext_resource path="res://src/Main/GameManager/StateMachine/Inactive.gd" type="Script" id=4]
+[ext_resource path="res://src/Main/GameManager/GameManager.gd" type="Script" id=5]
+
+[node name="GameManager" type="Node"]
+pause_mode = 2
+script = ExtResource( 5 )
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 1 )
+initial_state = NodePath("Inactive")
+
+[node name="Active" type="Node" parent="StateMachine"]
+script = ExtResource( 3 )
+
+[node name="Inactive" type="Node" parent="StateMachine"]
+script = ExtResource( 4 )
+
+[node name="Paused" type="Node" parent="StateMachine"]
+script = ExtResource( 2 )
