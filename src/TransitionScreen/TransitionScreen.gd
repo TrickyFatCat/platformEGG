@@ -32,9 +32,12 @@ func _ready() -> void:
 func start_transition() -> void:
 	if !stateMachine.is_current_state(state_transition):
 		target_state = state_opened if stateMachine.is_current_state(state_closed) else state_closed
+		#Switching masks
+		randomize()
 		var new_mask = masks[randi() % masks.size()]
 		screen_shader.set_shader_param("mask", new_mask)
 		
+		#Tween activation
 		match target_state:
 			state_opened:
 				activate_tween(MIN_CUTOFF, MAX_CUTOFF)
