@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/Main/StateMachine/StateMachine.gd" type="Script" id=1]
-[ext_resource path="res://src/Main/GameManager/StateMachine/Paused.gd" type="Script" id=2]
-[ext_resource path="res://src/Main/GameManager/StateMachine/Active.gd" type="Script" id=3]
-[ext_resource path="res://src/Main/GameManager/StateMachine/Inactive.gd" type="Script" id=4]
-[ext_resource path="res://src/Main/GameManager/GameManager.gd" type="Script" id=5]
-[ext_resource path="res://src/Main/GameManager/StateMachine/Starting.gd" type="Script" id=6]
+[ext_resource path="res://src/Singletons/GameManager/StateMachine/Paused.gd" type="Script" id=2]
+[ext_resource path="res://src/Singletons/GameManager/StateMachine/Active.gd" type="Script" id=3]
+[ext_resource path="res://src/Singletons/GameManager/StateMachine/Inactive.gd" type="Script" id=4]
+[ext_resource path="res://src/Singletons/GameManager/GameManager.gd" type="Script" id=5]
+[ext_resource path="res://src/Singletons/GameManager/StateMachine/Starting.gd" type="Script" id=6]
 
 [node name="GameManager" type="Node"]
 pause_mode = 2

@@ -10,6 +10,7 @@ func physics_process(delta: float) -> void:
 
 
 func enter(msg: Dictionary = {}) -> void:
+	Global.call_deferred("deactivate_player")
 	return
 
 

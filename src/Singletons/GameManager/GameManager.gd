@@ -4,7 +4,7 @@ signal game_started()
 signal game_paused()
 signal game_stoped()
 
-const START_TRANSITION_DELAY: float = 1.5
+const START_TRANSITION_DELAY: float = 0.5
 const START_TIMER_DURATION: float = 3.0
 
 onready var stateMachine: StateMachine = $StateMachine
@@ -28,3 +28,8 @@ func start_transition() -> void:
 
 func start_session() -> void:
 	stateMachine.transition_to("Starting")
+
+
+func stop_session() -> void:
+	stateMachine.transition_to("Inactive")
+	start_transition()
