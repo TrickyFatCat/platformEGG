@@ -23,8 +23,8 @@ func _on_EggDetector_body_exited(body: KinematicBody2D) -> void:
 
 func _ready() -> void:
 	Events.connect("player_stunlock_entered", self, "disable_input")
+	Events.connect("player_stunlock_entered", self, "drop_egg")
 	Events.connect("player_stunlock_exited", self, "enable_input")
-	Events.connect("player_took_damage", self, "drop_egg")
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -62,7 +62,8 @@ func switch_egg_parent(is_with_egg: bool) -> void:
 
 
 func drop_egg() -> void:
-	throw_egg(drop_impulse)
+	if player.is_with_egg:
+		throw_egg(drop_impulse)
 
 
 func get_throw_direction() -> Vector2:

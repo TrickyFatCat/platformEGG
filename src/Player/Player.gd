@@ -10,11 +10,21 @@ export(float) var air_friction: = 850.0
 export(float, 0, 10) var air_control_factor: = 8
 
 var is_with_egg: bool = false
+var is_active: bool = true setget set_is_active
 
 onready var stateMachine: StateMachine = $StateMachine
 onready var collider: CollisionShape2D = $CollisionShape2D
+onready var flashController: FlashController = $FlashController
 
-var is_active: bool = true setget set_is_active
+
+func _on_DamageDetector_area_entered(area: Area2D) -> void:
+	Events.emit_signal("player_took_damage")
+	flashController.is_active = true
+
+
+func _on_DamageDetector_body_entered(body: PhysicsBody2D) -> void:
+	Events.emit_signal("player_took_damage")
+	flashController.is_active = true
 
 
 func _init() -> void:
@@ -34,3 +44,5 @@ func set_is_active(value: bool) -> void:
 	$DamageDetector/CollisionShape2D.disabled = !value
 	stateMachine.set_process_unhandled_input(value)
 	$EggController.set_process_unhandled_input(value)
+
+

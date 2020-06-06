@@ -74,13 +74,13 @@ func calculate_jump_velocity(velocity_new: Vector2, direction: Vector2) -> void:
 	velocity = velocity_new * direction
 
 
-func transit_to_stunlock(position: Vector2) -> void:
+func transit_to_stunlock(hazard_position: Vector2) -> void:
 	stateMachine.transition_to("Move/Stunlock", { 
 		velocity = velocity_stunlock,
 		direction = get_move_direction(),
-		hazard_position = position
+		hazard_position = hazard_position
 	})
-	Events.emit_signal("player_took_damage")
+#	Events.emit_signal("player_took_damage")
 
 
 func flip_sprite() -> void:
