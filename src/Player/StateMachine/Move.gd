@@ -31,6 +31,12 @@ func unhandled_input(event: InputEvent) -> void:
 	
 	if player.is_on_floor() and event.is_action_pressed("jump") and !player.is_with_egg:
 		apply_jump()
+	
+	if event.is_action_pressed("throw"):
+		player.throw_egg()
+	
+	if event.is_action_pressed("interact"):
+		player.take_egg()
 
 
 func physics_process(delta: float) -> void:

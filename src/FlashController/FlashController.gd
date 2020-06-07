@@ -36,6 +36,7 @@ func set_flash_alpha(value: float) -> void:
 
 func start_flash() -> void:
 	if !flashTween.is_active():
+# warning-ignore:return_value_discarded
 		flashTween.interpolate_method(
 			self,
 			"set_flash_alpha",
@@ -45,4 +46,5 @@ func start_flash() -> void:
 			Tween.TRANS_LINEAR,
 			Tween.EASE_IN
 		)
+# warning-ignore:return_value_discarded
 		flashTween.start()

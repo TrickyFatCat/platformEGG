@@ -16,12 +16,15 @@ onready var stateMachine: StateMachine = $StateMachine
 onready var collider: CollisionShape2D = $CollisionShape2D
 onready var flashController: FlashController = $Sprite/FlashController
 onready var hitPoints: HitPoints = $HitPoints
+onready var eggController: EggController = $EggController
 
 
+# warning-ignore:unused_argument
 func _on_DamageDetector_area_entered(area: Area2D) -> void:
 	apply_damage()
 
 
+# warning-ignore:unused_argument
 func _on_DamageDetector_body_entered(body: PhysicsBody2D) -> void:
 	apply_damage()
 
@@ -50,7 +53,9 @@ func _init() -> void:
 func _ready() -> void:
 	self.is_active = false
 	Global.player_hitpoints = hitPoints.hitpoints
+# warning-ignore:return_value_discarded
 	hitPoints.connect("damage_taken", self, "start_flash")
+# warning-ignore:return_value_discarded
 	hitPoints.connect("invulnerability_lifted", self, "stop_flash")
 
 
@@ -68,6 +73,7 @@ func set_is_active(value: bool) -> void:
 func apply_damage() -> void:
 	hitPoints.decrease_hitpoints()
 	Global.player_hitpoints = hitPoints.hitpoints
+	Events.emit_signal("player_took_damage")
 
 
 func start_flash() -> void:
@@ -78,3 +84,9 @@ func stop_flash() -> void:
 	flashController.is_active = false
 
 
+func take_egg() -> void:
+	eggController.take_egg()
+
+
+func throw_egg() -> void:
+	eggController.throw_egg(eggController.throw_impulse) 

@@ -21,7 +21,6 @@ func physics_process(delta: float) -> void:
 
 
 func enter(msg: Dictionary = {}) -> void:
-	Events.emit_signal("player_stunlock_entered")
 	move.enter(msg)
 	sprite.play("stunlock")
 	sprite.frame = 0
@@ -49,7 +48,7 @@ func enter(msg: Dictionary = {}) -> void:
 
 
 func exit() -> void:
-	Events.emit_signal("player_stunlock_exited")
+	pass
 	move.exit()
 	move.acceleration.x = player.acceleration.x
 	move.velocity_max = player.velocity_max

@@ -1,11 +1,14 @@
 extends Node
 
+# warning-ignore:unused_signal
 signal level_loaded()
-signal player_moved()
-signal player_stunlock_entered()
-signal player_stunlock_exited()
+# warning-ignore:unused_signal
 signal player_took_damage()
+# warning-ignore:unused_signal
 signal player_dead()
+# warning-ignore:unused_signal
 signal player_took_egg()
+# warning-ignore:unused_signal
 signal player_threw_egg()
+# warning-ignore:unused_signal
 signal egg_took_damage(hazard_position)

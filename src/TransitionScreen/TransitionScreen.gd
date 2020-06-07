@@ -1,6 +1,8 @@
 extends CanvasLayer
 
+# warning-ignore:unused_signal
 signal screen_opened()
+# warning-ignore:unused_signal
 signal screen_closed()
 
 const MIN_CUTOFF: float = 0.0
@@ -56,6 +58,7 @@ func set_cutoff(value: float) -> void:
 
 
 func activate_tween(initial_value: float, target_value: float) -> void:
+# warning-ignore:return_value_discarded
 	transitionTween.interpolate_method(
 		self,
 		"set_cutoff",
@@ -65,6 +68,7 @@ func activate_tween(initial_value: float, target_value: float) -> void:
 		Tween.TRANS_LINEAR,
 		Tween.EASE_IN
 	)
+# warning-ignore:return_value_discarded
 	transitionTween.start()
 
 

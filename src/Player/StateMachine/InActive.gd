@@ -2,17 +2,16 @@ extends State
 
 
 func unhandled_input(event: InputEvent) -> void:
-	return
+	pass
 
 
 func physics_process(delta: float) -> void:
-	return
+	pass
 
 
 func enter(msg: Dictionary = {}) -> void:
-	Global.player.is_active = false
-	return
+	pass
 
 
 func exit() -> void:
-	return
+	pass

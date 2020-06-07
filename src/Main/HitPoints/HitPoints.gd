@@ -28,6 +28,7 @@ func _ready() -> void:
 func decrease_hitpoints(damage: int = DEFAULT_DAMAGE) -> void:
 	if !is_invulnerable:
 		hitpoints -= damage
+# warning-ignore:narrowing_conversion
 		hitpoints = max(hitpoints, 0)
 		
 		if hitpoints > 0:

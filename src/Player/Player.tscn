@@ -14,7 +14,7 @@
 [ext_resource path="res://src/FlashController/FlashController.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/Main/HitPoints/HitPoints.tscn" type="PackedScene" id=13]
 [ext_resource path="res://src/Player/StateMachine/Death.gd" type="Script" id=14]
-[ext_resource path="res://src/Player/StateMachine/InActive.gd" type="Script" id=15]
+[ext_resource path="res://src/Player/StateMachine/Inactive.gd" type="Script" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6, 9 )
@@ -31,7 +31,7 @@ material = ExtResource( 11 )
 position = Vector2( 0, -16 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 2
+frame = 1
 playing = true
 
 [node name="FlashController" parent="Sprite" instance=ExtResource( 12 )]
