@@ -14,17 +14,33 @@ var is_active: bool = true setget set_is_active
 
 onready var stateMachine: StateMachine = $StateMachine
 onready var collider: CollisionShape2D = $CollisionShape2D
-onready var flashController: FlashController = $FlashController
+onready var flashController: FlashController = $Sprite/FlashController
+onready var hitPoints: HitPoints = $HitPoints
 
 
 func _on_DamageDetector_area_entered(area: Area2D) -> void:
-	Events.emit_signal("player_took_damage")
-	flashController.is_active = true
+	apply_damage()
 
 
 func _on_DamageDetector_body_entered(body: PhysicsBody2D) -> void:
-	Events.emit_signal("player_took_damage")
-	flashController.is_active = true
+	apply_damage()
+
+
+func _on_Sprite_animation_finished() -> void:
+	var target_state
+	
+	if stateMachine.is_current_state("Stunlock"):
+		if Global.player_hitpoints > 0:
+			target_state = "Move/Idle" if is_on_floor() else "Move/Fall"
+		else:
+			target_state = "Death"
+	
+	if stateMachine.is_current_state("Death"):
+		target_state = "Inactive"
+		Events.emit_signal("player_dead")
+	
+	if target_state:
+		stateMachine.transition_to(target_state)
 
 
 func _init() -> void:
@@ -33,6 +49,9 @@ func _init() -> void:
 
 func _ready() -> void:
 	self.is_active = false
+	Global.player_hitpoints = hitPoints.hitpoints
+	hitPoints.connect("damage_taken", self, "start_flash")
+	hitPoints.connect("invulnerability_lifted", self, "stop_flash")
 
 
 func set_is_active(value: bool) -> void:
@@ -44,5 +63,18 @@ func set_is_active(value: bool) -> void:
 	$DamageDetector/CollisionShape2D.disabled = !value
 	stateMachine.set_process_unhandled_input(value)
 	$EggController.set_process_unhandled_input(value)
+
+
+func apply_damage() -> void:
+	hitPoints.decrease_hitpoints()
+	Global.player_hitpoints = hitPoints.hitpoints
+
+
+func start_flash() -> void:
+	flashController.is_active = true
+
+
+func stop_flash() -> void:
+	flashController.is_active = false
 
 

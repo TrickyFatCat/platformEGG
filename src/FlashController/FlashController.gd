@@ -6,7 +6,7 @@ const MIN_FLASH_ALPHA: float = 0.0
 const MAX_FLASH_ALPHA: float = 1.0
 
 export(NodePath) var target_sprite
-export(float) var flash_duration: = 0.25
+export(float) var flash_duration: = 0.35
 
 var is_active: bool = false setget set_is_active
 
@@ -35,13 +35,14 @@ func set_flash_alpha(value: float) -> void:
 
 
 func start_flash() -> void:
-	flashTween.interpolate_method(
-		self,
-		"set_flash_alpha",
-		MAX_FLASH_ALPHA,
-		MIN_FLASH_ALPHA,
-		flash_duration,
-		Tween.TRANS_LINEAR,
-		Tween.EASE_IN
-	)
-	flashTween.start()
+	if !flashTween.is_active():
+		flashTween.interpolate_method(
+			self,
+			"set_flash_alpha",
+			MAX_FLASH_ALPHA,
+			MIN_FLASH_ALPHA,
+			flash_duration,
+			Tween.TRANS_LINEAR,
+			Tween.EASE_IN
+		)
+		flashTween.start()

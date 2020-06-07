@@ -5,6 +5,8 @@ const GRAVITY: float = 3000.0
 
 var player: Player
 var egg: Egg
+var player_hitpoints: int
+var egg_hitpoints: int
 
 
 func deactivate_player() -> void:

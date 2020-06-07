@@ -13,3 +13,4 @@ func _ready() -> void:
 	if !Engine.editor_hint:
 		Events.emit_signal("level_loaded")
 		LevelLoader.next_level = next_level
+		LevelLoader.current_level = self.name

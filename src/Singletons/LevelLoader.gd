@@ -1,10 +1,18 @@
 extends Node
 
 var next_level: String
+var current_level: String
 
 
 func _ready() -> void:
-	TransitionScreen.connect("screen_closed", self, "load_next_level")
+	TransitionScreen.connect("screen_closed", self, "load_level")
+
+
+func load_level() -> void:
+	if next_level != current_level:
+		load_next_level()
+	else:
+		reload_current_level()
 
 
 func reload_current_level() -> void:

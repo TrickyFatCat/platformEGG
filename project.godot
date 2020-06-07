@@ -17,12 +17,17 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "EggController",
 "language": "GDScript",
-"path": "res://src/Player/EggController.gd"
+"path": "res://src/Player/EggController/EggController.gd"
 }, {
 "base": "Node",
 "class": "FlashController",
 "language": "GDScript",
 "path": "res://src/FlashController/FlashController.gd"
+}, {
+"base": "Node",
+"class": "HitPoints",
+"language": "GDScript",
+"path": "res://src/Main/HitPoints/HitPoints.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -43,6 +48,7 @@ _global_script_class_icons={
 "Egg": "",
 "EggController": "",
 "FlashController": "",
+"HitPoints": "",
 "Player": "",
 "State": "res://assets/EngineIcons/icon_state.svg",
 "StateMachine": "res://assets/EngineIcons/icon_stateMachine.svg"

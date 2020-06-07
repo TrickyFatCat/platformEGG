@@ -7,10 +7,6 @@ onready var move: State = get_parent()
 onready var sprite: AnimatedSprite = player.get_node("Sprite")
 
 
-func _ready() -> void:
-	sprite.connect("animation_finished", self, "switch_state")
-
-
 func unhandled_input(event: InputEvent) -> void:
 	pass
 
@@ -22,9 +18,7 @@ func physics_process(delta: float) -> void:
 	
 	if player.is_on_ceiling():
 		move.velocity.y = 0
-	
-	if sprite.frame == sprite.frames.get_frame_count(sprite.animation) - 1:
-		pass
+
 
 func enter(msg: Dictionary = {}) -> void:
 	Events.emit_signal("player_stunlock_entered")
@@ -60,9 +54,3 @@ func exit() -> void:
 	move.acceleration.x = player.acceleration.x
 	move.velocity_max = player.velocity_max
 	move.friction = player.ground_friction
-
-
-func switch_state() -> void:
-	if stateMachine.state.name == self.name:
-		var target_state: = "Move/Idle" if player.is_on_floor() else "Move/Fall"
-		stateMachine.transition_to(target_state)

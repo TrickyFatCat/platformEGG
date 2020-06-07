@@ -80,7 +80,6 @@ func transit_to_stunlock(hazard_position: Vector2) -> void:
 		direction = get_move_direction(),
 		hazard_position = hazard_position
 	})
-#	Events.emit_signal("player_took_damage")
 
 
 func flip_sprite() -> void:

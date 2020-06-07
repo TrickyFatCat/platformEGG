@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://src/Player/ninjaFrog_frames.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://src/Player/StateMachine/Move.gd" type="Script" id=2]
@@ -8,10 +8,13 @@
 [ext_resource path="res://src/Player/StateMachine/Jump.gd" type="Script" id=6]
 [ext_resource path="res://src/Player/Player.gd" type="Script" id=7]
 [ext_resource path="res://src/Player/StateMachine/Stunlock.gd" type="Script" id=8]
-[ext_resource path="res://src/Player/EggController.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/Player/EggController/EggController.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/Player/StateMachine/Fall.gd" type="Script" id=10]
 [ext_resource path="res://materials/Flash/mat_flash.tres" type="Material" id=11]
 [ext_resource path="res://src/FlashController/FlashController.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/Main/HitPoints/HitPoints.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/Player/StateMachine/Death.gd" type="Script" id=14]
+[ext_resource path="res://src/Player/StateMachine/InActive.gd" type="Script" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6, 9 )
@@ -28,8 +31,11 @@ material = ExtResource( 11 )
 position = Vector2( 0, -16 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 6
+frame = 2
 playing = true
+
+[node name="FlashController" parent="Sprite" instance=ExtResource( 12 )]
+target_sprite = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -73,13 +79,19 @@ script = ExtResource( 10 )
 [node name="Stunlock" type="Node" parent="StateMachine/Move"]
 script = ExtResource( 8 )
 
+[node name="Death" type="Node" parent="StateMachine"]
+script = ExtResource( 14 )
+
+[node name="Inactive" type="Node" parent="StateMachine"]
+script = ExtResource( 15 )
+
 [node name="EggController" parent="." instance=ExtResource( 9 )]
 visible = false
 
-[node name="FlashController" parent="." instance=ExtResource( 12 )]
-target_sprite = NodePath("../Sprite")
-[connection signal="area_entered" from="DamageDetector" to="." method="_on_DamageDetector_area_entered"]
+[node name="HitPoints" parent="." instance=ExtResource( 13 )]
+[connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
 [connection signal="area_entered" from="DamageDetector" to="StateMachine/Move" method="_on_DamageDetector_area_entered"]
-[connection signal="body_entered" from="DamageDetector" to="." method="_on_DamageDetector_body_entered"]
+[connection signal="area_entered" from="DamageDetector" to="." method="_on_DamageDetector_area_entered"]
 [connection signal="body_entered" from="DamageDetector" to="StateMachine/Move" method="_on_DamageDetector_body_entered"]
+[connection signal="body_entered" from="DamageDetector" to="." method="_on_DamageDetector_body_entered"]
 [connection signal="timeout" from="StateMachine/Move/Fall/CoyoteTimer" to="StateMachine/Move/Fall" method="_on_CoyoteTimer_timeout"]
