@@ -10,7 +10,7 @@ func physics_process(delta: float) -> void:
 
 
 func enter(msg: Dictionary = {}) -> void:
-	Events.emit_signal("player_dead")
+	Events.emit_signal("egg_dead")
 
 
 func exit() -> void:

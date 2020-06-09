@@ -30,7 +30,7 @@ func _on_DamageDetector_body_entered(body: PhysicsBody2D) -> void:
 
 
 func _on_Sprite_animation_finished() -> void:
-	var target_state
+	var target_state: String
 	
 	if stateMachine.is_current_state("Stunlock"):
 		if Global.player_hitpoints > 0:
@@ -40,7 +40,6 @@ func _on_Sprite_animation_finished() -> void:
 	
 	if stateMachine.is_current_state("Death"):
 		target_state = "Inactive"
-		Events.emit_signal("player_dead")
 	
 	if target_state:
 		stateMachine.transition_to(target_state)
@@ -52,11 +51,12 @@ func _init() -> void:
 
 func _ready() -> void:
 	self.is_active = false
-	Global.player_hitpoints = hitPoints.hitpoints
+	sync_hitpoints()
 # warning-ignore:return_value_discarded
 	hitPoints.connect("damage_taken", self, "start_flash")
 # warning-ignore:return_value_discarded
 	hitPoints.connect("invulnerability_lifted", self, "stop_flash")
+	Events.connect("egg_dead", self, "transition_to_death")
 
 
 func set_is_active(value: bool) -> void:
@@ -72,7 +72,7 @@ func set_is_active(value: bool) -> void:
 
 func apply_damage() -> void:
 	hitPoints.decrease_hitpoints()
-	Global.player_hitpoints = hitPoints.hitpoints
+	sync_hitpoints()
 	Events.emit_signal("player_took_damage")
 
 
@@ -90,3 +90,12 @@ func take_egg() -> void:
 
 func throw_egg() -> void:
 	eggController.throw_egg(eggController.throw_impulse) 
+
+
+func sync_hitpoints() -> void:
+	Global.player_hitpoints = hitPoints.hitpoints
+
+
+func transition_to_death() -> void:
+	if !stateMachine.is_current_state("Death"):
+		stateMachine.transition_to("Death")

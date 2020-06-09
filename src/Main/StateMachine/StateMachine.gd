@@ -2,7 +2,6 @@ tool
 extends Node
 class_name StateMachine, "res://assets/EngineIcons/icon_stateMachine.svg"
 
-
 export(NodePath) var initial_state = NodePath()
 
 onready var state: State = get_node(initial_state) setget set_state
@@ -40,10 +39,8 @@ func transition_to(target_state_path: String, msg: Dictionary = {}) -> void:
 	
 	var target_state: = get_node(target_state_path)
 	state.exit()
-#	print("Exit state ", self.state.name)
 	self.state = target_state
 	state.enter(msg)
-#	print("Enter state ", self.state.name)
 
 
 func set_state(value: State) -> void:

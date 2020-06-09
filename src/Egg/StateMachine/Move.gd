@@ -11,9 +11,12 @@ onready var egg: Egg = Global.egg
 onready var on_damage_impulse: Vector2 = egg.on_damage_impulse
 
 
-func _ready() -> void:
-	Events.connect("egg_took_damage", self, "on_damage_throw")
-	Events.connect("player_took_egg", self, "reset_state")
+func _on_DamageDetector_area_entered(area: Area2D) -> void:
+	on_damage_throw(area.global_position)
+
+
+func _on_DamageDetector_body_entered(body: PhysicsBody2D) -> void:
+	on_damage_throw(body.global_position)
 
 
 func physics_process(delta: float) -> void:
@@ -50,10 +53,5 @@ func on_damage_throw(hazard_position: Vector2) -> void:
 		direction.x = sign(velocity.x) if is_hazard_beneath else -sign(velocity.x)
 		direction.y = 1 if is_hazard_beneath else -1
 	
-	stateMachine.transition_to("Move/Soar", { velocity = on_damage_impulse, direction = direction })
-
-
-func reset_state() -> void:
-	egg.is_active = false
-	velocity = Vector2.ZERO
-	stateMachine.transition_to("Move/Idle")
+	if Global.egg_hitpoints > 0:
+		stateMachine.transition_to("Move/Soar", { velocity = on_damage_impulse, direction = direction })

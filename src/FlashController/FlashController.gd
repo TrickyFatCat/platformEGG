@@ -29,6 +29,11 @@ func set_is_active(value: bool) -> void:
 	start_flash()
 
 
+func set_flash_shader() -> void:
+	print(target_sprite)
+	flash_shader = get_node(target_sprite).material
+
+
 func set_flash_alpha(value: float) -> void:
 	value = clamp(value, MIN_FLASH_ALPHA, MAX_FLASH_ALPHA)
 	flash_shader.set_shader_param("u_alpha", value)

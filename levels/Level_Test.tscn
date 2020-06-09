@@ -98,4 +98,4 @@ position = Vector2( 231, 180 )
 scale = Vector2( 2.56234, 0.669297 )
 
 [node name="FinishPoint" parent="." instance=ExtResource( 7 )]
-position = Vector2( 183, 335 )
+position = Vector2( 189, 219 )

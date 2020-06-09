@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://src/Player/ninjaFrog_frames.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://src/Player/StateMachine/Move.gd" type="Script" id=2]
@@ -10,11 +10,28 @@
 [ext_resource path="res://src/Player/StateMachine/Stunlock.gd" type="Script" id=8]
 [ext_resource path="res://src/Player/EggController/EggController.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/Player/StateMachine/Fall.gd" type="Script" id=10]
-[ext_resource path="res://materials/Flash/mat_flash.tres" type="Material" id=11]
 [ext_resource path="res://src/FlashController/FlashController.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/Main/HitPoints/HitPoints.tscn" type="PackedScene" id=13]
 [ext_resource path="res://src/Player/StateMachine/Death.gd" type="Script" id=14]
 [ext_resource path="res://src/Player/StateMachine/Inactive.gd" type="Script" id=15]
+
+[sub_resource type="Shader" id=3]
+code = "shader_type canvas_item;
+
+uniform float u_alpha : hint_range(0.0, 1.0) = 0.0;
+uniform vec4 u_colour: hint_color = vec4(1.0);
+
+void fragment()
+{
+	vec4 texture_colour = texture(TEXTURE, UV);
+	COLOR.rbg = texture_colour.rbg * (1.0 - u_alpha) + u_colour.rbg * u_alpha;
+	COLOR.a = texture_colour.a;
+}"
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 3 )
+shader_param/u_alpha = 0.0
+shader_param/u_colour = Color( 1, 1, 1, 1 )
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6, 9 )
@@ -27,11 +44,11 @@ collision_mask = 60
 script = ExtResource( 7 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-material = ExtResource( 11 )
+material = SubResource( 4 )
 position = Vector2( 0, -16 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 1
+frame = 4
 playing = true
 
 [node name="FlashController" parent="Sprite" instance=ExtResource( 12 )]
