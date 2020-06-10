@@ -1,6 +1,7 @@
 extends State
 
-onready var sprite: AnimatedSprite = Global.player.get_node("Sprite")
+onready var player: Player = Global.player
+onready var sprite: AnimatedSprite = player.get_node("Sprite")
 
 
 func unhandled_input(event: InputEvent) -> void:
@@ -12,11 +13,8 @@ func physics_process(delta: float) -> void:
 
 
 func enter(msg: Dictionary = {}) -> void:
-	if stateMachine.is_previous_state("Death"):
-		Events.emit_signal("player_dead")
-	
-	sprite.play("inactive")
+	sprite.play("spawn")
 
 
 func exit() -> void:
-	pass
+	player.is_active = true

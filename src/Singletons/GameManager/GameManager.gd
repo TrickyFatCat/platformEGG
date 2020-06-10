@@ -5,7 +5,7 @@ signal game_paused()
 signal game_stoped()
 
 const START_TRANSITION_DELAY: float = 0.5
-const START_TIMER_DURATION: float = 3.0
+const START_TIMER_DURATION: float = 0.25
 
 onready var stateMachine: StateMachine = $StateMachine
 onready var startTimer: Timer = $StartTimer

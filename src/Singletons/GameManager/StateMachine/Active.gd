@@ -13,7 +13,7 @@ func physics_process(delta: float) -> void:
 
 # warning-ignore:unused_argument
 func enter(msg: Dictionary = {}) -> void:
-	Global.activate_player()
+	GameManager.emit_signal("game_started")
 
 
 func exit() -> void:

@@ -32,6 +32,9 @@ func _on_DamageDetector_body_entered(body: PhysicsBody2D) -> void:
 func _on_Sprite_animation_finished() -> void:
 	var target_state: String
 	
+	if stateMachine.is_current_state("Spawn"):
+		target_state = "Move/Idle"
+	
 	if stateMachine.is_current_state("Stunlock"):
 		if Global.player_hitpoints > 0:
 			target_state = "Move/Idle" if is_on_floor() else "Move/Fall"
@@ -57,6 +60,7 @@ func _ready() -> void:
 # warning-ignore:return_value_discarded
 	hitPoints.connect("invulnerability_lifted", self, "stop_flash")
 	Events.connect("egg_dead", self, "transit_to_death")
+	GameManager.connect("game_started", self, "transition_to_spawn")
 
 
 func set_is_active(value: bool) -> void:
@@ -97,5 +101,9 @@ func sync_hitpoints() -> void:
 
 
 func transit_to_death() -> void:
-	if !stateMachine.is_current_state("Death"):
+	if !(stateMachine.is_current_state("Death") or stateMachine.is_current_state("Inactive")):
 		stateMachine.transition_to("Death")
+
+
+func transition_to_spawn() -> void:
+	stateMachine.transition_to("Spawn")

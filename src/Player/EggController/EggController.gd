@@ -45,7 +45,7 @@ func switch_egg_parent(is_with_egg: bool) -> void:
 	Global.player.is_with_egg = is_with_egg
 	
 	if is_with_egg:
-		eggDefaultParent.remove_child(egg)
+		eggDefaultParent.remove_child(egg) 
 		egg.position = eggPosition.position
 		Global.player.call_deferred("add_child", egg)
 	else:
