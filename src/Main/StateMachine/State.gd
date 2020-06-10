@@ -4,14 +4,17 @@ class_name State, "res://assets/EngineIcons/icon_state.svg"
 onready var stateMachine: Node = _get_state_machine(self)
 
 
+# warning-ignore:unused_argument
 func unhandled_input(event: InputEvent) -> void:
 	return
 
 
+# warning-ignore:unused_argument
 func physics_process(delta: float) -> void:
 	return
 
 
+# warning-ignore:unused_argument
 func enter(msg: Dictionary = {}) -> void:
 	return
 

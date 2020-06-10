@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=33 format=2]
+[gd_resource type="SpriteFrames" load_steps=47 format=2]
 
 [ext_resource path="res://assets/Player/NinjaFrog/Idle/ninjaFrog_hit_001.png" type="Texture" id=1]
 [ext_resource path="res://assets/Player/NinjaFrog/Idle/ninjaFrog_hit_005.png" type="Texture" id=2]
@@ -32,12 +32,41 @@
 [ext_resource path="res://assets/Player/NinjaFrog/Hit/ninjaFrog_hit_003.png" type="Texture" id=30]
 [ext_resource path="res://assets/Player/NinjaFrog/ninjaFrog_fall.png" type="Texture" id=31]
 [ext_resource path="res://assets/Player/NinjaFrog/ninjaFrog_jump.png" type="Texture" id=32]
+[ext_resource path="res://assets/Player/PlayerDeath/player_disappear_05.png" type="Texture" id=33]
+[ext_resource path="res://assets/Player/PlayerDeath/player_disappear_04.png" type="Texture" id=34]
+[ext_resource path="res://assets/Player/PlayerDeath/player_disappear_06.png" type="Texture" id=35]
+[ext_resource path="res://assets/Player/PlayerDeath/player_disappear_02.png" type="Texture" id=36]
+[ext_resource path="res://assets/Player/PlayerDeath/player_disappear_03.png" type="Texture" id=37]
+[ext_resource path="res://assets/Player/PlayerDeath/player_disappear_01.png" type="Texture" id=38]
+[ext_resource path="res://assets/Player/PlayerDeath/player_disappear_00.png" type="Texture" id=39]
+[ext_resource path="res://assets/Player/PlayerSpawn/player_spawn_05.png" type="Texture" id=40]
+[ext_resource path="res://assets/Player/PlayerSpawn/player_spawn_04.png" type="Texture" id=41]
+[ext_resource path="res://assets/Player/PlayerSpawn/player_spawn_06.png" type="Texture" id=42]
+[ext_resource path="res://assets/Player/PlayerSpawn/player_spawn_01.png" type="Texture" id=43]
+[ext_resource path="res://assets/Player/PlayerSpawn/player_spawn_00.png" type="Texture" id=44]
+[ext_resource path="res://assets/Player/PlayerSpawn/player_spawn_02.png" type="Texture" id=45]
+[ext_resource path="res://assets/Player/PlayerSpawn/player_spawn_03.png" type="Texture" id=46]
 
 [resource]
 animations = [ {
 "frames": [ ExtResource( 8 ), ExtResource( 1 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "idle",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 13 ), ExtResource( 19 ), ExtResource( 15 ), ExtResource( 18 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 23 ), ExtResource( 21 ), ExtResource( 12 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "run",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 32 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 39 ), ExtResource( 38 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 34 ), ExtResource( 33 ), ExtResource( 35 ), null ],
+"loop": false,
+"name": "death",
 "speed": 20.0
 }, {
 "frames": [ ExtResource( 24 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 30 ), ExtResource( 26 ), ExtResource( 29 ), ExtResource( 25 ) ],
@@ -50,13 +79,13 @@ animations = [ {
 "name": "fall",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 32 ) ],
-"loop": true,
-"name": "jump",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 20 ), ExtResource( 13 ), ExtResource( 19 ), ExtResource( 15 ), ExtResource( 18 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 23 ), ExtResource( 21 ), ExtResource( 12 ), ExtResource( 22 ) ],
-"loop": true,
-"name": "run",
+"frames": [ null, ExtResource( 44 ), ExtResource( 43 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 41 ), ExtResource( 40 ), ExtResource( 42 ) ],
+"loop": false,
+"name": "spawn",
 "speed": 20.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "inactive",
+"speed": 5.0
 } ]

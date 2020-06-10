@@ -10,15 +10,57 @@ export(float) var air_friction: = 850.0
 export(float, 0, 10) var air_control_factor: = 8
 
 var is_with_egg: bool = false
+var is_active: bool = true setget set_is_active
 
 onready var stateMachine: StateMachine = $StateMachine
 onready var collider: CollisionShape2D = $CollisionShape2D
+onready var flashController: FlashController = $Sprite/FlashController
+onready var hitPoints: HitPoints = $HitPoints
+onready var eggController: EggController = $EggController
 
-var is_active: bool = true setget set_is_active
+
+# warning-ignore:unused_argument
+func _on_DamageDetector_area_entered(area: Area2D) -> void:
+	apply_damage()
+
+
+# warning-ignore:unused_argument
+func _on_DamageDetector_body_entered(body: PhysicsBody2D) -> void:
+	apply_damage()
+
+
+func _on_Sprite_animation_finished() -> void:
+	var target_state: String
+	
+	if stateMachine.is_current_state("Spawn"):
+		target_state = "Move/Idle"
+	
+	if stateMachine.is_current_state("Stunlock"):
+		if Global.player_hitpoints > 0:
+			target_state = "Move/Idle" if is_on_floor() else "Move/Fall"
+		else:
+			target_state = "Death"
+	
+	if stateMachine.is_current_state("Death"):
+		target_state = "Inactive"
+	
+	if target_state:
+		stateMachine.transition_to(target_state)
 
 
 func _init() -> void:
 	Global.player = self
+
+
+func _ready() -> void:
+	self.is_active = false
+	sync_hitpoints()
+# warning-ignore:return_value_discarded
+	hitPoints.connect("damage_taken", self, "start_flash")
+# warning-ignore:return_value_discarded
+	hitPoints.connect("invulnerability_lifted", self, "stop_flash")
+	Events.connect("egg_dead", self, "transit_to_death")
+	GameManager.connect("game_started", self, "transition_to_spawn")
 
 
 func set_is_active(value: bool) -> void:
@@ -26,5 +68,42 @@ func set_is_active(value: bool) -> void:
 	
 	if !collider:
 		return
-	
-	collider.disabled = !value
+
+	$DamageDetector/CollisionShape2D.disabled = !value
+	stateMachine.set_process_unhandled_input(value)
+	$EggController.set_process_unhandled_input(value)
+
+
+func apply_damage() -> void:
+	hitPoints.decrease_hitpoints()
+	sync_hitpoints()
+	Events.emit_signal("player_took_damage")
+
+
+func start_flash() -> void:
+	flashController.is_active = true
+
+
+func stop_flash() -> void:
+	flashController.is_active = false
+
+
+func take_egg() -> void:
+	eggController.take_egg()
+
+
+func throw_egg() -> void:
+	eggController.throw_egg(eggController.throw_impulse) 
+
+
+func sync_hitpoints() -> void:
+	Global.player_hitpoints = hitPoints.hitpoints
+
+
+func transit_to_death() -> void:
+	if !(stateMachine.is_current_state("Death") or stateMachine.is_current_state("Inactive")):
+		stateMachine.transition_to("Death")
+
+
+func transition_to_spawn() -> void:
+	stateMachine.transition_to("Spawn")

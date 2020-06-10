@@ -1,15 +1,20 @@
 extends CanvasLayer
 
+# warning-ignore:unused_signal
+signal screen_opened()
+# warning-ignore:unused_signal
+signal screen_closed()
+
 const MIN_CUTOFF: float = 0.0
 const MAX_CUTOFF: float = 1.0
 const TRANSITION_DURATION: float = 0.75
 
 var target_state: String = ""
 var masks: Array = [
-	preload("res://materials/TransitionScreen/TransitionMasks/shader_mask_shards_1.png"),
-	preload("res://materials/TransitionScreen/TransitionMasks/shader_mask_shards_2.png"),
-	preload("res://materials/TransitionScreen/TransitionMasks/shader_mask_shards_3.png"),
-	preload("res://materials/TransitionScreen/TransitionMasks/shader_mask_shards_4.png")
+	"res://materials/TransitionScreen/TransitionMasks/shader_mask_shards_1.png",
+	"res://materials/TransitionScreen/TransitionMasks/shader_mask_shards_2.png",
+	"res://materials/TransitionScreen/TransitionMasks/shader_mask_shards_3.png",
+	"res://materials/TransitionScreen/TransitionMasks/shader_mask_shards_4.png"
 ]
 
 onready var stateMachine: StateMachine = $StateMachine
@@ -23,7 +28,7 @@ onready var state_transition: String = get_node("StateMachine/Transition").name
 
 func _on_TransitionTween_tween_all_completed() -> void:
 	stateMachine.transition_to(target_state)
-
+	set_transition_mask(null)
 
 func _ready() -> void:
 	stateMachine.set_physics_process(false)
@@ -34,8 +39,8 @@ func start_transition() -> void:
 		target_state = state_opened if stateMachine.is_current_state(state_closed) else state_closed
 		#Switching masks
 		randomize()
-		var new_mask = masks[randi() % masks.size()]
-		screen_shader.set_shader_param("mask", new_mask)
+		var new_mask: = load(masks[randi() % masks.size()])
+		set_transition_mask(new_mask)
 		
 		#Tween activation
 		match target_state:
@@ -53,6 +58,7 @@ func set_cutoff(value: float) -> void:
 
 
 func activate_tween(initial_value: float, target_value: float) -> void:
+# warning-ignore:return_value_discarded
 	transitionTween.interpolate_method(
 		self,
 		"set_cutoff",
@@ -62,4 +68,9 @@ func activate_tween(initial_value: float, target_value: float) -> void:
 		Tween.TRANS_LINEAR,
 		Tween.EASE_IN
 	)
+# warning-ignore:return_value_discarded
 	transitionTween.start()
+
+
+func set_transition_mask(new_mask: Texture) -> void:
+	screen_shader.set_shader_param("mask", new_mask)

@@ -1,0 +1,21 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=2]
+
+[ext_resource path="res://assets/Egg/egg.png" type="Texture" id=1]
+[ext_resource path="res://assets/Player/PlayerDeath/player_disappear_05.png" type="Texture" id=2]
+[ext_resource path="res://assets/Player/PlayerDeath/player_disappear_06.png" type="Texture" id=3]
+[ext_resource path="res://assets/Player/PlayerDeath/player_disappear_02.png" type="Texture" id=4]
+[ext_resource path="res://assets/Player/PlayerDeath/player_disappear_04.png" type="Texture" id=5]
+[ext_resource path="res://assets/Player/PlayerDeath/player_disappear_03.png" type="Texture" id=6]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 3 ), null ],
+"loop": false,
+"name": "death",
+"speed": 20.0
+} ]

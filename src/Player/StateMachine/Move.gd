@@ -27,15 +27,22 @@ func _on_DamageDetector_body_entered(body: PhysicsBody2D) -> void:
 
 
 func unhandled_input(event: InputEvent) -> void:
+	flip_sprite()
+	
 	if player.is_on_floor() and event.is_action_pressed("jump") and !player.is_with_egg:
 		apply_jump()
+	
+	if event.is_action_pressed("throw"):
+		player.throw_egg()
+	
+	if event.is_action_pressed("interact"):
+		player.take_egg()
 
 
 func physics_process(delta: float) -> void:
 	var direction = get_move_direction()
 	calculate_velocity_x(delta, direction)
 	apply_gravity(delta)
-	flip_sprite()
 	velocity = owner.move_and_slide(velocity, Global.FLOOR_NORMAL)
 
 
@@ -62,24 +69,23 @@ func apply_gravity(delta: float) -> void:
 	velocity.y = clamp(velocity.y, -velocity_max.y, velocity_max.y)
 
 
-static func get_move_direction() -> Vector2:
+func get_move_direction() -> Vector2:
 	var direction = Vector2.ZERO
 	direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	direction.y = -1 if Input.is_action_just_pressed("jump") else 1
-	return direction
+	return direction if stateMachine.is_processing_unhandled_input() else Vector2.ZERO
 
 
 func calculate_jump_velocity(velocity_new: Vector2, direction: Vector2) -> void:
 	velocity = velocity_new * direction
 
 
-func transit_to_stunlock(position: Vector2) -> void:
+func transit_to_stunlock(hazard_position: Vector2) -> void:
 	stateMachine.transition_to("Move/Stunlock", { 
 		velocity = velocity_stunlock,
 		direction = get_move_direction(),
-		hazard_position = position
+		hazard_position = hazard_position
 	})
-	Events.emit_signal("player_took_damage")
 
 
 func flip_sprite() -> void:

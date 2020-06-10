@@ -15,3 +15,4 @@ func _ready() -> void:
 	randomize()
 	var index = randi() % textures.size()
 	texture = textures[index]
+	textures.clear()
