@@ -68,6 +68,7 @@ Global="*res://src/Singletons/Global.gd"
 TransitionScreen="*res://src/TransitionScreen/TransitionScreen.tscn"
 GameManager="*res://src/Singletons/GameManager/GameManager.tscn"
 LevelLoader="*res://src/Singletons/LevelLoader.gd"
+GlobalTween="*res://src/Singletons/GlobalTween.gd"
 
 [display]
 

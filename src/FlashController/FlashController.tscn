@@ -5,6 +5,3 @@
 [node name="FlashController" type="Node"]
 script = ExtResource( 1 )
 flash_duration = 0.25
-
-[node name="FlashTween" type="Tween" parent="."]
-[connection signal="tween_all_completed" from="FlashTween" to="." method="_on_FlashTween_tween_all_completed"]

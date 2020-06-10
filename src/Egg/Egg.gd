@@ -33,12 +33,12 @@ func _init() -> void:
 func _ready() -> void:
 	sync_hitpoints()
 	Events.connect("player_took_egg", self, "transition_to_carry")
-	Events.connect("player_dead", self, "transition_to_death")
+	Events.connect("player_dead", self, "transit_to_death")
 	# warning-ignore:return_value_discarded
 	hitPoints.connect("damage_taken", self, "start_flash")
 	# warning-ignore:return_value_discarded
 	hitPoints.connect("invulnerability_lifted", self, "stop_flash")
-	hitPoints.connect("hitpoints_zero", self, "transition_to_death")
+	hitPoints.connect("hitpoints_zero", self, "transit_to_death")
 
 
 func set_is_active(value: bool) -> void:
@@ -60,10 +60,11 @@ func throw(throw_velocity: Vector2, throw_direction: Vector2) -> void:
 
 func transition_to_carry() -> void:
 	self.is_active = false
+	stop_flash()
 	stateMachine.transition_to("Carry")
 
 
-func transition_to_death() -> void:
+func transit_to_death() -> void:
 	if !stateMachine.is_current_state("Death"):
 		stateMachine.transition_to("Death")
 

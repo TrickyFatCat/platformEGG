@@ -10,7 +10,6 @@ export(float) var flash_duration: = 0.35
 
 var is_active: bool = false setget set_is_active
 
-onready var flashTween: Tween = $FlashTween
 onready var flash_shader: ShaderMaterial = get_node(target_sprite).material
 
 
@@ -19,18 +18,20 @@ func _get_configuration_warning() -> String:
 	return warning if !target_sprite else ""
 
 
-func _on_FlashTween_tween_all_completed() -> void:
-	if is_active:
-		start_flash()
+func _ready() -> void:
+	GlobalTween.connect("tween_completed", self, "restart_tween")
 
 
 func set_is_active(value: bool) -> void:
 	is_active = value
-	start_flash()
+	
+	if value:
+		start_flash()
+	else:
+		pass
 
 
 func set_flash_shader() -> void:
-	print(target_sprite)
 	flash_shader = get_node(target_sprite).material
 
 
@@ -40,9 +41,8 @@ func set_flash_alpha(value: float) -> void:
 
 
 func start_flash() -> void:
-	if !flashTween.is_active():
 # warning-ignore:return_value_discarded
-		flashTween.interpolate_method(
+		GlobalTween.interpolate_method(
 			self,
 			"set_flash_alpha",
 			MAX_FLASH_ALPHA,
@@ -52,4 +52,9 @@ func start_flash() -> void:
 			Tween.EASE_IN
 		)
 # warning-ignore:return_value_discarded
-		flashTween.start()
+		GlobalTween.start()
+
+
+func restart_tween(object: Object, key: NodePath) -> void:
+	if is_active and object == self:
+		start_flash()

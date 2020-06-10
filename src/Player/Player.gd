@@ -56,7 +56,7 @@ func _ready() -> void:
 	hitPoints.connect("damage_taken", self, "start_flash")
 # warning-ignore:return_value_discarded
 	hitPoints.connect("invulnerability_lifted", self, "stop_flash")
-	Events.connect("egg_dead", self, "transition_to_death")
+	Events.connect("egg_dead", self, "transit_to_death")
 
 
 func set_is_active(value: bool) -> void:
@@ -96,6 +96,6 @@ func sync_hitpoints() -> void:
 	Global.player_hitpoints = hitPoints.hitpoints
 
 
-func transition_to_death() -> void:
+func transit_to_death() -> void:
 	if !stateMachine.is_current_state("Death"):
 		stateMachine.transition_to("Death")
