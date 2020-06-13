@@ -28,11 +28,12 @@ next_level = "res://levels/Level_Test_02.tscn"
 [node name="Traps" type="Node" parent="."]
 
 [node name="Pendulum" parent="Traps" instance=ExtResource( 9 )]
-position = Vector2( 234, 123 )
-rotation = -4.75202
-pause_duration = 1.0
-angle_min_default = 45.0
-is_debug_enabled = true
+position = Vector2( 232, 255 )
+rotation = 1.24449
+is_clockwise = false
+pause_duration = 0.5
+angle_min_default = 135.0
+angle_max_default = 45.0
 
 [node name="Spikes" parent="Traps" instance=ExtResource( 8 )]
 position = Vector2( 264, 335 )
