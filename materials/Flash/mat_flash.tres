@@ -1,19 +1,9 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=2]
 
-[sub_resource type="Shader" id=1]
-code = "shader_type canvas_item;
-
-uniform float u_alpha : hint_range(0.0, 1.0) = 0.0;
-uniform vec4 u_colour: hint_color = vec4(1.0);
-
-void fragment()
-{
-	vec4 texture_colour = texture(TEXTURE, UV);
-	COLOR.rbg = texture_colour.rbg * (1.0 - u_alpha) + u_colour.rbg * u_alpha;
-	COLOR.a = texture_colour.a;
-}"
+[ext_resource path="res://materials/Flash/shd_flash.shader" type="Shader" id=1]
 
 [resource]
-shader = SubResource( 1 )
+resource_local_to_scene = true
+shader = ExtResource( 1 )
 shader_param/u_alpha = 0.0
 shader_param/u_colour = Color( 1, 1, 1, 1 )

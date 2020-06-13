@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://src/Player/ninjaFrog_frames.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://src/Player/StateMachine/Move.gd" type="Script" id=2]
@@ -15,29 +15,12 @@
 [ext_resource path="res://src/Main/HitPoints/HitPoints.tscn" type="PackedScene" id=13]
 [ext_resource path="res://src/Player/StateMachine/Death.gd" type="Script" id=14]
 [ext_resource path="res://src/Player/StateMachine/Inactive.gd" type="Script" id=15]
+[ext_resource path="res://materials/Flash/mat_flash.tres" type="Material" id=16]
 
-[sub_resource type="Shader" id=1]
-code = "shader_type canvas_item;
-
-uniform float u_alpha : hint_range(0.0, 1.0) = 0.0;
-uniform vec4 u_colour: hint_color = vec4(1.0);
-
-void fragment()
-{
-	vec4 texture_colour = texture(TEXTURE, UV);
-	COLOR.rbg = texture_colour.rbg * (1.0 - u_alpha) + u_colour.rbg * u_alpha;
-	COLOR.a = texture_colour.a;
-}"
-
-[sub_resource type="ShaderMaterial" id=2]
-shader = SubResource( 1 )
-shader_param/u_alpha = 0.0
-shader_param/u_colour = Color( 1, 1, 1, 1 )
-
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6, 9 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 11 )
 
 [node name="Player" type="KinematicBody2D"]
@@ -45,7 +28,7 @@ collision_mask = 60
 script = ExtResource( 7 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-material = SubResource( 2 )
+material = ExtResource( 16 )
 position = Vector2( 0, -16 )
 frames = ExtResource( 1 )
 animation = "inactive"
@@ -57,7 +40,7 @@ target_sprite = NodePath("..")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( 0, -9 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="DamageDetector" type="Area2D" parent="."]
 visible = false
@@ -70,7 +53,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageDetector"]
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 3 )
