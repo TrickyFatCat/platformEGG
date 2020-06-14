@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/Environment/Background/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Tilesets/terrain.tres" type="TileSet" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://src/FinishPoint/FinishPoint.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Traps/Spikes/Spikes.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/Traps/Pendulum/Pendulum.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/ObjectMover/ObjectMover.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 23.3333, 10 )
@@ -29,7 +30,7 @@ next_level = "res://levels/Level_Test_02.tscn"
 
 [node name="Pendulum" parent="Traps" instance=ExtResource( 9 )]
 position = Vector2( 232, 255 )
-rotation = 1.24449
+rotation = 2.35077
 is_clockwise = false
 pause_duration = 0.5
 angle_min_default = 135.0
@@ -93,3 +94,5 @@ scale = Vector2( 2.56234, 0.669297 )
 
 [node name="FinishPoint" parent="." instance=ExtResource( 7 )]
 position = Vector2( 189, 219 )
+
+[node name="ObjectMover" parent="." instance=ExtResource( 10 )]
