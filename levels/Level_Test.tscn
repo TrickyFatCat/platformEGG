@@ -9,7 +9,7 @@
 [ext_resource path="res://src/FinishPoint/FinishPoint.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Traps/Spikes/Spikes.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/Traps/Pendulum/Pendulum.tscn" type="PackedScene" id=9]
-[ext_resource path="res://src/ObjectMover/ObjectMover.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/Traps/Saw/MovingSaw.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 23.3333, 10 )
@@ -30,8 +30,10 @@ next_level = "res://levels/Level_Test_02.tscn"
 
 [node name="Pendulum" parent="Traps" instance=ExtResource( 9 )]
 position = Vector2( 232, 255 )
-rotation = 2.35077
+rotation = 1.28295
+is_rotation_endless = false
 is_clockwise = false
+fluctuation_duration = 1.0
 pause_duration = 0.5
 angle_min_default = 135.0
 angle_max_default = 45.0
@@ -41,6 +43,25 @@ position = Vector2( 264, 335 )
 
 [node name="Spikes2" parent="Traps" instance=ExtResource( 8 )]
 position = Vector2( 280, 335 )
+
+[node name="MovingSaw" parent="Traps" instance=ExtResource( 10 )]
+pause_duration = 0.0
+is_cycled = true
+
+[node name="Position2" type="Position2D" parent="Traps/MovingSaw/TargetPoints" index="2"]
+position = Vector2( 125, 81 )
+
+[node name="Position3" type="Position2D" parent="Traps/MovingSaw/TargetPoints" index="3"]
+position = Vector2( 172, 70 )
+
+[node name="Position4" type="Position2D" parent="Traps/MovingSaw/TargetPoints" index="4"]
+position = Vector2( 161, 25 )
+
+[node name="Position5" type="Position2D" parent="Traps/MovingSaw/TargetPoints" index="5"]
+position = Vector2( 130, -12 )
+
+[node name="Saw" parent="Traps/MovingSaw" index="4"]
+position = Vector2( 151.244, 13.3559 )
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 0, -1 )
@@ -95,4 +116,4 @@ scale = Vector2( 2.56234, 0.669297 )
 [node name="FinishPoint" parent="." instance=ExtResource( 7 )]
 position = Vector2( 189, 219 )
 
-[node name="ObjectMover" parent="." instance=ExtResource( 10 )]
+[editable path="Traps/MovingSaw"]
