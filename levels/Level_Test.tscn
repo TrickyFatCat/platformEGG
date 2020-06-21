@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/Environment/Background/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Tilesets/terrain.tres" type="TileSet" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://src/Traps/Pendulum/Pendulum.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/Traps/Saw/MovingSaw.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/Traps/SpikedPlatforms/MovingSpikedPlatformLong.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/Platforms/MovingPlatformShort.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/Platforms/MovingPlatformLong.tscn" type="PackedScene" id=13]
 
 [node name="Level_Test" type="Node"]
 script = ExtResource( 6 )
@@ -26,7 +28,7 @@ next_level = "res://levels/Level_Test_02.tscn"
 
 [node name="Pendulum" parent="Traps" instance=ExtResource( 9 )]
 position = Vector2( 220, 250 )
-rotation = 1.71938
+rotation = 2.16765
 is_rotation_endless = false
 is_clockwise = false
 fluctuation_duration = 1.0
@@ -66,7 +68,7 @@ position = Vector2( 200, 100 )
 playback/active = true
 
 [node name="Saw" parent="Traps/MovingSaw" index="3"]
-position = Vector2( 273.492, 148.995 )
+position = Vector2( 94.4926, 30 )
 
 [node name="Altitude" type="Line2D" parent="Traps/MovingSaw"]
 width = 2.0
@@ -85,7 +87,7 @@ position = Vector2( 560, 140 )
 playback/active = true
 
 [node name="Saw" parent="Traps/MovingSaw2" index="3"]
-position = Vector2( 380, 30 )
+position = Vector2( 380.081, 30.0493 )
 
 [node name="Altitude" type="Line2D" parent="Traps/MovingSaw2"]
 width = 2.0
@@ -105,7 +107,7 @@ position = Vector2( 400, 340 )
 playback/active = true
 
 [node name="SpikedPlatformShort" parent="Traps/ObjectMover" index="3"]
-position = Vector2( 400, 250 )
+position = Vector2( 400, 250.04 )
 
 [node name="MovingPlatformLong" parent="Traps" instance=ExtResource( 11 )]
 is_cycled = true
@@ -121,8 +123,44 @@ position = Vector2( 190, 190 )
 playback/active = true
 
 [node name="SpikedPlatformLong" parent="Traps/MovingPlatformLong" index="3"]
-position = Vector2( 470, 190 )
+position = Vector2( 469.874, 190 )
 rotation = 1.5708
+
+[node name="Platforms" type="Node" parent="."]
+
+[node name="MovingPlatformShort" parent="Platforms" instance=ExtResource( 12 )]
+is_cycled = true
+is_active = true
+
+[node name="Position0" parent="Platforms/MovingPlatformShort/TargetPoints" index="0"]
+position = Vector2( 550, 250 )
+
+[node name="Position1" parent="Platforms/MovingPlatformShort/TargetPoints" index="1"]
+position = Vector2( 550, 40 )
+
+[node name="Tween" parent="Platforms/MovingPlatformShort" index="1"]
+playback/active = true
+
+[node name="PlatformShort" parent="Platforms/MovingPlatformShort" index="3"]
+position = Vector2( 550, 249.906 )
+collision_layer = 1
+collision_mask = 1
+
+[node name="MovingPlatformLong" parent="Platforms" instance=ExtResource( 13 )]
+is_cycled = true
+is_active = true
+
+[node name="Position0" parent="Platforms/MovingPlatformLong/TargetPoints" index="0"]
+position = Vector2( 320, 110 )
+
+[node name="Position1" parent="Platforms/MovingPlatformLong/TargetPoints" index="1"]
+position = Vector2( 440, 110 )
+
+[node name="Tween" parent="Platforms/MovingPlatformLong" index="1"]
+playback/active = true
+
+[node name="PlatformLong" parent="Platforms/MovingPlatformLong" index="3"]
+position = Vector2( 320.054, 110 )
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 0, -1 )
@@ -149,3 +187,7 @@ position = Vector2( 64, 223 )
 [editable path="Traps/ObjectMover"]
 
 [editable path="Traps/MovingPlatformLong"]
+
+[editable path="Platforms/MovingPlatformShort"]
+
+[editable path="Platforms/MovingPlatformLong"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Platforms/PlatformShort.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/ObjectMover/ObjectMover.tscn" type="PackedScene" id=2]
+
+[node name="MovingPlatformShort" instance=ExtResource( 2 )]
+target_object = NodePath("../MovingPlatformShort/PlatformShort")
+
+[node name="PlatformShort" parent="." index="3" instance=ExtResource( 1 )]
