@@ -28,17 +28,18 @@ func _on_PauseTimer_timeout() -> void:
 	start_movement()
 
 
+func _get_configuration_warning() -> String:
+	var warning: String = "The target node must be defined."
+	return warning if !target_object else ""
+
+
 func _ready() -> void:
+	
 	if pause_duration > 0:
 		pauseTimer.wait_time = pause_duration
 	
 	if is_active:
 		start_movement()
-
-
-func _process(delta: float) -> void:
-	for point in points:
-		$Altitude.points.append(point.position)
 
 
 func start_movement() -> void:

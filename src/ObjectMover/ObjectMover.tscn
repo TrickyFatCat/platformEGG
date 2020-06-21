@@ -15,9 +15,5 @@ position = Vector2( 48, 0 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="PauseTimer" type="Timer" parent="."]
-
-[node name="Altitude" type="Line2D" parent="."]
-width = 2.0
-default_color = Color( 0.4, 0.501961, 1, 1 )
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
 [connection signal="timeout" from="PauseTimer" to="." method="_on_PauseTimer_timeout"]

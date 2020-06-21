@@ -1,14 +1,16 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/Environment/Background/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Tilesets/terrain.tres" type="TileSet" id=2]
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Egg/Egg.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Traps/SpikedPlatforms/MovingSpikedPlatformShort.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/Main/Level.gd" type="Script" id=6]
 [ext_resource path="res://src/FinishPoint/FinishPoint.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Traps/Spikes/Spikes.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/Traps/Pendulum/Pendulum.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/Traps/Saw/MovingSaw.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/Traps/SpikedPlatforms/MovingSpikedPlatformLong.tscn" type="PackedScene" id=11]
 
 [node name="Level_Test" type="Node"]
 script = ExtResource( 6 )
@@ -23,8 +25,8 @@ next_level = "res://levels/Level_Test_02.tscn"
 [node name="Traps" type="Node" parent="."]
 
 [node name="Pendulum" parent="Traps" instance=ExtResource( 9 )]
-position = Vector2( 232, 255 )
-rotation = 1.05134
+position = Vector2( 220, 250 )
+rotation = 1.71938
 is_rotation_endless = false
 is_clockwise = false
 fluctuation_duration = 1.0
@@ -63,8 +65,64 @@ position = Vector2( 200, 100 )
 [node name="Tween" parent="Traps/MovingSaw" index="1"]
 playback/active = true
 
-[node name="Saw" parent="Traps/MovingSaw" index="4"]
-position = Vector2( 235.225, 123.483 )
+[node name="Saw" parent="Traps/MovingSaw" index="3"]
+position = Vector2( 273.492, 148.995 )
+
+[node name="Altitude" type="Line2D" parent="Traps/MovingSaw"]
+width = 2.0
+default_color = Color( 0.4, 0.501961, 1, 1 )
+
+[node name="MovingSaw2" parent="Traps" instance=ExtResource( 10 )]
+is_cycled = true
+
+[node name="Position0" parent="Traps/MovingSaw2/TargetPoints" index="0"]
+position = Vector2( 380, 30 )
+
+[node name="Position1" parent="Traps/MovingSaw2/TargetPoints" index="1"]
+position = Vector2( 560, 140 )
+
+[node name="Tween" parent="Traps/MovingSaw2" index="1"]
+playback/active = true
+
+[node name="Saw" parent="Traps/MovingSaw2" index="3"]
+position = Vector2( 380, 30 )
+
+[node name="Altitude" type="Line2D" parent="Traps/MovingSaw2"]
+width = 2.0
+default_color = Color( 0.4, 0.501961, 1, 1 )
+
+[node name="ObjectMover" parent="Traps" instance=ExtResource( 5 )]
+is_cycled = true
+is_active = true
+
+[node name="Position0" parent="Traps/ObjectMover/TargetPoints" index="0"]
+position = Vector2( 400, 250 )
+
+[node name="Position1" parent="Traps/ObjectMover/TargetPoints" index="1"]
+position = Vector2( 400, 340 )
+
+[node name="Tween" parent="Traps/ObjectMover" index="1"]
+playback/active = true
+
+[node name="SpikedPlatformShort" parent="Traps/ObjectMover" index="3"]
+position = Vector2( 400, 250 )
+
+[node name="MovingPlatformLong" parent="Traps" instance=ExtResource( 11 )]
+is_cycled = true
+is_active = true
+
+[node name="Position0" parent="Traps/MovingPlatformLong/TargetPoints" index="0"]
+position = Vector2( 470, 190 )
+
+[node name="Position1" parent="Traps/MovingPlatformLong/TargetPoints" index="1"]
+position = Vector2( 190, 190 )
+
+[node name="Tween" parent="Traps/MovingPlatformLong" index="1"]
+playback/active = true
+
+[node name="SpikedPlatformLong" parent="Traps/MovingPlatformLong" index="3"]
+position = Vector2( 470, 190 )
+rotation = 1.5708
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 0, -1 )
@@ -85,3 +143,9 @@ position = Vector2( 81, 335 )
 position = Vector2( 64, 223 )
 
 [editable path="Traps/MovingSaw"]
+
+[editable path="Traps/MovingSaw2"]
+
+[editable path="Traps/ObjectMover"]
+
+[editable path="Traps/MovingPlatformLong"]
