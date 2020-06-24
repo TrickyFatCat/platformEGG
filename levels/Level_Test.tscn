@@ -26,7 +26,7 @@ next_level = "res://levels/Level_Test_02.tscn"
 
 [node name="Pendulum" parent="Traps" instance=ExtResource( 9 )]
 position = Vector2( 220, 250 )
-rotation = 1.31006
+rotation = 2.35619
 is_rotation_endless = false
 is_clockwise = false
 fluctuation_duration = 1.0
@@ -62,9 +62,6 @@ position = Vector2( 320, 180 )
 [node name="Position5" type="Position2D" parent="Traps/MovingSaw/TargetPoints" index="5"]
 position = Vector2( 200, 100 )
 
-[node name="Tween" parent="Traps/MovingSaw" index="1"]
-playback/active = true
-
 [node name="Saw" parent="Traps/MovingSaw" index="3"]
 position = Vector2( 320, 180 )
 
@@ -80,9 +77,6 @@ position = Vector2( 380, 30 )
 
 [node name="Position1" parent="Traps/MovingSaw2/TargetPoints" index="1"]
 position = Vector2( 560, 140 )
-
-[node name="Tween" parent="Traps/MovingSaw2" index="1"]
-playback/active = true
 
 [node name="Saw" parent="Traps/MovingSaw2" index="3"]
 position = Vector2( 560, 140 )
@@ -101,9 +95,6 @@ position = Vector2( 400, 250 )
 [node name="Position1" parent="Traps/ObjectMover/TargetPoints" index="1"]
 position = Vector2( 400, 340 )
 
-[node name="Tween" parent="Traps/ObjectMover" index="1"]
-playback/active = true
-
 [node name="SpikedPlatformShort" parent="Traps/ObjectMover" index="3"]
 position = Vector2( 400, 340 )
 
@@ -116,9 +107,6 @@ position = Vector2( 470, 190 )
 
 [node name="Position1" parent="Traps/MovingPlatformLong/TargetPoints" index="1"]
 position = Vector2( 190, 190 )
-
-[node name="Tween" parent="Traps/MovingPlatformLong" index="1"]
-playback/active = true
 
 [node name="SpikedPlatformLong" parent="Traps/MovingPlatformLong" index="3"]
 position = Vector2( 190.001, 190 )
@@ -136,9 +124,6 @@ position = Vector2( 550, 250 )
 [node name="Position1" parent="Platforms/MovingPlatformShort/TargetPoints" index="1"]
 position = Vector2( 550, 40 )
 
-[node name="Tween" parent="Platforms/MovingPlatformShort" index="1"]
-playback/active = true
-
 [node name="PlatformShort" parent="Platforms/MovingPlatformShort" index="3"]
 position = Vector2( 550, 40.0005 )
 collision_layer = 1
@@ -153,9 +138,6 @@ position = Vector2( 320, 110 )
 
 [node name="Position1" parent="Platforms/MovingPlatformLong/TargetPoints" index="1"]
 position = Vector2( 440, 110 )
-
-[node name="Tween" parent="Platforms/MovingPlatformLong" index="1"]
-playback/active = true
 
 [node name="PlatformLong" parent="Platforms/MovingPlatformLong" index="3"]
 position = Vector2( 440, 110 )
