@@ -22,7 +22,7 @@ next_level = "res://levels/Level_Test_02.tscn"
 
 [node name="Pendulum" parent="Traps" instance=ExtResource( 9 )]
 position = Vector2( 220, 250 )
-rotation = 1.71009
+rotation = 2.32723
 is_rotation_endless = false
 is_clockwise = false
 fluctuation_duration = 1.0
@@ -37,10 +37,7 @@ position = Vector2( 264, 335 )
 position = Vector2( 280, 335 )
 
 [node name="Saw" parent="Traps" instance=ExtResource( 15 )]
-position = Vector2( 400.899, 159.101 )
-
-[node name="AnimatedSprite" parent="Traps/Saw" index="0"]
-frame = 5
+position = Vector2( 400, 160 )
 
 [node name="ObjectMover" parent="Traps/Saw" index="2"]
 is_active = true
@@ -51,17 +48,13 @@ position = Vector2( 480, 80 )
 [node name="Position1" parent="Traps/Saw/ObjectMover/TargetPoints" index="1"]
 position = Vector2( 400, 160 )
 
-[node name="Tween" parent="Traps/Saw/ObjectMover" index="1"]
-playback/active = true
-
 [node name="Saw2" parent="Traps" instance=ExtResource( 15 )]
-position = Vector2( 208.024, 40 )
+position = Vector2( 80, 40 )
 
 [node name="AnimatedSprite" parent="Traps/Saw2" index="0"]
-frame = 4
+frame = 7
 
 [node name="ObjectMover" parent="Traps/Saw2" index="2"]
-pause_duration = 0.0
 is_cycled = true
 is_active = true
 
@@ -79,9 +72,6 @@ position = Vector2( 200, 100 )
 
 [node name="Position4" type="Position2D" parent="Traps/Saw2/ObjectMover/TargetPoints" index="4"]
 position = Vector2( 80, 180 )
-
-[node name="Tween" parent="Traps/Saw2/ObjectMover" index="1"]
-playback/active = true
 
 [node name="Platforms" type="Node" parent="."]
 

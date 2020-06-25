@@ -2,23 +2,22 @@ tool
 extends Node
 
 export(float) var travel_duration: = 1.0
-export(float) var pause_duration: = 1.0
+export(float) var waiting_duration: = 1.0
 export(bool) var is_cycled: = false
-export(bool) var is_oneshot: = false
 export(bool) var is_active: = false
 
 var point_index: int = 0
 var target_position: Vector2
 
 onready var points: Array = $TargetPoints.get_children()
-onready var tween: Tween = $Tween
-onready var pauseTimer: Timer = $PauseTimer
+onready var tween: Tween = $MovementTween
+onready var waitingTimer: Timer = $WaitingTimer
 onready var target_node: = get_parent()
 
 
 func _on_Tween_tween_all_completed() -> void:
-	if pause_duration > 0:
-		pauseTimer.start()
+	if waiting_duration > 0:
+		waitingTimer.start()
 	else:
 		start_movement()
 
@@ -28,9 +27,8 @@ func _on_PauseTimer_timeout() -> void:
 
 
 func _ready() -> void:
-	
-	if pause_duration > 0:
-		pauseTimer.wait_time = pause_duration
+	if waiting_duration > 0:
+		waitingTimer.wait_time = waiting_duration
 	
 	if is_active:
 		start_movement()
@@ -45,7 +43,7 @@ func start_movement() -> void:
 
 
 func start_tween() -> void:
-	var tween_type: = Tween.TRANS_LINEAR if pause_duration == 0 else Tween.TRANS_QUINT
+	var tween_type: = Tween.TRANS_LINEAR if waiting_duration == 0 else Tween.TRANS_QUINT
 	tween.interpolate_property(
 		target_node,
 		"global_position",
@@ -59,7 +57,7 @@ func start_tween() -> void:
 
 
 func calculate_target_position() -> void:
-	if point_index == points.size() and !is_oneshot:
+	if point_index == points.size():
 		if !is_cycled:
 			points.invert()
 		
