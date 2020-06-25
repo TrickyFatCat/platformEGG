@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/Traps/BaseStaticTrap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Traps/SpikedPlatforms/trap_spikedPlatform_long.png" type="Texture" id=2]
+[ext_resource path="res://src/ObjectMover/ObjectMover.tscn" type="PackedScene" id=3]
 
 [node name="SpikedPlatformLong" instance=ExtResource( 1 )]
 
@@ -10,3 +11,5 @@ texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" parent="." index="1"]
 polygon = PoolVector2Array( -29, -11, -38, -1, -38, 1, -29, 11, 29, 11, 38, 1, 38, -1, 29, -11 )
+
+[node name="ObjectMover" parent="." index="2" instance=ExtResource( 3 )]

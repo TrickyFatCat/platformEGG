@@ -1,7 +1,6 @@
 tool
 extends Node
 
-export(NodePath) var target_object
 export(float) var travel_duration: = 1.0
 export(float) var pause_duration: = 1.0
 export(bool) var is_cycled: = false
@@ -14,7 +13,7 @@ var target_position: Vector2
 onready var points: Array = $TargetPoints.get_children()
 onready var tween: Tween = $Tween
 onready var pauseTimer: Timer = $PauseTimer
-onready var target_node: = get_node(target_object)
+onready var target_node: = get_parent()
 
 
 func _on_Tween_tween_all_completed() -> void:
@@ -26,11 +25,6 @@ func _on_Tween_tween_all_completed() -> void:
 
 func _on_PauseTimer_timeout() -> void:
 	start_movement()
-
-
-func _get_configuration_warning() -> String:
-	var warning: String = "The target node must be defined."
-	return warning if !target_object else ""
 
 
 func _ready() -> void:

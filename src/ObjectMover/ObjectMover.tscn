@@ -4,6 +4,7 @@
 
 [node name="ObjectMover" type="Node"]
 script = ExtResource( 1 )
+target_object = NodePath("")
 
 [node name="TargetPoints" type="Node" parent="."]
 
