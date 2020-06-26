@@ -22,7 +22,7 @@ next_level = "res://levels/Level_Test_02.tscn"
 
 [node name="Pendulum" parent="Traps" instance=ExtResource( 9 )]
 position = Vector2( 220, 250 )
-rotation = 2.32723
+rotation = 2.35619
 is_rotation_endless = false
 is_clockwise = false
 fluctuation_duration = 1.0

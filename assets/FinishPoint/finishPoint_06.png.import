@@ -1,34 +1,17 @@
 [remap]
 
-importer="texture"
-type="StreamTexture"
-path="res://.import/finishPoint_06.png-b39f3168bda110ba02ed832d9531bb42.stex"
-metadata={
-"vram_texture": false
-}
-
+importer="texture_atlas"
+type="Texture"
+path="res://.import/finishPoint_06.png-b39f3168bda110ba02ed832d9531bb42.res"
+group_file="res://assets/Atlases/atlas_environment.png"
+valid=true
 [deps]
 
+
 source_file="res://assets/FinishPoint/finishPoint_06.png"
-dest_files=[ "res://.import/finishPoint_06.png-b39f3168bda110ba02ed832d9531bb42.stex" ]
+dest_files=[ "res://.import/finishPoint_06.png-b39f3168bda110ba02ed832d9531bb42.res" ]
 
 [params]
 
-compress/mode=0
-compress/lossy_quality=0.7
-compress/hdr_mode=0
-compress/bptc_ldr=0
-compress/normal_map=0
-flags/repeat=0
-flags/filter=false
-flags/mipmaps=false
-flags/anisotropic=false
-flags/srgb=2
-process/fix_alpha_border=true
-process/premult_alpha=false
-process/HDR_as_SRGB=false
-process/invert_color=false
-stream=false
-size_limit=0
-detect_3d=true
-svg/scale=1.0
+atlas_file="res://assets/Atlases/atlas_environment.png"
+import_mode=0
