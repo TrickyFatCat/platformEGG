@@ -1,4 +1,3 @@
-tool
 extends Node
 
 export(String, FILE, "*.tscn") var next_level: = ""

@@ -13,5 +13,6 @@ func _ready() -> void:
 func activate_player_shake() -> void:
 	cameraShaker.start(0.2, 50, 1)
 
+
 func activate_egg_shake() -> void:
 	cameraShaker.start(0.2, 50, 2, 1)
