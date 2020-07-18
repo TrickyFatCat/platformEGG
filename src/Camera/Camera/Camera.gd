@@ -3,7 +3,6 @@ extends Camera2D
 var grid_position: Vector2 = Vector2.ZERO
 
 onready var cameraShaker : Node = $CameraShaker
-onready var camera: Camera2D = $Camera
 onready var grid_size: Vector2 = get_viewport().get_visible_rect().size
 
 
