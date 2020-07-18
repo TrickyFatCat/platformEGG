@@ -19,7 +19,8 @@ func _get_configuration_warning() -> String:
 
 
 func _ready() -> void:
-	GlobalTween.connect("tween_completed", self, "restart_tween")
+	if not Engine.editor_hint:
+		GlobalTween.connect("tween_completed", self, "restart_tween")
 
 
 func set_is_active(value: bool) -> void:

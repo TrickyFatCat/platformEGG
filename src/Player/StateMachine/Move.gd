@@ -43,7 +43,7 @@ func physics_process(delta: float) -> void:
 	var direction = get_move_direction()
 	calculate_velocity_x(delta, direction)
 	apply_gravity(delta)
-	velocity = owner.move_and_slide(velocity, Global.FLOOR_NORMAL)
+	velocity = player.move_and_slide(velocity, Global.FLOOR_NORMAL)
 
 
 func calculate_velocity_x(delta: float, direction: Vector2) -> void:
