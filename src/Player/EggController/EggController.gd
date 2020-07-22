@@ -5,11 +5,11 @@ export(Vector2) var throw_impulse: = Vector2(300, 625)
 export(Vector2) var drop_impulse: = Vector2(200, 600)
 
 var is_egg_inside: bool = false
+var eggDefaultParent: Node
 
 onready var player_sprite: AnimatedSprite = Global.player.get_node("Sprite")
 onready var egg: Egg = Global.egg
 onready var eggPosition: Position2D = $EggPosition
-onready var eggDefaultParent: Node = Global.egg.get_parent()
 
 
 # warning-ignore:unused_argument
@@ -25,6 +25,8 @@ func _on_EggDetector_body_exited(body: KinematicBody2D) -> void:
 func _ready() -> void:
 # warning-ignore:return_value_discarded
 	Events.connect("player_took_damage", self, "drop_egg")
+	if Global.egg:
+		eggDefaultParent = Global.egg.get_parent()
 
 
 func take_egg() -> void:

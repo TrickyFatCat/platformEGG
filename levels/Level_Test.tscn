@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/Tilesets/terrain.tres" type="TileSet" id=2]
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Egg/Egg.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/Main/Level.gd" type="Script" id=6]
+[ext_resource path="res://src/Main/Levels/Level.gd" type="Script" id=6]
 [ext_resource path="res://src/FinishPoint/FinishPoint.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Traps/Spikes/Spikes.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/Traps/Pendulum/Pendulum.tscn" type="PackedScene" id=9]
@@ -21,7 +21,7 @@ next_level = "res://levels/Level_Test_02.tscn"
 
 [node name="Pendulum" parent="Traps" instance=ExtResource( 9 )]
 position = Vector2( -90, 150 )
-rotation = 2.35066
+rotation = 0.886143
 is_rotation_endless = false
 is_clockwise = false
 fluctuation_duration = 1.0
@@ -36,7 +36,10 @@ position = Vector2( 264, 335 )
 position = Vector2( 280, 335 )
 
 [node name="Saw" parent="Traps" instance=ExtResource( 15 )]
-position = Vector2( 419.88, 140.12 )
+position = Vector2( 460.282, 99.718 )
+
+[node name="AnimatedSprite" parent="Traps/Saw" index="0"]
+frame = 3
 
 [node name="ObjectMover" parent="Traps/Saw" index="2"]
 is_active = true
@@ -48,10 +51,10 @@ position = Vector2( 480, 80 )
 position = Vector2( 400, 160 )
 
 [node name="Saw2" parent="Traps" instance=ExtResource( 15 )]
-position = Vector2( 170.18, 119.88 )
+position = Vector2( 290.423, 160.282 )
 
 [node name="AnimatedSprite" parent="Traps/Saw2" index="0"]
-frame = 0
+frame = 2
 
 [node name="ObjectMover" parent="Traps/Saw2" index="2"]
 is_cycled = true
