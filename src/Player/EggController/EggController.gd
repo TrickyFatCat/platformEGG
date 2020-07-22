@@ -30,7 +30,7 @@ func _ready() -> void:
 
 
 func take_egg() -> void:
-	if !Global.player.is_with_egg and is_egg_inside:
+	if not Global.player.is_with_egg and is_egg_inside:
 		Events.emit_signal("player_took_egg")
 		switch_egg_parent(true)
 

@@ -58,7 +58,7 @@ _global_script_class_icons={
 
 config/name="platformEGG"
 config/description="A hardcore puzzle platformer, where you play as a ninja frog who have to deliver the egg to a finish line."
-run/main_scene="res://levels/Level_Test.tscn"
+run/main_scene="res://levels/Menus/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
