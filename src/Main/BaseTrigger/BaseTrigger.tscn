@@ -3,6 +3,7 @@
 [ext_resource path="res://src/Main/BaseTrigger/BaseTrigger.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 20, 20 )
 
 [node name="BaseTrigger" type="Area2D"]
 monitorable = false

@@ -9,10 +9,14 @@ var textures = [
 	load("res://assets/Backgrounds/bg_purple.png"),
 	load("res://assets/Backgrounds/bg_yellow.png")
 ]
-
-
+	
+	
 func _ready() -> void:
+	Events.connect("level_loaded", self, "change_background")
+	change_background()
+	
+
+func change_background() -> void:
 	randomize()
 	var index = randi() % textures.size()
 	texture = textures[index]
-	textures.clear()

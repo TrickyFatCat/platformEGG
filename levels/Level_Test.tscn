@@ -21,7 +21,7 @@ next_level = "res://levels/Level_Test_02.tscn"
 
 [node name="Pendulum" parent="Traps" instance=ExtResource( 9 )]
 position = Vector2( -90, 150 )
-rotation = 0.886143
+rotation = 2.35619
 is_rotation_endless = false
 is_clockwise = false
 fluctuation_duration = 1.0
@@ -42,6 +42,9 @@ position = Vector2( 460.282, 99.718 )
 frame = 3
 
 [node name="ObjectMover" parent="Traps/Saw" index="2"]
+travel_duration = 1.0
+waiting_duration = 1.0
+is_cycled = false
 is_active = true
 
 [node name="Position0" parent="Traps/Saw/ObjectMover/TargetPoints" index="0"]
@@ -57,6 +60,8 @@ position = Vector2( 290.423, 160.282 )
 frame = 2
 
 [node name="ObjectMover" parent="Traps/Saw2" index="2"]
+travel_duration = 1.0
+waiting_duration = 1.0
 is_cycled = true
 is_active = true
 

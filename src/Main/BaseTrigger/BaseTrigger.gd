@@ -1,4 +1,5 @@
 extends Area2D
+class_name PlayerTrigger
 
 signal player_entered
 signal player_exited
