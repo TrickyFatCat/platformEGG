@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/MenuTriggers/NewGame/NewGame.gd" type="Script" id=1]
+[ext_resource path="res://src/Main/BaseTrigger/BaseTrigger.tscn" type="PackedScene" id=2]
+
+[node name="NewGame" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+is_interactable = true
+is_triggered_once = true
+[connection signal="trigger_activated" from="." to="." method="_on_trigger_activated"]
