@@ -1,5 +1,6 @@
 extends Node
 
+var first_level: String = "res://levels/Level_Test.tscn"
 var next_level: String
 var current_level: String
 
