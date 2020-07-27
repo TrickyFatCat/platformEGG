@@ -10,8 +10,10 @@ var egg_hitpoints: int
 
 
 func deactivate_player() -> void:
-	player.is_active = false
+	if player:
+		player.is_active = false
 
 
 func activate_player() -> void:
-	player.is_active = true
+	if player:
+		player.is_active = true

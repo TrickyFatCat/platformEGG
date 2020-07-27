@@ -4,17 +4,21 @@ var grid_position: Vector2 = Vector2.ZERO
 
 onready var cameraShaker : Node = $CameraShaker
 onready var grid_size: Vector2 = get_viewport().get_visible_rect().size
-
-
-func _ready() -> void:
-# warning-ignore:return_value_discarded
-	Events.connect("player_took_damage", self, "activate_player_shake")
-# warning-ignore:return_value_discarded
-	Events.connect("egg_took_damage", self, "activate_egg_shake")
 	
+	
+func _ready() -> void:
+	# warning-ignore:return_value_discarded
+	Events.connect("player_took_damage", self, "activate_player_shake")
+	# warning-ignore:return_value_discarded
+	Events.connect("egg_took_damage", self, "activate_egg_shake")
+
 	if Global.player:
 		update_grid_position()
-
+		set_physics_process(true)
+	else:
+		set_physics_process(false)
+		
+		
 
 func _physics_process(delta: float) -> void:
 	update_grid_position()

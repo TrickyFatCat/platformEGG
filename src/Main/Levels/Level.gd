@@ -1,4 +1,5 @@
 extends Node
+class_name GameLevel
 
 export(String, FILE, "*.tscn") var next_level: = ""
 

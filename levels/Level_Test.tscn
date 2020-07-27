@@ -39,7 +39,7 @@ position = Vector2( 280, 335 )
 position = Vector2( 460.282, 99.718 )
 
 [node name="AnimatedSprite" parent="Traps/Saw" index="0"]
-frame = 3
+frame = 0
 
 [node name="ObjectMover" parent="Traps/Saw" index="2"]
 travel_duration = 1.0
@@ -57,7 +57,7 @@ position = Vector2( 400, 160 )
 position = Vector2( 290.423, 160.282 )
 
 [node name="AnimatedSprite" parent="Traps/Saw2" index="0"]
-frame = 2
+frame = 7
 
 [node name="ObjectMover" parent="Traps/Saw2" index="2"]
 travel_duration = 1.0

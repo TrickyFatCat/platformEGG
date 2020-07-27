@@ -5,6 +5,4 @@
 
 [node name="ExitGame" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-is_interactable = true
-is_triggered_once = true
 [connection signal="trigger_activated" from="." to="." method="_on_trigger_activated"]
