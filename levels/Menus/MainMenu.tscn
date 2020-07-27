@@ -38,6 +38,7 @@ __meta__ = {
 [node name="StartHard" parent="." index="2" instance=ExtResource( 2 )]
 position = Vector2( 510, 320 )
 game_difficulty = 1
+level = "res://levels/Level_Test_02.tscn"
 
 [node name="Label" type="Label" parent="StartHard" index="1"]
 margin_left = -20.0

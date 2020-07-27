@@ -45,7 +45,7 @@ func _on_body_exited(_body: Player) -> void:
 
 				
 func _unhandled_input(event: InputEvent) -> void:
-	if is_interactable and event.is_action_pressed("interact"):
+	if is_interactable and event.is_action_pressed("interact") and is_player_inside:
 		match is_activated:
 			true:
 				if not is_triggered_once:

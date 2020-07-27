@@ -1,13 +1,17 @@
 extends PlayerTrigger
 
 enum difficulty{
-    NORMAL,
-    HARD
+	NORMAL,
+	HARD
 }
 
-export(difficulty) var game_difficulty = difficulty.NORMAL 
+export(difficulty) var game_difficulty = difficulty.NORMAL
+export(String, FILE, "*.tscn") var level
 
 
 func _on_trigger_activated() -> void:
-    GameManager.stop_session()
-    GameManager.game_difficulty = difficulty
+	if level:
+		LevelLoader.next_level = level
+
+	GameManager.stop_session()
+	GameManager.game_difficulty = game_difficulty
