@@ -11,12 +11,8 @@ func _ready() -> void:
 	Events.connect("player_took_damage", self, "activate_player_shake")
 	# warning-ignore:return_value_discarded
 	Events.connect("egg_took_damage", self, "activate_egg_shake")
-
-	if Global.player:
-		update_grid_position()
-		set_physics_process(true)
-	else:
-		set_physics_process(false)
+	# warning-ignore:return_value_discarded
+	Events.connect("level_loaded", self, "snap_camera")
 		
 		
 
@@ -42,3 +38,11 @@ func update_grid_position() -> void:
 
 	grid_position = new_grid_position
 	position = grid_position * grid_size
+
+
+func snap_camera() -> void:
+	if Global.player:
+		update_grid_position()
+		set_physics_process(true)
+	else:
+		set_physics_process(false)

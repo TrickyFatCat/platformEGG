@@ -37,841 +37,125 @@ tile_data = PoolIntArray( -65497, 2, 0, -65496, 2, 1, -65495, 2, 1, -65494, 2, 1
 
 [node name="Row01" type="Node2D" parent="NormalLevels" index="0"]
 
-[node name="StartNormal" parent="NormalLevels/Row01" index="0" instance=ExtResource( 2 )]
+[node name="Level01" parent="NormalLevels/Row01" index="0" instance=ExtResource( 2 )]
 position = Vector2( 750, 320 )
+level = "res://levels/GameLevels/World01/W01L01.tscn"
 
-[node name="Label" type="Label" parent="NormalLevels/Row01/StartNormal" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row01/StartNormal" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartNormal2" parent="NormalLevels/Row01" index="1" instance=ExtResource( 2 )]
+[node name="Level02" parent="NormalLevels/Row01" index="1" instance=ExtResource( 2 )]
 position = Vector2( 810, 320 )
+level = "res://levels/GameLevels/World01/W01L02.tscn"
 
-[node name="Label" type="Label" parent="NormalLevels/Row01/StartNormal2" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row01/StartNormal2" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartNormal3" parent="NormalLevels/Row01" index="2" instance=ExtResource( 2 )]
+[node name="Level03" parent="NormalLevels/Row01" index="2" instance=ExtResource( 2 )]
 position = Vector2( 870, 320 )
+level = "res://levels/GameLevels/World01/W01L03.tscn"
 
-[node name="Label" type="Label" parent="NormalLevels/Row01/StartNormal3" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row01/StartNormal3" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartNormal4" parent="NormalLevels/Row01" index="3" instance=ExtResource( 2 )]
+[node name="Level04" parent="NormalLevels/Row01" index="3" instance=ExtResource( 2 )]
 position = Vector2( 930, 320 )
+level = "res://levels/GameLevels/World01/W01L04.tscn"
 
-[node name="Label" type="Label" parent="NormalLevels/Row01/StartNormal4" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row01/StartNormal4" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartNormal5" parent="NormalLevels/Row01" index="4" instance=ExtResource( 2 )]
+[node name="Level05" parent="NormalLevels/Row01" index="4" instance=ExtResource( 2 )]
 position = Vector2( 990, 320 )
+level = "res://levels/GameLevels/World01/W01L05.tscn"
 
-[node name="Label" type="Label" parent="NormalLevels/Row01/StartNormal5" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row01/StartNormal5" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartNormal6" parent="NormalLevels/Row01" index="5" instance=ExtResource( 2 )]
+[node name="Level06" parent="NormalLevels/Row01" index="5" instance=ExtResource( 2 )]
 position = Vector2( 1050, 320 )
+level = "res://levels/GameLevels/World01/W01L06.tscn"
 
-[node name="Label" type="Label" parent="NormalLevels/Row01/StartNormal6" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row01/StartNormal6" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartNormal7" parent="NormalLevels/Row01" index="6" instance=ExtResource( 2 )]
+[node name="Level07" parent="NormalLevels/Row01" index="6" instance=ExtResource( 2 )]
 position = Vector2( 1110, 320 )
+level = "res://levels/GameLevels/World01/W01L07.tscn"
 
-[node name="Label" type="Label" parent="NormalLevels/Row01/StartNormal7" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row01/StartNormal7" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartNormal8" parent="NormalLevels/Row01" index="7" instance=ExtResource( 2 )]
+[node name="Level08" parent="NormalLevels/Row01" index="7" instance=ExtResource( 2 )]
 position = Vector2( 1170, 320 )
-
-[node name="Label" type="Label" parent="NormalLevels/Row01/StartNormal8" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row01/StartNormal8" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+level = "res://levels/GameLevels/World01/W01L08.tscn"
 
 [node name="Row02" type="Node2D" parent="NormalLevels" index="1"]
 position = Vector2( 0, -80 )
 
-[node name="StartNormal" parent="NormalLevels/Row02" index="0" instance=ExtResource( 2 )]
+[node name="Level09" parent="NormalLevels/Row02" index="0" instance=ExtResource( 2 )]
 position = Vector2( 750, 320 )
 
-[node name="Label" type="Label" parent="NormalLevels/Row02/StartNormal" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row02/StartNormal" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartNormal2" parent="NormalLevels/Row02" index="1" instance=ExtResource( 2 )]
+[node name="Level10" parent="NormalLevels/Row02" index="1" instance=ExtResource( 2 )]
 position = Vector2( 810, 320 )
 
-[node name="Label" type="Label" parent="NormalLevels/Row02/StartNormal2" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row02/StartNormal2" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartNormal3" parent="NormalLevels/Row02" index="2" instance=ExtResource( 2 )]
+[node name="Level11" parent="NormalLevels/Row02" index="2" instance=ExtResource( 2 )]
 position = Vector2( 870, 320 )
 
-[node name="Label" type="Label" parent="NormalLevels/Row02/StartNormal3" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row02/StartNormal3" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartNormal4" parent="NormalLevels/Row02" index="3" instance=ExtResource( 2 )]
+[node name="Level12" parent="NormalLevels/Row02" index="3" instance=ExtResource( 2 )]
 position = Vector2( 930, 320 )
 
-[node name="Label" type="Label" parent="NormalLevels/Row02/StartNormal4" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row02/StartNormal4" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartNormal5" parent="NormalLevels/Row02" index="4" instance=ExtResource( 2 )]
+[node name="Level13" parent="NormalLevels/Row02" index="4" instance=ExtResource( 2 )]
 position = Vector2( 990, 320 )
 
-[node name="Label" type="Label" parent="NormalLevels/Row02/StartNormal5" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row02/StartNormal5" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartNormal6" parent="NormalLevels/Row02" index="5" instance=ExtResource( 2 )]
+[node name="Level14" parent="NormalLevels/Row02" index="5" instance=ExtResource( 2 )]
 position = Vector2( 1050, 320 )
 
-[node name="Label" type="Label" parent="NormalLevels/Row02/StartNormal6" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row02/StartNormal6" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartNormal7" parent="NormalLevels/Row02" index="6" instance=ExtResource( 2 )]
+[node name="Level15" parent="NormalLevels/Row02" index="6" instance=ExtResource( 2 )]
 position = Vector2( 1110, 320 )
 
-[node name="Label" type="Label" parent="NormalLevels/Row02/StartNormal7" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row02/StartNormal7" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartNormal8" parent="NormalLevels/Row02" index="7" instance=ExtResource( 2 )]
+[node name="Level16" parent="NormalLevels/Row02" index="7" instance=ExtResource( 2 )]
 position = Vector2( 1170, 320 )
-
-[node name="Label" type="Label" parent="NormalLevels/Row02/StartNormal8" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row02/StartNormal8" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Row03" type="Node2D" parent="NormalLevels" index="2"]
 position = Vector2( 0, -160 )
 
-[node name="StartNormal" parent="NormalLevels/Row03" index="0" instance=ExtResource( 2 )]
+[node name="Level17" parent="NormalLevels/Row03" index="0" instance=ExtResource( 2 )]
 position = Vector2( 750, 320 )
 
-[node name="Label" type="Label" parent="NormalLevels/Row03/StartNormal" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row03/StartNormal" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartNormal2" parent="NormalLevels/Row03" index="1" instance=ExtResource( 2 )]
+[node name="Level18" parent="NormalLevels/Row03" index="1" instance=ExtResource( 2 )]
 position = Vector2( 810, 320 )
 
-[node name="Label" type="Label" parent="NormalLevels/Row03/StartNormal2" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row03/StartNormal2" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartNormal3" parent="NormalLevels/Row03" index="2" instance=ExtResource( 2 )]
+[node name="Level19" parent="NormalLevels/Row03" index="2" instance=ExtResource( 2 )]
 position = Vector2( 870, 320 )
 
-[node name="Label" type="Label" parent="NormalLevels/Row03/StartNormal3" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row03/StartNormal3" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartNormal4" parent="NormalLevels/Row03" index="3" instance=ExtResource( 2 )]
+[node name="Level20" parent="NormalLevels/Row03" index="3" instance=ExtResource( 2 )]
 position = Vector2( 930, 320 )
 
-[node name="Label" type="Label" parent="NormalLevels/Row03/StartNormal4" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row03/StartNormal4" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartNormal5" parent="NormalLevels/Row03" index="4" instance=ExtResource( 2 )]
+[node name="Level21" parent="NormalLevels/Row03" index="4" instance=ExtResource( 2 )]
 position = Vector2( 990, 320 )
 
-[node name="Label" type="Label" parent="NormalLevels/Row03/StartNormal5" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row03/StartNormal5" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartNormal6" parent="NormalLevels/Row03" index="5" instance=ExtResource( 2 )]
+[node name="Level22" parent="NormalLevels/Row03" index="5" instance=ExtResource( 2 )]
 position = Vector2( 1050, 320 )
 
-[node name="Label" type="Label" parent="NormalLevels/Row03/StartNormal6" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row03/StartNormal6" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartNormal7" parent="NormalLevels/Row03" index="6" instance=ExtResource( 2 )]
+[node name="Level23" parent="NormalLevels/Row03" index="6" instance=ExtResource( 2 )]
 position = Vector2( 1110, 320 )
 
-[node name="Label" type="Label" parent="NormalLevels/Row03/StartNormal7" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row03/StartNormal7" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartNormal8" parent="NormalLevels/Row03" index="7" instance=ExtResource( 2 )]
+[node name="Level24" parent="NormalLevels/Row03" index="7" instance=ExtResource( 2 )]
 position = Vector2( 1170, 320 )
-
-[node name="Label" type="Label" parent="NormalLevels/Row03/StartNormal8" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row03/StartNormal8" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Row04" type="Node2D" parent="NormalLevels" index="3"]
 position = Vector2( 0, -240 )
 
-[node name="StartNormal" parent="NormalLevels/Row04" index="0" instance=ExtResource( 2 )]
+[node name="Level25" parent="NormalLevels/Row04" index="0" instance=ExtResource( 2 )]
 position = Vector2( 750, 320 )
 
-[node name="Label" type="Label" parent="NormalLevels/Row04/StartNormal" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row04/StartNormal" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartNormal2" parent="NormalLevels/Row04" index="1" instance=ExtResource( 2 )]
+[node name="Level26" parent="NormalLevels/Row04" index="1" instance=ExtResource( 2 )]
 position = Vector2( 810, 320 )
 
-[node name="Label" type="Label" parent="NormalLevels/Row04/StartNormal2" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row04/StartNormal2" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartNormal3" parent="NormalLevels/Row04" index="2" instance=ExtResource( 2 )]
+[node name="Level27" parent="NormalLevels/Row04" index="2" instance=ExtResource( 2 )]
 position = Vector2( 870, 320 )
 
-[node name="Label" type="Label" parent="NormalLevels/Row04/StartNormal3" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row04/StartNormal3" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartNormal4" parent="NormalLevels/Row04" index="3" instance=ExtResource( 2 )]
+[node name="Level28" parent="NormalLevels/Row04" index="3" instance=ExtResource( 2 )]
 position = Vector2( 930, 320 )
 
-[node name="Label" type="Label" parent="NormalLevels/Row04/StartNormal4" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row04/StartNormal4" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartNormal5" parent="NormalLevels/Row04" index="4" instance=ExtResource( 2 )]
+[node name="Level29" parent="NormalLevels/Row04" index="4" instance=ExtResource( 2 )]
 position = Vector2( 990, 320 )
 
-[node name="Label" type="Label" parent="NormalLevels/Row04/StartNormal5" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row04/StartNormal5" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartNormal6" parent="NormalLevels/Row04" index="5" instance=ExtResource( 2 )]
+[node name="Level30" parent="NormalLevels/Row04" index="5" instance=ExtResource( 2 )]
 position = Vector2( 1050, 320 )
 
-[node name="Label" type="Label" parent="NormalLevels/Row04/StartNormal6" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row04/StartNormal6" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartNormal7" parent="NormalLevels/Row04" index="6" instance=ExtResource( 2 )]
+[node name="Level31" parent="NormalLevels/Row04" index="6" instance=ExtResource( 2 )]
 position = Vector2( 1110, 320 )
 
-[node name="Label" type="Label" parent="NormalLevels/Row04/StartNormal7" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row04/StartNormal7" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartNormal8" parent="NormalLevels/Row04" index="7" instance=ExtResource( 2 )]
+[node name="Level32" parent="NormalLevels/Row04" index="7" instance=ExtResource( 2 )]
 position = Vector2( 1170, 320 )
 
-[node name="Label" type="Label" parent="NormalLevels/Row04/StartNormal8" index="1"]
-margin_left = -30.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Normal"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="HardLevels" type="Node" parent="." index="3"]
 
-[node name="ColorRect" type="ColorRect" parent="NormalLevels/Row04/StartNormal8" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 0.313726, 1, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartHard" parent="." index="3" instance=ExtResource( 2 )]
+[node name="World01Level01" parent="HardLevels" index="0" instance=ExtResource( 2 )]
 position = Vector2( 510, 320 )
 game_difficulty = 1
 level = "res://levels/Level_Test_02.tscn"
-
-[node name="Label" type="Label" parent="StartHard" index="1"]
-margin_left = -20.0
-margin_top = -60.0
-margin_right = 27.0
-margin_bottom = -46.0
-text = "Hard"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect2" type="ColorRect" parent="StartHard" index="2"]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-color = Color( 1, 0, 0, 0.313726 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ExitGame" parent="." index="4" instance=ExtResource( 3 )]
 position = Vector2( 160, 320 )

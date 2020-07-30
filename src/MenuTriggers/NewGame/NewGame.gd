@@ -1,3 +1,4 @@
+tool
 extends PlayerTrigger
 
 enum difficulty{
@@ -7,6 +8,12 @@ enum difficulty{
 
 export(difficulty) var game_difficulty = difficulty.NORMAL
 export(String, FILE, "*.tscn") var level
+
+onready var levelNumber: Label = $LevelNumber
+
+
+func _ready() -> void:
+	levelNumber.text = name.right(name.length() - 2)
 
 
 func _on_trigger_activated() -> void:
