@@ -9,7 +9,7 @@
 next_level = "res://levels/Level_Test.tscn"
 
 [node name="PlatformLong" parent="." index="0" instance=ExtResource( 4 )]
-position = Vector2( 1232, 324 )
+position = Vector2( 1232, 164 )
 
 [node name="ObjectMover" parent="PlatformLong" index="2"]
 waiting_duration = 2.0
@@ -74,81 +74,105 @@ position = Vector2( 0, -80 )
 
 [node name="Level09" parent="NormalLevels/Row02" index="0" instance=ExtResource( 2 )]
 position = Vector2( 750, 320 )
+level = "res://levels/GameLevels/World01/W01L09.tscn"
 
 [node name="Level10" parent="NormalLevels/Row02" index="1" instance=ExtResource( 2 )]
 position = Vector2( 810, 320 )
+level = "res://levels/GameLevels/World01/W01L10.tscn"
 
 [node name="Level11" parent="NormalLevels/Row02" index="2" instance=ExtResource( 2 )]
 position = Vector2( 870, 320 )
+level = "res://levels/GameLevels/World01/W01L11.tscn"
 
 [node name="Level12" parent="NormalLevels/Row02" index="3" instance=ExtResource( 2 )]
 position = Vector2( 930, 320 )
+level = "res://levels/GameLevels/World01/W01L12.tscn"
 
 [node name="Level13" parent="NormalLevels/Row02" index="4" instance=ExtResource( 2 )]
 position = Vector2( 990, 320 )
+level = "res://levels/GameLevels/World01/W01L13.tscn"
 
 [node name="Level14" parent="NormalLevels/Row02" index="5" instance=ExtResource( 2 )]
 position = Vector2( 1050, 320 )
+level = "res://levels/GameLevels/World01/W01L14.tscn"
 
 [node name="Level15" parent="NormalLevels/Row02" index="6" instance=ExtResource( 2 )]
 position = Vector2( 1110, 320 )
+level = "res://levels/GameLevels/World01/W01L15.tscn"
 
 [node name="Level16" parent="NormalLevels/Row02" index="7" instance=ExtResource( 2 )]
 position = Vector2( 1170, 320 )
+level = "res://levels/GameLevels/World01/W01L16.tscn"
 
 [node name="Row03" type="Node2D" parent="NormalLevels" index="2"]
 position = Vector2( 0, -160 )
 
 [node name="Level17" parent="NormalLevels/Row03" index="0" instance=ExtResource( 2 )]
 position = Vector2( 750, 320 )
+level = "res://levels/GameLevels/World01/W01L17.tscn"
 
 [node name="Level18" parent="NormalLevels/Row03" index="1" instance=ExtResource( 2 )]
 position = Vector2( 810, 320 )
+level = "res://levels/GameLevels/World01/W01L18.tscn"
 
 [node name="Level19" parent="NormalLevels/Row03" index="2" instance=ExtResource( 2 )]
 position = Vector2( 870, 320 )
+level = "res://levels/GameLevels/World01/W01L19.tscn"
 
 [node name="Level20" parent="NormalLevels/Row03" index="3" instance=ExtResource( 2 )]
 position = Vector2( 930, 320 )
+level = "res://levels/GameLevels/World01/W01L20.tscn"
 
 [node name="Level21" parent="NormalLevels/Row03" index="4" instance=ExtResource( 2 )]
 position = Vector2( 990, 320 )
+level = "res://levels/GameLevels/World01/W01L21.tscn"
 
 [node name="Level22" parent="NormalLevels/Row03" index="5" instance=ExtResource( 2 )]
 position = Vector2( 1050, 320 )
+level = "res://levels/GameLevels/World01/W01L23.tscn"
 
 [node name="Level23" parent="NormalLevels/Row03" index="6" instance=ExtResource( 2 )]
 position = Vector2( 1110, 320 )
+level = "res://levels/GameLevels/World01/W01L23.tscn"
 
 [node name="Level24" parent="NormalLevels/Row03" index="7" instance=ExtResource( 2 )]
 position = Vector2( 1170, 320 )
+level = "res://levels/GameLevels/World01/W01L24.tscn"
 
 [node name="Row04" type="Node2D" parent="NormalLevels" index="3"]
 position = Vector2( 0, -240 )
 
 [node name="Level25" parent="NormalLevels/Row04" index="0" instance=ExtResource( 2 )]
 position = Vector2( 750, 320 )
+level = "res://levels/GameLevels/World01/W01L25.tscn"
 
 [node name="Level26" parent="NormalLevels/Row04" index="1" instance=ExtResource( 2 )]
 position = Vector2( 810, 320 )
+level = "res://levels/GameLevels/World01/W01L26.tscn"
 
 [node name="Level27" parent="NormalLevels/Row04" index="2" instance=ExtResource( 2 )]
 position = Vector2( 870, 320 )
+level = "res://levels/GameLevels/World01/W01L27.tscn"
 
 [node name="Level28" parent="NormalLevels/Row04" index="3" instance=ExtResource( 2 )]
 position = Vector2( 930, 320 )
+level = "res://levels/GameLevels/World01/W01L28.tscn"
 
 [node name="Level29" parent="NormalLevels/Row04" index="4" instance=ExtResource( 2 )]
 position = Vector2( 990, 320 )
+level = "res://levels/GameLevels/World01/W01L29.tscn"
 
 [node name="Level30" parent="NormalLevels/Row04" index="5" instance=ExtResource( 2 )]
 position = Vector2( 1050, 320 )
+level = "res://levels/GameLevels/World01/W01L30.tscn"
 
 [node name="Level31" parent="NormalLevels/Row04" index="6" instance=ExtResource( 2 )]
 position = Vector2( 1110, 320 )
+level = "res://levels/GameLevels/World01/W01L31.tscn"
 
 [node name="Level32" parent="NormalLevels/Row04" index="7" instance=ExtResource( 2 )]
 position = Vector2( 1170, 320 )
+level = "res://levels/GameLevels/World01/W01L32.tscn"
 
 [node name="HardLevels" type="Node" parent="." index="3"]
 
