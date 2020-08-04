@@ -9,7 +9,7 @@
 load_custom_level = false
 
 [node name="PlatformLong" parent="." index="0" instance=ExtResource( 4 )]
-position = Vector2( 1232, 324 )
+position = Vector2( 1232, 243.993 )
 
 [node name="ObjectMover" parent="PlatformLong" index="2"]
 waiting_duration = 2.0

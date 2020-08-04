@@ -1,6 +1,5 @@
 extends Node
 
-var first_level_id: int = 0
 var next_level: String
 var current_level: String
 var next_level_id: int
@@ -39,6 +38,8 @@ var levels: PoolStringArray = [
 	"res://levels/GameLevels/World01/W01L31.tscn",
 	"res://levels/GameLevels/World01/W01L32.tscn"
 ]
+
+onready var first_level: String = levels[0]
 
 
 func _ready() -> void:
