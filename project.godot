@@ -77,7 +77,7 @@ config/icon="res://icon.png"
 
 Events="*res://src/Singletons/Events.gd"
 Global="*res://src/Singletons/Global.gd"
-TransitionScreen="*res://src/TransitionScreen/TransitionScreen.tscn"
+TransitionScreen="*res://src/Singletons/TransitionScreen/TransitionScreen.tscn"
 GameManager="*res://src/Singletons/GameManager/GameManager.tscn"
 LevelLoader="*res://src/Singletons/LevelLoader.gd"
 GlobalTween="*res://src/Singletons/GlobalTween.gd"

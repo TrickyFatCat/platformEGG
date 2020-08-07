@@ -2,10 +2,10 @@
 
 [ext_resource path="res://materials/TransitionScreen/mat_transitionScreen.tres" type="Material" id=1]
 [ext_resource path="res://src/Main/StateMachine/StateMachine.gd" type="Script" id=2]
-[ext_resource path="res://src/TransitionScreen/StateMachine/Transition.gd" type="Script" id=3]
-[ext_resource path="res://src/TransitionScreen/StateMachine/Opened.gd" type="Script" id=4]
-[ext_resource path="res://src/TransitionScreen/StateMachine/Closed.gd" type="Script" id=5]
-[ext_resource path="res://src/TransitionScreen/TransitionScreen.gd" type="Script" id=6]
+[ext_resource path="res://src/Singletons/TransitionScreen/StateMachine/Transition.gd" type="Script" id=3]
+[ext_resource path="res://src/Singletons/TransitionScreen/StateMachine/Opened.gd" type="Script" id=4]
+[ext_resource path="res://src/Singletons/TransitionScreen/StateMachine/Closed.gd" type="Script" id=5]
+[ext_resource path="res://src/Singletons/TransitionScreen/TransitionScreen.gd" type="Script" id=6]
 
 [node name="TransitionScreen" type="CanvasLayer"]
 layer = 128

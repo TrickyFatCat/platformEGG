@@ -4,6 +4,7 @@
 
 [node name="SplashScreen" type="Node"]
 script = ExtResource( 1 )
+is_hud_active = false
 load_custom_level = true
 
 [node name="SplashImage" type="TextureRect" parent="."]

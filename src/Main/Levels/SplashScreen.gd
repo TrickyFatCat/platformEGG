@@ -1,4 +1,4 @@
-extends GameLevel
+ extends GameLevel
 
 const SPLASH_DURATION: float = 0.5
 
