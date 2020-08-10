@@ -1,11 +1,31 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Singletons/Hud/Hud.gd" type="Script" id=1]
 [ext_resource path="res://src/Singletons/Hud/PauseMenu/PauseMenu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Singletons/Hud/Resource/Recource.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/Hud/icon_heart.png" type="Texture" id=4]
+[ext_resource path="res://assets/Hud/icon_fruit.png" type="Texture" id=5]
 
 [node name="Hud" type="CanvasLayer"]
 pause_mode = 2
-layer = 5
+layer = 128
 script = ExtResource( 1 )
 
 [node name="PauseMenu" parent="." instance=ExtResource( 2 )]
+
+[node name="Resources" type="HBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -17.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerHitPoints" parent="Resources" instance=ExtResource( 3 )]
+icon = ExtResource( 4 )
+
+[node name="EggHitPoints" parent="Resources" instance=ExtResource( 3 )]
+margin_left = 57.0
+margin_right = 110.0
+icon = ExtResource( 5 )
