@@ -14,3 +14,4 @@ signal player_threw_egg()
 signal egg_took_damage()
 # warning-ignore:unused_signal
 signal egg_dead()
+signal fruit_earned()

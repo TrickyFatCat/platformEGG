@@ -13,6 +13,7 @@ func _get_configuration_warning() -> String:
 
 func _ready() -> void:
 	if !Engine.editor_hint:
+		Hud.is_active = is_hud_active
 		Events.emit_signal("level_loaded")
 
 		if load_custom_level:
@@ -23,4 +24,3 @@ func _ready() -> void:
 			LevelLoader.current_level_id = LevelLoader.next_level_id
 			LevelLoader.next_level = LevelLoader.levels[LevelLoader.next_level_id]
 	
-		Hud.is_active = is_hud_active

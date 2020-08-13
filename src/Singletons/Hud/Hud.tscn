@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Singletons/Hud/Hud.gd" type="Script" id=1]
 [ext_resource path="res://src/Singletons/Hud/PauseMenu/PauseMenu.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/Singletons/Hud/Resource/Recource.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/Hud/icon_heart.png" type="Texture" id=4]
-[ext_resource path="res://assets/Hud/icon_fruit.png" type="Texture" id=5]
+[ext_resource path="res://src/Singletons/Hud/Resource/EggHitPoints.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Singletons/Hud/Resource/PlayerHitPoints.tscn" type="PackedScene" id=4]
 
 [node name="Hud" type="CanvasLayer"]
 pause_mode = 2
@@ -17,15 +16,17 @@ script = ExtResource( 1 )
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -17.0
+margin_left = 5.0
+margin_top = -24.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayerHitPoints" parent="Resources" instance=ExtResource( 3 )]
-icon = ExtResource( 4 )
+[node name="PlayerHitPoints" parent="Resources" instance=ExtResource( 4 )]
+margin_right = 48.0
+margin_bottom = 24.0
 
 [node name="EggHitPoints" parent="Resources" instance=ExtResource( 3 )]
-margin_left = 57.0
-margin_right = 110.0
-icon = ExtResource( 5 )
+margin_left = 52.0
+margin_right = 99.0
+margin_bottom = 24.0

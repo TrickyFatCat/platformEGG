@@ -26,13 +26,13 @@
 
 [resource]
 animations = [ {
-"frames": [ ExtResource( 23 ), ExtResource( 1 ), ExtResource( 21 ), ExtResource( 16 ), ExtResource( 22 ), ExtResource( 5 ) ],
-"loop": false,
-"name": "collect",
-"speed": 20.0
-}, {
 "frames": [ ExtResource( 6 ), ExtResource( 2 ), ExtResource( 17 ), ExtResource( 3 ), ExtResource( 8 ), ExtResource( 12 ), ExtResource( 18 ), ExtResource( 7 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 4 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "active_pineapple",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 1 ), ExtResource( 21 ), ExtResource( 16 ), ExtResource( 22 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "collect",
 "speed": 20.0
 } ]

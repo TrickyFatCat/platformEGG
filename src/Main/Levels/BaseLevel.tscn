@@ -20,6 +20,8 @@ format = 1
 
 [node name="Platforms" type="Node" parent="."]
 
+[node name="Fruits" type="Node" parent="."]
+
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
 [node name="Egg" parent="." instance=ExtResource( 1 )]
