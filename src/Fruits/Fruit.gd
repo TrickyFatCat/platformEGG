@@ -6,7 +6,6 @@ onready var sprite: AnimatedSprite = $AnimatedSprite
 
 
 func _on_trigger_activated() -> void:
-    print("hello")
     sprite.play(COLLECT_ANIMATION)
     monitoring = false
 

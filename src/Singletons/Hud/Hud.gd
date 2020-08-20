@@ -51,4 +51,3 @@ func update_egg_hitpoints() -> void:
 
 func switch_resources_panel() -> void:
 	resourcesPanel.visible = is_active
-	print(is_active)

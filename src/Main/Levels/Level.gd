@@ -5,6 +5,8 @@ export(bool) var is_hud_active: = true
 export(bool) var load_custom_level: = false
 export(String, FILE, "*.tscn") var next_level: = ""
 
+var fruits_gained: int = 0
+
 
 func _get_configuration_warning() -> String:
 	var warning: String = "Next level must be chosen."
@@ -20,7 +22,5 @@ func _ready() -> void:
 			LevelLoader.next_level = next_level
 			LevelLoader.current_level = self.name
 		else:
-			LevelLoader.next_level_id = LevelLoader.current_level_id + 1
-			LevelLoader.current_level_id = LevelLoader.next_level_id
-			LevelLoader.next_level = LevelLoader.levels[LevelLoader.next_level_id]
+			LevelLoader.set_next_level()
 	
