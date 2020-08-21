@@ -9,6 +9,7 @@ onready var pauseMenu: Control = $PauseMenu
 onready var resourcesPanel: HBoxContainer = $Resources
 onready var playerHitpoints: HBoxContainer = $Resources/PlayerHitPoints
 onready var eggHitpoints: HBoxContainer = $Resources/EggHitPoints
+onready var fruitsCount: HBoxContainer = $Resources/FruitsCount
 
 
 func _ready() -> void:
@@ -18,6 +19,8 @@ func _ready() -> void:
 	Events.connect("egg_took_damage", self, "update_egg_hitpoints")
 	Events.connect("level_loaded", self, "update_egg_hitpoints")
 	Events.connect("level_loaded", self, "switch_resources_panel")
+	Events.connect("fruit_earned", self, "update_fruits_count")
+	Events.connect("level_loaded", self, "update_fruits_count")
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -47,6 +50,10 @@ func update_player_hitpoints() -> void:
 func update_egg_hitpoints() -> void:
 	if Global.egg:
 		eggHitpoints.set_resource_value(Global.egg.hitPoints.hitpoints)
+
+
+func update_fruits_count() -> void:
+	fruitsCount.set_resource_value(LevelLoader.fruits_gained)
 
 
 func switch_resources_panel() -> void:

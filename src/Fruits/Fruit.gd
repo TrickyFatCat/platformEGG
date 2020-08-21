@@ -6,8 +6,9 @@ onready var sprite: AnimatedSprite = $AnimatedSprite
 
 
 func _on_trigger_activated() -> void:
+    Events.emit_signal("fruit_earned")
     sprite.play(COLLECT_ANIMATION)
-    monitoring = false
+    call_deferred("set", "monitoring", false)
 
 
 

@@ -5,8 +5,6 @@ export(bool) var is_hud_active: = true
 export(bool) var load_custom_level: = false
 export(String, FILE, "*.tscn") var next_level: = ""
 
-var fruits_gained: int = 0
-
 
 func _get_configuration_warning() -> String:
 	var warning: String = "Next level must be chosen."

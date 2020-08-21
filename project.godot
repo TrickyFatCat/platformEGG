@@ -83,6 +83,7 @@ LevelLoader="*res://src/Singletons/LevelLoader.gd"
 GlobalTween="*res://src/Singletons/GlobalTween.gd"
 GlobalCamera="*res://src/Camera/Camera/Camera.tscn"
 Hud="*res://src/Singletons/Hud/Hud.tscn"
+GameSaver="*res://src/Singletons/GameSaver.gd"
 
 [display]
 

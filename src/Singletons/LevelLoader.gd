@@ -4,6 +4,7 @@ var next_level: String
 var current_level: String
 var next_level_id: int
 var current_level_id: int = 0
+var fruits_gained: int = 0
 var levels_data: Array = [
 	["res://levels/GameLevels/World01/W01L01.tscn", 0, 10, true, false],
 	["res://levels/GameLevels/World01/W01L02.tscn", 0, 10, false, true],
@@ -44,6 +45,7 @@ onready var first_level: String = levels_data[0][0]
 
 func _ready() -> void:
 	TransitionScreen.connect("screen_closed", self, "load_level")
+	Events.connect("fruit_earned", self, "increase_fruits_gained")
 
 
 func load_level() -> void:
@@ -63,6 +65,9 @@ func load_next_level() -> void:
 	else:
 		push_error("Next level must be defined")
 
+	levels_data[current_level_id][1] = fruits_gained
+	fruits_gained = 0
+
 
 func load_level_by_path(path: String) -> void:
 	get_tree().change_scene(path)
@@ -72,3 +77,7 @@ func set_next_level() -> void:
 	next_level_id = current_level_id + 1
 	current_level_id = next_level_id
 	next_level = levels_data[next_level_id][0]
+
+
+func increase_fruits_gained() -> void:
+	fruits_gained += 1
