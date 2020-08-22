@@ -6,14 +6,18 @@ signal player_exited
 signal trigger_activated
 signal trigger_deactivated
 
-export(bool) var is_interactable: = false
-export(bool) var is_triggered_once: = false
+export(bool) var is_active := true
+export(bool) var is_interactable := false
+export(bool) var is_triggered_once := false
 
 var is_player_inside: bool = false
 var is_activated: bool = false
 
 
 func _on_body_entered(_body: Player) -> void:
+	if not is_active:
+		return
+	
 	is_player_inside = true
 	emit_signal("player_entered")
 
@@ -30,6 +34,9 @@ func _on_body_entered(_body: Player) -> void:
 
 
 func _on_body_exited(_body: Player) -> void:
+	if not is_active:
+		return
+
 	is_player_inside = false
 	emit_signal("player_exited")
 
@@ -45,6 +52,9 @@ func _on_body_exited(_body: Player) -> void:
 
 				
 func _unhandled_input(event: InputEvent) -> void:
+	if not is_active:
+		return
+	
 	if is_interactable and event.is_action_pressed("interact") and is_player_inside:
 		match is_activated:
 			true:

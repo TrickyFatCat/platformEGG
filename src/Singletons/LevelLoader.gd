@@ -7,8 +7,8 @@ var current_level_id: int = 0
 var fruits_gained: int = 0
 var levels_data: Array = [
 	["res://levels/GameLevels/World01/W01L01.tscn", 0, 10, true, false],
-	["res://levels/GameLevels/World01/W01L02.tscn", 0, 10, false, true],
-	["res://levels/GameLevels/World01/W01L03.tscn", 0, 10, false, true],
+	["res://levels/GameLevels/World01/W01L02.tscn", 0, 10, true, false],
+	["res://levels/GameLevels/World01/W01L03.tscn", 0, 10, false, false],
 	["res://levels/GameLevels/World01/W01L04.tscn", 0, 10, false, true],
 	["res://levels/GameLevels/World01/W01L05.tscn", 0, 10, false, true],
 	["res://levels/GameLevels/World01/W01L06.tscn", 0, 10, false, true],
@@ -65,7 +65,15 @@ func load_next_level() -> void:
 	else:
 		push_error("Next level must be defined")
 
-	levels_data[current_level_id][1] = fruits_gained
+	if get_fruits_gained(current_level_id) < fruits_gained:
+		set_fruits_gained(current_level_id, fruits_gained)
+
+	if not get_is_level_completed(current_level_id):
+		set_is_level_completed(current_level_id, true)
+	
+	if get_is_level_locked(next_level_id):
+		set_is_level_locked(next_level_id, false)
+
 	fruits_gained = 0
 
 
@@ -76,8 +84,40 @@ func load_level_by_path(path: String) -> void:
 func set_next_level() -> void:
 	next_level_id = current_level_id + 1
 	current_level_id = next_level_id
-	next_level = levels_data[next_level_id][0]
+	next_level = get_level_path(next_level_id)
 
 
 func increase_fruits_gained() -> void:
 	fruits_gained += 1
+
+
+func get_level_path(level_id: int) -> String:
+	return levels_data[level_id][0]
+
+
+func set_fruits_gained(level_id: int, amount: int) -> void:
+	levels_data[level_id][1] = amount
+
+
+func get_fruits_gained(level_id: int) -> int:
+	return levels_data[level_id][1]
+
+
+func get_fruits_max(level_id: int) -> int:
+	return levels_data[level_id][2]
+
+
+func set_is_level_completed(level_id: int, is_completed: bool) -> void:
+	levels_data[level_id][3] = is_completed
+
+
+func get_is_level_completed(level_id: int) -> bool:
+	return levels_data[level_id][3]
+
+
+func set_is_level_locked(level_id: int, is_locked: bool) -> void:
+	levels_data[level_id][4] = is_locked
+
+
+func get_is_level_locked(level_id: int) -> bool:
+	return levels_data[level_id][4]

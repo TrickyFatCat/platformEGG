@@ -8,8 +8,6 @@
 script = ExtResource( 1 )
 is_interactable = true
 is_triggered_once = true
-game_difficulty = 0
-level = ""
 
 [node name="DeleteME" type="ColorRect" parent="." index="1"]
 margin_left = -20.0
@@ -33,7 +31,7 @@ custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 1
 custom_constants/shadow_offset_y = 1
-text = "me"
+text = "01"
 align = 1
 valign = 1
 __meta__ = {
