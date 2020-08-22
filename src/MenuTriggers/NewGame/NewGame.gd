@@ -11,9 +11,11 @@ export(int, 0, 31) var level_id := 0
 
 
 onready var levelNumber: Label = $LevelNumber
+onready var fruitsCount: Label = $FruitsCount
 
 
 func _ready() -> void:
+	_set_fruits_count()
 	levelNumber.text = String("%02d" % (level_id + 1))
 	is_active = not LevelLoader.get_is_level_locked(level_id)
 
@@ -30,3 +32,9 @@ func _on_trigger_activated() -> void:
 	LevelLoader.next_level = LevelLoader.get_level_path(level_id)
 	GameManager.stop_session()
 	GameManager.game_difficulty = game_difficulty
+
+
+func _set_fruits_count() -> void:
+	var fruits_gained := String("%03d" % LevelLoader.get_fruits_gained(level_id))
+	var fruits_max := String("%03d" % LevelLoader.get_fruits_max(level_id))
+	fruitsCount.text = fruits_gained + "/" + fruits_max
