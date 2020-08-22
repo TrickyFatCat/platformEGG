@@ -27,7 +27,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel") and is_active:
 		match get_tree().paused:
 			true:
-				# get_tree().paused = false
 				pauseMenu.start_transition()
 				resourcesPanel.visible = true
 				pass
@@ -36,6 +35,12 @@ func _unhandled_input(event: InputEvent) -> void:
 				get_tree().paused = true
 				resourcesPanel.visible = false
 				pass
+	
+	if event.is_action_pressed("ui_select") and get_tree().paused:
+		print("hello")
+		GameManager.stop_session()
+		get_tree().paused = false
+		LevelLoader.load_main_menu()
 
 
 func unpause_game() -> void:

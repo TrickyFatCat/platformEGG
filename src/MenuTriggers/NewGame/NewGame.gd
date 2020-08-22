@@ -15,23 +15,26 @@ onready var fruitsCount: Label = $FruitsCount
 
 
 func _ready() -> void:
-	_set_fruits_count()
 	levelNumber.text = String("%02d" % (level_id + 1))
-	is_active = not LevelLoader.get_is_level_locked(level_id)
 
-	if is_active:
-		$DeleteME.color = Color8(133, 255, 0, 50)
+	if not Engine.editor_hint:
+		_set_fruits_count()
+		is_active = not LevelLoader.get_is_level_locked(level_id)
 
-		if not LevelLoader.get_is_level_completed(level_id):
-			$DeleteME.color = Color8(255, 209, 0, 150)
-	else:
-		$DeleteME.color = Color8(255, 0, 72, 145)
+		if is_active:
+			$DeleteME.color = Color8(133, 255, 0, 50)
+
+			if not LevelLoader.get_is_level_completed(level_id):
+				$DeleteME.color = Color8(255, 209, 0, 150)
+		else:
+			$DeleteME.color = Color8(255, 0, 72, 145)
 
 
 func _on_trigger_activated() -> void:
-	LevelLoader.next_level = LevelLoader.get_level_path(level_id)
-	GameManager.stop_session()
-	GameManager.game_difficulty = game_difficulty
+	if not Engine.editor_hint:
+		LevelLoader.next_level = LevelLoader.get_level_path(level_id)
+		GameManager.stop_session()
+		GameManager.game_difficulty = game_difficulty
 
 
 func _set_fruits_count() -> void:

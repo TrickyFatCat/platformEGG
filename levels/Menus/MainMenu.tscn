@@ -12,7 +12,7 @@ is_hud_active = false
 load_custom_level = false
 
 [node name="PlatformLong" parent="." index="0" instance=ExtResource( 4 )]
-position = Vector2( 1232, 241.124 )
+position = Vector2( 1232, 320.505 )
 
 [node name="ObjectMover" parent="PlatformLong" index="2"]
 waiting_duration = 2.0
