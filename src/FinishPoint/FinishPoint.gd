@@ -10,7 +10,6 @@ func _on_body_entered(body: PhysicsBody2D) -> void:
 	
 	if is_player_inside and is_egg_inside:
 		Events.emit_signal("level_finished")
-		# GameManager.stop_session()
 
 
 func _on_body_exited(body: PhysicsBody2D) -> void:

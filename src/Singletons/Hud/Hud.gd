@@ -21,6 +21,7 @@ func _ready() -> void:
 	Events.connect("level_loaded", self, "switch_resources_panel")
 	Events.connect("fruit_earned", self, "update_fruits_count")
 	Events.connect("level_loaded", self, "update_fruits_count")
+	TransitionScreen.connect("screen_closed", self, "force_unpause")
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -37,10 +38,8 @@ func _unhandled_input(event: InputEvent) -> void:
 				pass
 	
 	if event.is_action_pressed("ui_select") and get_tree().paused:
-		print("hello")
-		GameManager.stop_session()
-		get_tree().paused = false
 		LevelLoader.load_main_menu()
+		GameManager.stop_session()
 
 
 func unpause_game() -> void:
@@ -63,3 +62,8 @@ func update_fruits_count() -> void:
 
 func switch_resources_panel() -> void:
 	resourcesPanel.visible = is_active
+
+
+func force_unpause() -> void:
+	if get_tree().paused:
+		pauseMenu.force_closing()

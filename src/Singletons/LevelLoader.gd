@@ -1,10 +1,8 @@
 extends Node
 
-var next_level: String
-var current_level: String
-var next_level_id: int
-var current_level_id: int = 0
-var fruits_gained: int = 0
+var current_level_id : int = 0
+var target_level : String
+var fruits_gained : int = 0
 var levels_data : Array = [
 	["res://levels/GameLevels/World01/W01L01.tscn", 0, 10, false, false],
 	["res://levels/GameLevels/World01/W01L02.tscn", 0, 10, false, true],
@@ -40,40 +38,19 @@ var levels_data : Array = [
 	["res://levels/GameLevels/World01/W01L32.tscn", 0, 10, false, true],
 ]
 
-onready var first_level: String = levels_data[0][0]
+onready var first_level : String = levels_data[0][0]
 
 
 func _ready() -> void:
 	TransitionScreen.connect("screen_closed", self, "load_level")
 	Events.connect("fruit_earned", self, "increase_fruits_gained")
+	Events.connect("level_exited", self, "load_main_menu")
+	Events.connect("level_finished", self, "update_level_data")
+	Events.connect("player_dead", self, "restart_level")
 
 
 func load_level() -> void:
-	if next_level != current_level:
-		load_next_level()
-	else:
-		reload_current_level()
-
-
-func reload_current_level() -> void:
-	get_tree().reload_current_scene()
-
-
-func load_next_level() -> void:
-	if next_level:
-		load_level_by_path(next_level)
-	else:
-		push_error("Next level must be defined")
-
-	if get_fruits_gained(current_level_id) < fruits_gained:
-		set_fruits_gained(current_level_id, fruits_gained)
-
-	if not get_is_level_completed(current_level_id):
-		set_is_level_completed(current_level_id, true)
-	
-	if get_is_level_locked(next_level_id):
-		set_is_level_locked(next_level_id, false)
-
+	get_tree().change_scene(target_level)
 	fruits_gained = 0
 
 
@@ -82,13 +59,35 @@ func load_level_by_path(path: String) -> void:
 
 
 func load_main_menu() -> void:
-	load_level_by_path("res://levels/Menus/MainMenu.tscn")
+	current_level_id = -1
+	target_level = "res://levels/Menus/MainMenu.tscn"
 
 
-func set_next_level() -> void:
-	next_level_id = current_level_id + 1
+func restart_level() -> void:
+	set_target_level_by_id(current_level_id)
+
+
+func update_level_data() -> void:
+	var next_level_id = current_level_id + 1
+
+	if get_fruits_gained(current_level_id) < fruits_gained:
+		set_fruits_gained(current_level_id, fruits_gained)
+
+	if not get_is_level_completed(current_level_id):
+		set_is_level_completed(current_level_id, true)
+	
+	if next_level_id == levels_data.size():
+		return
+	
+	if get_is_level_locked(next_level_id):
+		set_is_level_locked(next_level_id, false)
+
 	current_level_id = next_level_id
-	next_level = get_level_path(next_level_id)
+	set_target_level_by_id(next_level_id)
+
+
+func set_target_level_by_id(level_id: int) -> void:
+	target_level = get_level_path(level_id)
 
 
 func increase_fruits_gained() -> void:

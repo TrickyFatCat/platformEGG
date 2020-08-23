@@ -10,11 +10,8 @@ font_data = ExtResource( 4 )
 
 [node name="NewGame" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
-is_active = true
 is_interactable = true
 is_triggered_once = true
-game_difficulty = 0
-level_id = 0
 
 [node name="DeleteME" type="ColorRect" parent="." index="1"]
 margin_left = -20.0

@@ -64,3 +64,9 @@ func _show_menu() -> void:
 
 func _hide_menu() -> void:
 	pauseLabel.visible = false
+
+
+func force_closing() -> void:
+	stateMachine.transition_to(state_closed)
+	set_alpha(0)
+	_hide_menu()

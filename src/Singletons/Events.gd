@@ -1,8 +1,6 @@
 extends Node
 
 # warning-ignore:unused_signal
-signal level_loaded()
-# warning-ignore:unused_signal
 signal player_took_damage()
 # warning-ignore:unused_signal
 signal player_dead()
@@ -15,4 +13,8 @@ signal egg_took_damage()
 # warning-ignore:unused_signal
 signal egg_dead()
 signal fruit_earned()
+# warning-ignore:unused_signal
+signal level_loaded()
+signal level_exited()
+signal level_restarted()
 signal level_finished()

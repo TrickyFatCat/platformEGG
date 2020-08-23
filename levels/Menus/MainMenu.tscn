@@ -9,10 +9,9 @@
 
 [node name="MainMenu" instance=ExtResource( 1 )]
 is_hud_active = false
-load_custom_level = false
 
 [node name="PlatformLong" parent="." index="0" instance=ExtResource( 4 )]
-position = Vector2( 1232, 320.505 )
+position = Vector2( 1232, 244 )
 
 [node name="ObjectMover" parent="PlatformLong" index="2"]
 waiting_duration = 2.0
@@ -29,9 +28,6 @@ position = Vector2( 1232, 164 )
 
 [node name="Position3" type="Position2D" parent="PlatformLong/ObjectMover/TargetPoints" index="3"]
 position = Vector2( 1232, 84 )
-
-[node name="MovementTween" parent="PlatformLong/ObjectMover" index="1"]
-playback/active = true
 
 [node name="WaitingTimer" parent="PlatformLong/ObjectMover" index="2"]
 wait_time = 2.0

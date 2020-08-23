@@ -32,7 +32,8 @@ func _ready() -> void:
 
 func _on_trigger_activated() -> void:
 	if not Engine.editor_hint:
-		LevelLoader.next_level = LevelLoader.get_level_path(level_id)
+		LevelLoader.current_level_id = level_id
+		LevelLoader.set_target_level_by_id(level_id)
 		GameManager.stop_session()
 		GameManager.game_difficulty = game_difficulty
 

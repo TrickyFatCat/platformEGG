@@ -20,7 +20,7 @@ onready var startTimer: Timer = $StartTimer
 
 func _on_StartTimer_timeout():
 	stateMachine.transition_to("Active")
-                        
+						
 
 func _ready() -> void:
 	Events.connect("level_loaded", self, "start_transition")
@@ -45,13 +45,4 @@ func stop_session() -> void:
 
 
 func restart_session() -> void:
-	match game_difficulty:
-		difficulty.NORMAL:
-			LevelLoader.next_level = LevelLoader.current_level
-			pass
-		
-		difficulty.HARD:
-			LevelLoader.next_level = LevelLoader.first_level
-			pass
-	
 	start_transition()
