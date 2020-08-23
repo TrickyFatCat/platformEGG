@@ -1,6 +1,6 @@
 extends Node
 
-var game_data = "user://game_data.save"
+var game_data = "res://game_data.save"
 
 
 func _ready() -> void:
