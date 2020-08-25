@@ -1,0 +1,17 @@
+[remap]
+
+importer="texture_atlas"
+type="Texture"
+path="res://.import/melon_04.png-03968dada44df14579e7925fefbbf2f1.res"
+group_file="res://assets/Atlases/fruits.png"
+valid=true
+[deps]
+
+
+source_file="res://assets/Fruits/Melon/melon_04.png"
+dest_files=[ "res://.import/melon_04.png-03968dada44df14579e7925fefbbf2f1.res" ]
+
+[params]
+
+atlas_file="res://assets/Atlases/fruits.png"
+import_mode=0

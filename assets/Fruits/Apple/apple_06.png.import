@@ -1,0 +1,17 @@
+[remap]
+
+importer="texture_atlas"
+type="Texture"
+path="res://.import/apple_06.png-b40d25137e9481cac38c057d4c6ab7d7.res"
+group_file="res://assets/Atlases/fruits.png"
+valid=true
+[deps]
+
+
+source_file="res://assets/Fruits/Apple/apple_06.png"
+dest_files=[ "res://.import/apple_06.png-b40d25137e9481cac38c057d4c6ab7d7.res" ]
+
+[params]
+
+atlas_file="res://assets/Atlases/fruits.png"
+import_mode=0

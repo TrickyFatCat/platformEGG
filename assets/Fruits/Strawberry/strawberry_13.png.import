@@ -1,0 +1,17 @@
+[remap]
+
+importer="texture_atlas"
+type="Texture"
+path="res://.import/strawberry_13.png-e43b73007f2bedac01f9a985d9c5359f.res"
+group_file="res://assets/Atlases/fruits.png"
+valid=true
+[deps]
+
+
+source_file="res://assets/Fruits/Strawberry/strawberry_13.png"
+dest_files=[ "res://.import/strawberry_13.png-e43b73007f2bedac01f9a985d9c5359f.res" ]
+
+[params]
+
+atlas_file="res://assets/Atlases/fruits.png"
+import_mode=0

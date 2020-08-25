@@ -1,0 +1,17 @@
+[remap]
+
+importer="texture_atlas"
+type="Texture"
+path="res://.import/orange_15.png-32e96f7e73006e589ab334e66127e10c.res"
+group_file="res://assets/Atlases/fruits.png"
+valid=true
+[deps]
+
+
+source_file="res://assets/Fruits/Orange/orange_15.png"
+dest_files=[ "res://.import/orange_15.png-32e96f7e73006e589ab334e66127e10c.res" ]
+
+[params]
+
+atlas_file="res://assets/Atlases/fruits.png"
+import_mode=0

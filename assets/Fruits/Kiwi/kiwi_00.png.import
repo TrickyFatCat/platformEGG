@@ -1,0 +1,17 @@
+[remap]
+
+importer="texture_atlas"
+type="Texture"
+path="res://.import/kiwi_00.png-80958d3114e19736aa5e7a065f8cb0d8.res"
+group_file="res://assets/Atlases/fruits.png"
+valid=true
+[deps]
+
+
+source_file="res://assets/Fruits/Kiwi/kiwi_00.png"
+dest_files=[ "res://.import/kiwi_00.png-80958d3114e19736aa5e7a065f8cb0d8.res" ]
+
+[params]
+
+atlas_file="res://assets/Atlases/fruits.png"
+import_mode=0

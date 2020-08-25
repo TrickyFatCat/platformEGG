@@ -1,0 +1,17 @@
+[remap]
+
+importer="texture_atlas"
+type="Texture"
+path="res://.import/bananas_04.png-61afd20eb1bcaa548a42188f7208eafe.res"
+group_file="res://assets/Atlases/fruits.png"
+valid=true
+[deps]
+
+
+source_file="res://assets/Fruits/Bananas/bananas_04.png"
+dest_files=[ "res://.import/bananas_04.png-61afd20eb1bcaa548a42188f7208eafe.res" ]
+
+[params]
+
+atlas_file="res://assets/Atlases/fruits.png"
+import_mode=0

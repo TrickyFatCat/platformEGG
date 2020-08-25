@@ -1,0 +1,17 @@
+[remap]
+
+importer="texture_atlas"
+type="Texture"
+path="res://.import/cherries_16.png-9ff61589a623fbbd5702fdbd131c13b2.res"
+group_file="res://assets/Atlases/fruits.png"
+valid=true
+[deps]
+
+
+source_file="res://assets/Fruits/Cherries/cherries_16.png"
+dest_files=[ "res://.import/cherries_16.png-9ff61589a623fbbd5702fdbd131c13b2.res" ]
+
+[params]
+
+atlas_file="res://assets/Atlases/fruits.png"
+import_mode=0
