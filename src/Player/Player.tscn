@@ -38,12 +38,10 @@ playing = true
 target_sprite = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0, -9 )
 shape = SubResource( 1 )
 
 [node name="DamageDetector" type="Area2D" parent="."]
-visible = false
 modulate = Color( 0.341176, 0.129412, 0.862745, 1 )
 position = Vector2( 0, -9 )
 collision_layer = 0

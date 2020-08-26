@@ -8,6 +8,7 @@ export(bool) var is_active: = false
 
 var point_index: int = 0
 var target_position: Vector2
+var current_position: Vector2 = Vector2.ZERO
 
 onready var points: Array = $TargetPoints.get_children()
 onready var tween: Tween = $MovementTween
@@ -31,7 +32,13 @@ func _ready() -> void:
 		waitingTimer.wait_time = waiting_duration
 	
 	if is_active:
+		current_position = points[0].global_position
+		target_node.global_position = current_position
 		start_movement()
+
+
+func _physics_process(_delta: float) -> void:
+	target_node.global_position = target_node.global_position.linear_interpolate(current_position, 0.075)
 
 
 func start_movement() -> void:
@@ -45,8 +52,8 @@ func start_movement() -> void:
 func start_tween() -> void:
 	var tween_type: = Tween.TRANS_LINEAR if waiting_duration == 0 else Tween.TRANS_QUINT
 	tween.interpolate_property(
-		target_node,
-		"global_position",
+		self,
+		"current_position",
 		target_node.global_position,
 		target_position,
 		travel_duration,

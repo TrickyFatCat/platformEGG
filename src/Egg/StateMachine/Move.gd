@@ -2,6 +2,7 @@ extends State
 
 const BOUNCE_FACTOR: Vector2 = Vector2(0.35, 0.5)
 const WALL_BOUNCE_FACTOR: Vector2 = Vector2(0.35, 1)
+const SNAP_VECTOR_DEFAULT : Vector2 = Vector2.DOWN * 2
 
 var gravity: float = Global.GRAVITY
 var velocity: Vector2 = Vector2.ZERO
@@ -21,7 +22,7 @@ func _on_DamageDetector_body_entered(body: PhysicsBody2D) -> void:
 
 func physics_process(delta: float) -> void:
 	apply_gravity(delta)
-	egg.move_and_slide(velocity, Global.FLOOR_NORMAL)
+	egg.move_and_slide_with_snap(velocity, SNAP_VECTOR_DEFAULT, Global.FLOOR_NORMAL)
 
 
 func enter(msg: Dictionary = {}) -> void:

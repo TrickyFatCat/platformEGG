@@ -1,21 +1,22 @@
 extends State
 
-const AIR_CONTROL_DEFAULT: float = 1.0
+const AIR_CONTROL_DEFAULT : float = 1.0
+const SNAP_VECTOR_DEFAULT : Vector2 = Vector2.DOWN * 8
 
-var velocity: Vector2 = Vector2.ZERO
-var movement_buffer: int = 3
-var movement_buffer_counter: int = 0
-var is_coyote_time_active: bool = false
+var velocity : Vector2 = Vector2.ZERO
+var movement_buffer : int = 3
+var movement_buffer_counter : int = 0
+var is_coyote_time_active : bool = false
 
-onready var player: Player = Global.player
-onready var sprite: AnimatedSprite = player.get_node("Sprite")
-onready var acceleration: Vector2 = player.acceleration
-onready var velocity_max: Vector2 = player.velocity_max
-onready var velocity_jump: Vector2 = player.velocity_jump
-onready var velocity_stunlock: Vector2 = player.velocity_stunlock
-onready var gravity: float = Global.GRAVITY
-onready var friction: float = player.ground_friction
-onready var air_control_factor: float = AIR_CONTROL_DEFAULT
+onready var player : Player = Global.player
+onready var sprite : AnimatedSprite = player.get_node("Sprite")
+onready var acceleration : Vector2 = player.acceleration
+onready var velocity_max : Vector2 = player.velocity_max
+onready var velocity_jump : Vector2 = player.velocity_jump
+onready var velocity_stunlock : Vector2 = player.velocity_stunlock
+onready var gravity : float = Global.GRAVITY
+onready var friction : float = player.ground_friction
+onready var air_control_factor : float = AIR_CONTROL_DEFAULT
 
 
 func _on_DamageDetector_area_entered(area: Area2D) -> void:
@@ -43,7 +44,7 @@ func physics_process(delta: float) -> void:
 	var direction = get_move_direction()
 	calculate_velocity_x(delta, direction)
 	apply_gravity(delta)
-	velocity = player.move_and_slide(velocity, Global.FLOOR_NORMAL)
+	velocity = player.move_and_slide_with_snap(velocity, SNAP_VECTOR_DEFAULT, Global.FLOOR_NORMAL)
 
 
 func calculate_velocity_x(delta: float, direction: Vector2) -> void:

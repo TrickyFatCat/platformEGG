@@ -18,7 +18,3 @@ position = Vector2( 0, 0.5 )
 shape = SubResource( 1 )
 
 [node name="ObjectMover" parent="." index="2" instance=ExtResource( 3 )]
-travel_duration = 1.0
-waiting_duration = 1.0
-is_cycled = false
-is_active = false
