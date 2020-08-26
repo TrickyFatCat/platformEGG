@@ -17,4 +17,5 @@ func enter(msg: Dictionary = {}) -> void:
 
 
 func exit() -> void:
+	Events.emit_signal("player_spawned")
 	player.is_active = true
