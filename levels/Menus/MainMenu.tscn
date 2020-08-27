@@ -13,7 +13,7 @@ script = ExtResource( 7 )
 is_hud_active = false
 
 [node name="PlatformLong" parent="." index="0" instance=ExtResource( 4 )]
-position = Vector2( 1232, 106.091 )
+position = Vector2( 1232, 324 )
 
 [node name="Collision" parent="PlatformLong" index="1"]
 one_way_collision_margin = 8.0
@@ -35,14 +35,11 @@ position = Vector2( 1232, 164 )
 [node name="Position3" type="Position2D" parent="PlatformLong/ObjectMover/TargetPoints" index="3"]
 position = Vector2( 1232, 84 )
 
-[node name="MovementTween" parent="PlatformLong/ObjectMover" index="1"]
-playback/active = true
-
 [node name="WaitingTimer" parent="PlatformLong/ObjectMover" index="2"]
 wait_time = 2.0
 
 [node name="PlatformLong2" parent="." index="1" instance=ExtResource( 4 )]
-position = Vector2( 688, 301.909 )
+position = Vector2( 688, 84 )
 
 [node name="ObjectMover" parent="PlatformLong2" index="2"]
 travel_duration = 0.75
@@ -60,9 +57,6 @@ position = Vector2( 688, 244 )
 
 [node name="Position3" type="Position2D" parent="PlatformLong2/ObjectMover/TargetPoints" index="3"]
 position = Vector2( 688, 324 )
-
-[node name="MovementTween" parent="PlatformLong2/ObjectMover" index="1"]
-playback/active = true
 
 [node name="WaitingTimer" parent="PlatformLong2/ObjectMover" index="2"]
 wait_time = 2.0
