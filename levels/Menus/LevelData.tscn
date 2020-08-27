@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/Fonts/fntBaseFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://levels/Menus/LevelData.gd" type="Script" id=2]
+[ext_resource path="res://src/Singletons/Hud/Resource/FruitsCount.tscn" type="PackedScene" id=3]
+
+[node name="LevelData" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="LevelDataContainer" type="VBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -39.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelNumber" type="Label" parent="LevelDataContainer"]
+margin_right = 640.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+text = "Level ##"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DataPanel" type="HBoxContainer" parent="LevelDataContainer"]
+margin_top = 18.0
+margin_right = 640.0
+margin_bottom = 35.0
+custom_constants/separation = 20
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FruitsCount" parent="LevelDataContainer/DataPanel" instance=ExtResource( 3 )]
+margin_left = 229.0
+margin_right = 313.0
+
+[node name="LevelTime" type="Label" parent="LevelDataContainer/DataPanel"]
+margin_left = 333.0
+margin_top = 1.0
+margin_right = 411.0
+margin_bottom = 15.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+text = "00:00.000"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

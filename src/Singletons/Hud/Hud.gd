@@ -10,6 +10,7 @@ onready var dataPanel : HBoxContainer = $DataPanel
 onready var playerHitpoints : HBoxContainer = $DataPanel/Resources/PlayerHitPoints
 onready var eggHitpoints : HBoxContainer = $DataPanel/Resources/EggHitPoints
 onready var fruitsCount : HBoxContainer = $DataPanel/Resources/FruitsCount
+onready var levelTimer : Label = $DataPanel/LevelTimer
 
 
 func _ready() -> void:
@@ -40,6 +41,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_select") and get_tree().paused:
 		LevelLoader.load_main_menu()
 		GameManager.stop_session()
+
+
+func _process(delta: float) -> void:
+	levelTimer.text = LevelLoader.get_converted_time(LevelLoader.level_time)
 
 
 func unpause_game() -> void:

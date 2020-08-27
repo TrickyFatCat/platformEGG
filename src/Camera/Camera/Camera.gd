@@ -14,7 +14,6 @@ func _ready() -> void:
 	# warning-ignore:return_value_discarded
 	Events.connect("level_loaded", self, "snap_camera")
 		
-		
 
 func _physics_process(delta: float) -> void:
 	update_grid_position()

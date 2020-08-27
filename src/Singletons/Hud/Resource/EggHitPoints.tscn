@@ -4,12 +4,16 @@
 [ext_resource path="res://assets/Egg/egg.png" type="Texture" id=2]
 
 [node name="EggHitPoints" instance=ExtResource( 1 )]
+margin_bottom = 18.0
 
 [node name="Icon" parent="." index="0"]
 margin_right = 16.0
+margin_bottom = 18.0
 texture = ExtResource( 2 )
 
 [node name="Value" parent="." index="1"]
 margin_left = 18.0
+margin_top = 2.0
 margin_right = 47.0
+margin_bottom = 16.0
 text = "x99"

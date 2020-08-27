@@ -40,7 +40,7 @@ var levels_data : Array = [
 	["res://levels/GameLevels/World01/W01L32.tscn", 0, 10, false, true, 0.0],
 ]
 
-onready var first_level : String = levels_data[0][0]
+onready var first_level : String = get_level_path(0)
 
 
 func _ready() -> void:
@@ -73,6 +73,7 @@ func load_main_menu() -> void:
 
 
 func restart_level() -> void:
+	is_level_timer_active = false
 	set_target_level_by_id(current_level_id)
 
 
@@ -114,6 +115,19 @@ func reset_level_time() -> void:
 func start_level_timer() -> void:
 	if current_level_id != -1:
 		is_level_timer_active = true
+
+
+func get_converted_time(time: float) -> String:
+	var minutes = time / 60
+	var seconds = int(time) % 60
+	var miliseconds = int(fmod(time, seconds) * 1000)
+
+	if miliseconds < 0:
+		minutes = 0
+		seconds = 0
+		miliseconds = 0
+	
+	return "%02d:%02d.%03d" % [minutes, seconds, miliseconds]
 
 
 func reset_levels_data() -> void:
