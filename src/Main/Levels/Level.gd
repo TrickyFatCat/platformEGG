@@ -6,6 +6,10 @@ export(bool) var is_hud_active: = true
 var level_time : float = 0
 
 
+func _init() -> void:
+	Global.current_level = self
+
+
 func _ready() -> void:
 	Hud.is_active = is_hud_active
 	Events.emit_signal("level_loaded")

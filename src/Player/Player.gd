@@ -17,6 +17,7 @@ onready var collider: CollisionShape2D = $CollisionShape2D
 onready var flashController: FlashController = $Sprite/FlashController
 onready var hitPoints: HitPoints = $HitPoints
 onready var eggController: EggController = $EggController
+onready var dust_effect : PackedScene = preload("res://src/Vfx/LandingEffect.tscn")
 
 
 # warning-ignore:unused_argument
@@ -107,3 +108,10 @@ func transit_to_death() -> void:
 
 func transition_to_spawn() -> void:
 	stateMachine.transition_to("Spawn")
+
+
+func spawn_dust() -> void:
+	var dust_instance = dust_effect.instance()
+	Global.current_level.add_child(dust_instance)
+	dust_instance.global_position = global_position
+	

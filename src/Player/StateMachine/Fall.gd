@@ -32,6 +32,7 @@ func physics_process(delta: float) -> void:
 	
 	if player.is_on_floor():
 		var target_state: = "Move/Idle" if move.get_move_direction().x == 0.0 else "Move/Run"
+		player.spawn_dust()
 		stateMachine.transition_to(target_state)
 
 

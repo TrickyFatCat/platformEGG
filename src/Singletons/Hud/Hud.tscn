@@ -39,6 +39,7 @@ margin_bottom = 17.0
 [node name="EggHitPoints" parent="DataPanel/Resources" instance=ExtResource( 3 )]
 margin_left = 52.0
 margin_right = 99.0
+margin_bottom = 17.0
 
 [node name="FruitsCount" parent="DataPanel/Resources" instance=ExtResource( 5 )]
 margin_left = 103.0

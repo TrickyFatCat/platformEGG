@@ -7,6 +7,7 @@ var player: Player
 var egg: Egg
 var player_hitpoints: int
 var egg_hitpoints: int
+var current_level : Level
 
 
 func deactivate_player() -> void:

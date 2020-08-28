@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://src/Player/ninjaFrog_frames.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://src/Player/StateMachine/Move.gd" type="Script" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://src/Player/StateMachine/Death.gd" type="Script" id=14]
 [ext_resource path="res://src/Player/StateMachine/Inactive.gd" type="Script" id=15]
 [ext_resource path="res://materials/Flash/mat_flash.tres" type="Material" id=16]
+[ext_resource path="res://src/Vfx/LandingEffect.tscn" type="PackedScene" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6, 9 )
@@ -90,9 +91,11 @@ script = ExtResource( 15 )
 visible = false
 
 [node name="HitPoints" parent="." instance=ExtResource( 13 )]
+
+[node name="DustEffect" parent="." instance=ExtResource( 17 )]
 [connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
-[connection signal="area_entered" from="DamageDetector" to="." method="_on_DamageDetector_area_entered"]
 [connection signal="area_entered" from="DamageDetector" to="StateMachine/Move" method="_on_DamageDetector_area_entered"]
-[connection signal="body_entered" from="DamageDetector" to="." method="_on_DamageDetector_body_entered"]
+[connection signal="area_entered" from="DamageDetector" to="." method="_on_DamageDetector_area_entered"]
 [connection signal="body_entered" from="DamageDetector" to="StateMachine/Move" method="_on_DamageDetector_body_entered"]
+[connection signal="body_entered" from="DamageDetector" to="." method="_on_DamageDetector_body_entered"]
 [connection signal="timeout" from="StateMachine/Move/Fall/CoyoteTimer" to="StateMachine/Move/Fall" method="_on_CoyoteTimer_timeout"]
