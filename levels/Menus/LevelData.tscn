@@ -42,6 +42,7 @@ __meta__ = {
 [node name="FruitsCount" parent="LevelDataContainer/DataPanel" instance=ExtResource( 3 )]
 margin_left = 229.0
 margin_right = 313.0
+margin_bottom = 17.0
 
 [node name="LevelTime" type="Label" parent="LevelDataContainer/DataPanel"]
 margin_left = 333.0

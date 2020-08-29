@@ -13,7 +13,7 @@ onready var levelNumber : Label = $LevelNumber
 
 
 func _on_player_entered() -> void:
-	Events.emit_signal("show_level_data", level_id)
+	Events.emit_signal("show_level_data", level_id, game_difficulty)
 
 
 func _on_player_exited() -> void:

@@ -13,15 +13,17 @@ func save_game() -> void:
     file.store_var(LevelLoader.levels_data)
     file.close()
     print_debug("Game Saved")
-    pass
 
 
 func load_game() -> Array:
     var levels_data
     var file = File.new()
-    if file.file_exists(game_data):
-        file.open(game_data, File.READ)
-        levels_data = file.get_var()
-        file.close()
+
+    if not file.file_exists(game_data):
+        save_game()
+
+    file.open(game_data, File.READ)
+    levels_data = file.get_var()
+    file.close()
     print_debug("Game Loaded")
     return levels_data

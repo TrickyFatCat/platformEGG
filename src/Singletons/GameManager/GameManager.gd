@@ -46,3 +46,11 @@ func stop_session() -> void:
 
 func restart_session() -> void:
 	start_transition()
+
+
+func is_difficulty_normal() -> bool:
+	return game_difficulty == difficulty.NORMAL
+
+
+func is_difficulty_hard() -> bool:
+	return game_difficulty == difficulty.HARD
