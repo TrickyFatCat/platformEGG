@@ -43,6 +43,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		GameManager.stop_session()
 
 
+func _notification(what: int) -> void:
+	if what == MainLoop.NOTIFICATION_WM_FOCUS_OUT and is_active:
+		pauseMenu.start_transition()
+		get_tree().paused = true
+
+
 func _process(delta: float) -> void:
 	levelTimer.text = LevelLoader.get_converted_time(LevelLoader.level_time)
 

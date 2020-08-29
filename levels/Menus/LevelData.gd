@@ -16,7 +16,7 @@ func show_level_data(level_id: int, difficulty) -> void:
 	print_debug(difficulty)
 	levelNumber.text = "LEVEL %02d" % (level_id + 1) if difficulty == 0 else set_levels_cleared()
 	set_fruits_count(level_id, difficulty)
-	levelTime.text = LevelLoader.get_converted_time(LevelLoader.get_level_time(level_id))
+	set_level_time(level_id, difficulty)
 	dataPanel.visible = true
 
 
@@ -51,3 +51,18 @@ func set_fruits_count(level_id: int, difficulty: int) -> void:
 			pass
 
 	fruitsCount.set_resource_value(fruits_gained, fruits_max)
+
+
+func set_level_time(level_id: int, difficulty: int) -> void:
+	var level_time = 0.0
+
+	match difficulty:
+		0:
+			level_time = LevelLoader.get_level_time(level_id)
+			pass
+		1:
+			for i in LevelLoader.levels_data.size():
+				level_time += LevelLoader.get_level_time_hard(i)
+			pass
+	
+	levelTime.text = LevelLoader.get_converted_time(level_time)

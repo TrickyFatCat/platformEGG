@@ -14,7 +14,7 @@ script = ExtResource( 7 )
 is_hud_active = false
 
 [node name="PlatformLong" parent="." index="0" instance=ExtResource( 4 )]
-position = Vector2( 1232, 244.022 )
+position = Vector2( 1232, 324 )
 
 [node name="Collision" parent="PlatformLong" index="1"]
 one_way_collision_margin = 8.0
@@ -40,7 +40,7 @@ position = Vector2( 1232, 84 )
 wait_time = 2.0
 
 [node name="PlatformLong2" parent="." index="1" instance=ExtResource( 4 )]
-position = Vector2( 688, 163.978 )
+position = Vector2( 688, 84 )
 
 [node name="ObjectMover" parent="PlatformLong2" index="2"]
 travel_duration = 0.75
