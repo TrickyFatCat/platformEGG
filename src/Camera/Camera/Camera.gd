@@ -28,8 +28,8 @@ func activate_egg_shake() -> void:
 
 
 func update_grid_position() -> void:
-	var x: = floor(Global.player.position.x / grid_size.x)
-	var y: = floor(Global.player.position.y / grid_size.y)
+	var x := floor(Global.player.position.x / grid_size.x)
+	var y := floor(Global.player.position.y / grid_size.y)
 	var new_grid_position: = Vector2(x, y)
 	
 	if grid_position == new_grid_position:
@@ -41,6 +41,7 @@ func update_grid_position() -> void:
 
 func snap_camera() -> void:
 	if Global.player:
+		grid_size *= zoom
 		update_grid_position()
 		set_physics_process(true)
 	else:
