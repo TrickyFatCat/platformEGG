@@ -12,6 +12,6 @@ func _init() -> void:
 
 
 func _ready() -> void:
-	GlobalCamera.zoom = camera_zoom
+	GameCamera.zoom = camera_zoom
 	Hud.is_active = is_hud_active
 	Events.emit_signal("level_loaded")

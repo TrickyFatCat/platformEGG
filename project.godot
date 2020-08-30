@@ -81,7 +81,7 @@ TransitionScreen="*res://src/Singletons/TransitionScreen/TransitionScreen.tscn"
 GameManager="*res://src/Singletons/GameManager/GameManager.tscn"
 LevelLoader="*res://src/Singletons/LevelLoader.gd"
 GlobalTween="*res://src/Singletons/GlobalTween.gd"
-GlobalCamera="*res://src/Camera/Camera/Camera.tscn"
+GameCamera="*res://src/Singletons/GameCamera/GameCamera.tscn"
 Hud="*res://src/Singletons/Hud/Hud.tscn"
 GameSaver="*res://src/Singletons/GameSaver.gd"
 
