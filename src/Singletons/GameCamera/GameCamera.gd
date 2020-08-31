@@ -41,8 +41,13 @@ func update_grid_position() -> void:
 
 func snap_camera() -> void:
 	if Global.player:
+		recalculate_grid()
 		grid_size *= zoom
 		update_grid_position()
 		set_physics_process(true)
 	else:
 		set_physics_process(false)
+
+
+func recalculate_grid() -> void:
+	grid_size = get_viewport().get_visible_rect().size
