@@ -2,8 +2,6 @@
 
 [ext_resource path="res://src/Singletons/GameCamera/CameraShaker/CameraShaker.gd" type="Script" id=1]
 
-
-
 [node name="CameraShaker" type="Node"]
 script = ExtResource( 1 )
 

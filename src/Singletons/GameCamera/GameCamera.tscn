@@ -7,8 +7,11 @@
 [node name="GameCamera" type="Camera2D"]
 anchor_mode = 0
 current = true
+limit_left = 0
+limit_top = 0
 smoothing_enabled = true
 smoothing_speed = 10.0
+editor_draw_limits = true
 script = ExtResource( 3 )
 
 [node name="Background" parent="." instance=ExtResource( 1 )]
