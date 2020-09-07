@@ -22,3 +22,4 @@ func set_resource_value(value: int, value_max: int = -1) -> void:
 func update_fruits_max() -> void:
     if LevelLoader.current_level_id != -1:
         fruits_max = LevelLoader.get_fruits_max(LevelLoader.current_level_id)
+        set_resource_value(0, fruits_max)
