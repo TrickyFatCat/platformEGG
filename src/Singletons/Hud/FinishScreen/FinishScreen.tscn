@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/Fonts/fntBaseFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://src/Main/StateMachine/StateMachine.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/Singletons/Hud/FinishScreen/StateMachine/Closed.gd" type="Script" id=4]
 [ext_resource path="res://src/Singletons/Hud/FinishScreen/FinishScreen.gd" type="Script" id=5]
 [ext_resource path="res://src/Singletons/Hud/FinishScreen/StateMachine/Transition.gd" type="Script" id=6]
+[ext_resource path="res://src/Singletons/Hud/Resource/FruitsCount.tscn" type="PackedScene" id=7]
 
 [node name="FinishScreen" type="Control"]
 pause_mode = 2
@@ -24,12 +25,87 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FinishLable" type="Label" parent="."]
+[node name="FinishData" type="VBoxContainer" parent="."]
 visible = false
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.5
+margin_top = -20.5
+margin_bottom = 20.5
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FinishLabel" type="Label" parent="FinishData"]
+margin_right = 640.0
+margin_bottom = 14.0
 custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Level ## complete"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Statistics" type="HBoxContainer" parent="FinishData"]
+margin_top = 24.0
+margin_right = 640.0
+margin_bottom = 41.0
+custom_constants/separation = 32
+alignment = 1
+
+[node name="FruitsCount" parent="FinishData/Statistics" instance=ExtResource( 7 )]
+margin_left = 228.0
+margin_right = 312.0
+margin_bottom = 17.0
+
+[node name="LevelTime" type="Label" parent="FinishData/Statistics"]
+margin_left = 344.0
+margin_top = 1.0
+margin_right = 412.0
+margin_bottom = 15.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+text = "99:99.99"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="FinishData"]
+margin_top = 51.0
+margin_right = 640.0
+margin_bottom = 65.0
+custom_constants/separation = 32
+alignment = 1
+
+[node name="ExitInstruction" type="Label" parent="FinishData/HBoxContainer"]
+margin_left = 119.0
+margin_right = 279.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Press ESC to extit"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContinueIntstruction" type="Label" parent="FinishData/HBoxContainer"]
+margin_left = 311.0
+margin_right = 521.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Press space to continue"
 align = 1
 valign = 1
 uppercase = true

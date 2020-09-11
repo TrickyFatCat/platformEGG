@@ -129,6 +129,12 @@ func get_converted_time(time: float) -> String:
 	var seconds = int(time) % 60
 	var miliseconds = int(fmod(time, seconds) * 1000)
 
+	if seconds < 1:
+		seconds = int(time + 1) % 60
+		miliseconds = int(fmod(time, seconds) * 1000)
+		seconds = 0
+
+
 	if miliseconds < 0:
 		minutes = 0
 		seconds = 0

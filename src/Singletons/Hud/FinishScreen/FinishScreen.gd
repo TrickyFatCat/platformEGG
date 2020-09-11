@@ -7,13 +7,16 @@ const TRANSITION_DURATION: float = 0.10
 var target_state : String = ""
 var is_active : bool = false
 
-onready var stateMachine: StateMachine = $StateMachine
-onready var transitionTween: Tween = $TransitionTween
-onready var background: ColorRect = $Background
-onready var state_opened: String = get_node("StateMachine/Opened").name
-onready var state_closed: String = get_node("StateMachine/Closed").name
-onready var state_transition: String = get_node("StateMachine/Transition").name
-onready var finishLabel: Label = $FinishLable
+onready var stateMachine : StateMachine = $StateMachine
+onready var transitionTween : Tween = $TransitionTween
+onready var background : ColorRect = $Background
+onready var state_opened : String = get_node("StateMachine/Opened").name
+onready var state_closed : String = get_node("StateMachine/Closed").name
+onready var state_transition : String = get_node("StateMachine/Transition").name
+onready var finishData : VBoxContainer = $FinishData
+onready var finishLabel : Label = $FinishData/FinishLabel
+onready var fruitsCount : HBoxContainer = $FinishData/Statistics/FruitsCount
+onready var lelvelTime : Label = $FinishData/Statistics/LevelTime
 
 
 func _on_TransitionTween_tween_all_completed() -> void:
@@ -60,12 +63,15 @@ func activate_tween(initial_value: float, target_value: float) -> void:
 
 
 func _show_menu() -> void:
-	finishLabel.visible = true
+	finishData.visible = true
 	is_active = true
+	finishLabel.text = "LEVEL %02d COMPLETE" % (LevelLoader.current_level_id)
+	lelvelTime.text = LevelLoader.get_converted_time(LevelLoader.level_time)
+	fruitsCount.set_resource_value(LevelLoader.fruits_gained)
 
 
 func _hide_menu() -> void:
-	finishLabel.visible = false
+	finishData.visible = false
 	is_active = false
 
 
