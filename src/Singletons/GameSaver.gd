@@ -4,7 +4,7 @@ var game_data = "res://game_data.bin"
 
 
 func _ready() -> void:
-    Events.connect("level_finished", self, "save_game")
+    Events.connect("open_finish_screen", self, "save_game")
 
 
 func save_game() -> void:

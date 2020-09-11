@@ -5,7 +5,7 @@
 [ext_resource path="res://src/Traps/Pendulum/Pendulum.gd" type="Script" id=3]
 
 [node name="Pendulum" type="Node2D"]
-rotation = -0.77587
+rotation = 0.785398
 script = ExtResource( 3 )
 is_rotation_endless = false
 is_clockwise = true

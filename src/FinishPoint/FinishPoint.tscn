@@ -20,7 +20,7 @@ shape = SubResource( 1 )
 position = Vector2( -11, -32 )
 z_index = -1
 frames = ExtResource( 2 )
-frame = 15
+frame = 2
 playing = true
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

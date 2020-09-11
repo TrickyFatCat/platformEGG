@@ -47,7 +47,7 @@ func _ready() -> void:
 	TransitionScreen.connect("screen_closed", self, "load_level")
 	Events.connect("fruit_earned", self, "increase_fruits_gained")
 	Events.connect("level_exited", self, "load_main_menu")
-	Events.connect("level_finished", self, "update_level_data")
+	Events.connect("open_finish_screen", self, "update_level_data")
 	Events.connect("player_dead", self, "restart_level")
 	Events.connect("level_loaded", self, "reset_level_time")
 	Events.connect("player_spawned", self, "start_level_timer")
@@ -120,7 +120,7 @@ func reset_level_time() -> void:
 
 
 func start_level_timer() -> void:
-	if current_level_id != -1:
+	if Hud.is_active and current_level_id != -1:
 		is_level_timer_active = true
 
 

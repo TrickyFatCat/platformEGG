@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/Singletons/Hud/Hud.gd" type="Script" id=1]
 [ext_resource path="res://src/Singletons/Hud/PauseMenu/PauseMenu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Singletons/Hud/Resource/EggHitPoints.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Singletons/Hud/Resource/PlayerHitPoints.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Singletons/Hud/Resource/FruitsCount.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Singletons/Hud/FinishScreen/FinishScreen.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/Fonts/fntBaseFont.tres" type="DynamicFont" id=7]
 
 [node name="Hud" type="CanvasLayer"]
@@ -63,3 +64,5 @@ __meta__ = {
 }
 
 [node name="PauseMenu" parent="." instance=ExtResource( 2 )]
+
+[node name="FinishScreen" parent="." instance=ExtResource( 6 )]

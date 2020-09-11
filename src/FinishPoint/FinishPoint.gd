@@ -5,11 +5,13 @@ var is_egg_inside: bool = false
 
 
 func _on_body_entered(body: PhysicsBody2D) -> void:
-	is_body_egg(body)
 	is_body_player(body)
+	is_body_egg(body)
 	
 	if is_player_inside and is_egg_inside:
-		Events.emit_signal("level_finished")
+		# TODO add result window call here
+		Events.emit_signal("open_finish_screen")
+		Global.call_deferred("deactivate_player")
 
 
 func _on_body_exited(body: PhysicsBody2D) -> void:
