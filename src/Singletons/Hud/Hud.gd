@@ -76,6 +76,7 @@ func force_unpause() -> void:
 
 func open_finish_screen() -> void:
 	finishScreen.start_transition()
+	dataPanel.visible = false
 
 
 func process_ui_cancel() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/Fonts/fntBaseFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://src/Main/StateMachine/StateMachine.gd" type="Script" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://src/Singletons/Hud/FinishScreen/FinishScreen.gd" type="Script" id=5]
 [ext_resource path="res://src/Singletons/Hud/FinishScreen/StateMachine/Transition.gd" type="Script" id=6]
 [ext_resource path="res://src/Singletons/Hud/Resource/FruitsCount.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/Hud/icon_Ps4_circle.png" type="Texture" id=8]
+[ext_resource path="res://assets/Hud/icon_Ps4_cross.png" type="Texture" id=9]
 
 [node name="FinishScreen" type="Control"]
 pause_mode = 2
@@ -81,17 +83,28 @@ __meta__ = {
 [node name="HBoxContainer" type="HBoxContainer" parent="FinishData"]
 margin_top = 51.0
 margin_right = 640.0
-margin_bottom = 65.0
+margin_bottom = 67.0
 custom_constants/separation = 32
 alignment = 1
 
-[node name="ExitInstruction" type="Label" parent="FinishData/HBoxContainer"]
-margin_left = 119.0
-margin_right = 279.0
-margin_bottom = 14.0
+[node name="ExitInfo" type="HBoxContainer" parent="FinishData/HBoxContainer"]
+margin_left = 246.0
+margin_right = 303.0
+margin_bottom = 16.0
+
+[node name="TextureRect" type="TextureRect" parent="FinishData/HBoxContainer/ExitInfo"]
+margin_right = 16.0
+margin_bottom = 16.0
+texture = ExtResource( 8 )
+
+[node name="ExitInstruction" type="Label" parent="FinishData/HBoxContainer/ExitInfo"]
+margin_left = 20.0
+margin_top = 1.0
+margin_right = 57.0
+margin_bottom = 15.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "Press ESC to extit"
+text = "Exit"
 align = 1
 valign = 1
 uppercase = true
@@ -99,13 +112,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ContinueIntstruction" type="Label" parent="FinishData/HBoxContainer"]
-margin_left = 311.0
-margin_right = 521.0
-margin_bottom = 14.0
+[node name="ContinueInfo" type="HBoxContainer" parent="FinishData/HBoxContainer"]
+margin_left = 335.0
+margin_right = 394.0
+margin_bottom = 16.0
+
+[node name="TextureRect" type="TextureRect" parent="FinishData/HBoxContainer/ContinueInfo"]
+margin_right = 16.0
+margin_bottom = 16.0
+texture = ExtResource( 9 )
+
+[node name="ExitInstruction" type="Label" parent="FinishData/HBoxContainer/ContinueInfo"]
+margin_left = 20.0
+margin_top = 1.0
+margin_right = 59.0
+margin_bottom = 15.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "Press space to continue"
+text = "Next"
 align = 1
 valign = 1
 uppercase = true
