@@ -38,7 +38,8 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	target_node.global_position = target_node.global_position.linear_interpolate(current_position, 0.075)
+	if is_active:
+		target_node.global_position = target_node.global_position.linear_interpolate(current_position, 0.075)
 
 
 func start_movement() -> void:
