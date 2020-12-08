@@ -10,7 +10,7 @@ func physics_process(delta: float) -> void:
 	elif move.velocity.y != 0:
 		move.velocity.y = 0
 	
-	egg.move_and_slide(move.velocity, Global.FLOOR_NORMAL)
+	egg.move_and_slide_with_snap(move.velocity, Vector2.DOWN, Global.FLOOR_NORMAL)
 	
 	if move.velocity.x != 0 and move.velocity.y != 0:
 		stateMachine.transition_to("Move/Fall")
