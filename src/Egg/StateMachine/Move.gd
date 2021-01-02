@@ -13,6 +13,9 @@ onready var on_damage_impulse: Vector2 = egg.on_damage_impulse
 
 
 func _on_DamageDetector_area_entered(area: Area2D) -> void:
+	if area is DeathTrigger:
+		Global.egg.global_position = area.teleportation_position
+		
 	on_damage_throw(area.global_position)
 
 

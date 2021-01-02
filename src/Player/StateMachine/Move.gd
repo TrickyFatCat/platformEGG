@@ -20,6 +20,9 @@ onready var air_control_factor : float = AIR_CONTROL_DEFAULT
 
 
 func _on_DamageDetector_area_entered(area: Area2D) -> void:
+	if area is DeathTrigger:
+		Global.player.global_position = area.teleportation_position
+		
 	transit_to_stunlock(area.global_position)
 
 

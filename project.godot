@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area2D",
+"class": "DeathTrigger",
+"language": "GDScript",
+"path": "res://src/DeathTrigger/DeathTrigger.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Egg",
 "language": "GDScript",
@@ -55,6 +60,7 @@ _global_script_classes=[ {
 "path": "res://src/Main/StateMachine/StateMachine.gd"
 } ]
 _global_script_class_icons={
+"DeathTrigger": "",
 "Egg": "",
 "EggController": "",
 "FlashController": "",
