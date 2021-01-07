@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/Main/Levels/BaseLevel.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/Main/BaseTrigger/DeathTrigger.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Fruits/Fruit.tscn" type="PackedScene" id=3]
 
 [node name="W01L01" instance=ExtResource( 1 )]
@@ -37,11 +36,3 @@ collision_layer = 2147483650
 
 [node name="FinishPoint" parent="." index="6"]
 position = Vector2( 288, 160 )
-
-[node name="DeathTrigger" parent="." index="7" instance=ExtResource( 2 )]
-position = Vector2( 163.304, 160.862 )
-
-[node name="TeleportationPoint" parent="DeathTrigger" index="1"]
-position = Vector2( -107.751, -1.71727 )
-
-[editable path="DeathTrigger"]
