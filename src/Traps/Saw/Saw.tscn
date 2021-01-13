@@ -11,12 +11,17 @@ collision_layer = 16
 collision_mask = 0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+z_index = -1
 frames = ExtResource( 1 )
 animation = "active"
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="ObjectMover" parent="." instance=ExtResource( 2 )]
+travel_duration = 1.0
+waiting_duration = 1.0
+is_cycled = false
+is_active = false
