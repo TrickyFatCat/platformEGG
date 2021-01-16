@@ -26,6 +26,8 @@ extents = Vector2( 8, 11 )
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 60
 script = ExtResource( 7 )
+velocity_max = Vector2( 175, 600 )
+velocity_stunlock = Vector2( 100, 400 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 material = ExtResource( 16 )

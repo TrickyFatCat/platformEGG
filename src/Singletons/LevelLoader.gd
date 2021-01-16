@@ -8,7 +8,7 @@ var fruits_gained : int = 0
 var levels_data : Array = [
 	["res://levels/GameLevels/World01/W01L01.tscn", 0, 6, false, false, 0.0, false, 0, 0.0],
 	["res://levels/GameLevels/World01/W01L02.tscn", 0, 8, false, true, 0.0, false, 0, 0.0],
-	["res://levels/GameLevels/World01/W01L03.tscn", 0, 10, false, true, 0.0, false, 0, 0.0],
+	["res://levels/GameLevels/World01/W01L03.tscn", 0, 30, false, true, 0.0, false, 0, 0.0],
 	["res://levels/GameLevels/World01/W01L04.tscn", 0, 10, false, true, 0.0, false, 0, 0.0],
 	["res://levels/GameLevels/World01/W01L05.tscn", 0, 10, false, true, 0.0, false, 0, 0.0],
 	["res://levels/GameLevels/World01/W01L06.tscn", 0, 10, false, true, 0.0, false, 0, 0.0],
