@@ -21,23 +21,6 @@ var levels_data : Array = [
 	["res://levels/GameLevels/World01/W01L13.tscn", 0, 10, false, true, 0.0, false, 0, 0.0],
 	["res://levels/GameLevels/World01/W01L14.tscn", 0, 10, false, true, 0.0, false, 0, 0.0],
 	["res://levels/GameLevels/World01/W01L15.tscn", 0, 10, false, true, 0.0, false, 0, 0.0],
-	["res://levels/GameLevels/World01/W01L16.tscn", 0, 10, false, true, 0.0, false, 0, 0.0],
-	["res://levels/GameLevels/World01/W01L17.tscn", 0, 10, false, true, 0.0, false, 0, 0.0],
-	["res://levels/GameLevels/World01/W01L18.tscn", 0, 10, false, true, 0.0, false, 0, 0.0],
-	["res://levels/GameLevels/World01/W01L19.tscn", 0, 10, false, true, 0.0, false, 0, 0.0],
-	["res://levels/GameLevels/World01/W01L20.tscn", 0, 10, false, true, 0.0, false, 0, 0.0],
-	["res://levels/GameLevels/World01/W01L21.tscn", 0, 10, false, true, 0.0, false, 0, 0.0],
-	["res://levels/GameLevels/World01/W01L22.tscn", 0, 10, false, true, 0.0, false, 0, 0.0],
-	["res://levels/GameLevels/World01/W01L23.tscn", 0, 10, false, true, 0.0, false, 0, 0.0],
-	["res://levels/GameLevels/World01/W01L24.tscn", 0, 10, false, true, 0.0, false, 0, 0.0],
-	["res://levels/GameLevels/World01/W01L25.tscn", 0, 10, false, true, 0.0, false, 0, 0.0],
-	["res://levels/GameLevels/World01/W01L26.tscn", 0, 10, false, true, 0.0, false, 0, 0.0],
-	["res://levels/GameLevels/World01/W01L27.tscn", 0, 10, false, true, 0.0, false, 0, 0.0],
-	["res://levels/GameLevels/World01/W01L28.tscn", 0, 10, false, true, 0.0, false, 0, 0.0],
-	["res://levels/GameLevels/World01/W01L29.tscn", 0, 10, false, true, 0.0, false, 0, 0.0],
-	["res://levels/GameLevels/World01/W01L30.tscn", 0, 10, false, true, 0.0, false, 0, 0.0],
-	["res://levels/GameLevels/World01/W01L31.tscn", 0, 10, false, true, 0.0, false, 0, 0.0],
-	["res://levels/GameLevels/World01/W01L32.tscn", 0, 10, false, true, 0.0, false, 0, 0.0],
 ]
 
 onready var first_level : String = get_level_path(0)
