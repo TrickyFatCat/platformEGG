@@ -49,6 +49,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Main/BaseTrigger/BaseTrigger.gd"
 }, {
+"base": "KinematicBody2D",
+"class": "RotatingPlatform",
+"language": "GDScript",
+"path": "res://src/Platforms/RotatingPlatform.gd"
+}, {
 "base": "Node",
 "class": "State",
 "language": "GDScript",
@@ -68,6 +73,7 @@ _global_script_class_icons={
 "Level": "",
 "Player": "",
 "PlayerTrigger": "",
+"RotatingPlatform": "",
 "State": "res://assets/EngineIcons/icon_state.svg",
 "StateMachine": "res://assets/EngineIcons/icon_stateMachine.svg"
 }
