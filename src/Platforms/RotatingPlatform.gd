@@ -41,7 +41,7 @@ func _on_rotation_completed() -> void:
 
 func _start_tween() -> void:
 	initial_angle = rotation_degrees
-	target_angle = initial_angle + ANGLE_ROTATION
+	target_angle = initial_angle + ANGLE_ROTATION * rotation_factor
 
 	tween.interpolate_property(
 		self,
