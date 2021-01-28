@@ -28,6 +28,9 @@ func _on_PauseTimer_timeout() -> void:
 
 
 func _ready() -> void:
+	tween.connect("tween_all_completed", self, "_on_Tween_tween_all_completed")
+	waitingTimer.connect("timeout", self, "_on_PauseTimer_timeout")
+
 	if waiting_duration > 0:
 		waitingTimer.wait_time = waiting_duration
 	
@@ -35,11 +38,6 @@ func _ready() -> void:
 		current_position = points[0].global_position
 		target_node.global_position = current_position
 		start_movement()
-
-
-func _physics_process(_delta: float) -> void:
-	if is_active:
-		target_node.global_position = target_node.global_position.linear_interpolate(current_position, 0.075)
 
 
 func start_movement() -> void:
@@ -53,9 +51,9 @@ func start_movement() -> void:
 func start_tween() -> void:
 	var tween_type: = Tween.TRANS_LINEAR if waiting_duration == 0 else Tween.TRANS_QUINT
 	tween.interpolate_property(
-		self,
-		"current_position",
-		target_node.global_position,
+		target_node,
+		"global_position",
+		current_position,
 		target_position,
 		travel_duration,
 		tween_type,
@@ -72,3 +70,4 @@ func calculate_target_position() -> void:
 		point_index = 0 if is_cycled else 1
 	
 	target_position = points[point_index].global_position
+	current_position = target_node.global_position
