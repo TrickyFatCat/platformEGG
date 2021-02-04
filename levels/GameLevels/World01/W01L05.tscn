@@ -1,5 +1,285 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/Main/Levels/BaseLevel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Traps/Pendulum/Pendulum.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Platforms/HalfSpikedPlatform.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Traps/Saw/Saw.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Traps/Spikes/SpikesDouble.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Traps/Spikes/SpikesTriple.tscn" type="PackedScene" id=6]
 
 [node name="W01L01" instance=ExtResource( 1 )]
+
+[node name="BaseEnvironment" parent="." index="1"]
+tile_data = PoolIntArray( -327682, 1, 0, -327681, 1, 1, -393216, 1, 1, -393215, 1, 1, -393214, 1, 1, -393213, 1, 1, -393212, 1, 1, -393211, 1, 1, -393210, 1, 1, -393209, 1, 1, -393208, 1, 1, -393207, 1, 1, -393206, 1, 1, -393205, 1, 1, -393204, 1, 1, -393203, 1, 1, -393202, 1, 1, -393201, 1, 1, -393200, 1, 1, -393199, 1, 1, -393198, 1, 1, -393197, 1, 1, -393196, 1, 1, -393195, 1, 1, -393194, 1, 1, -393193, 1, 1, -393192, 1, 1, -393191, 1, 1, -393190, 1, 1, -393189, 1, 1, -393188, 1, 1, -393187, 1, 1, -393186, 1, 1, -393185, 1, 1, -393184, 1, 1, -393183, 1, 1, -393182, 1, 1, -393181, 1, 1, -393180, 1, 1, -393179, 1, 1, -393178, 1, 1, -393177, 1, 1, -393176, 1, 1, -393175, 1, 2, -262146, 1, 65536, -262145, 1, 65537, -327680, 1, 3, -327679, 1, 131073, -327678, 1, 131073, -327677, 1, 131073, -327676, 1, 131073, -327675, 1, 131073, -327674, 1, 131073, -327673, 1, 131073, -327672, 1, 131073, -327671, 1, 131073, -327670, 1, 4, -327669, 1, 3, -327668, 1, 131073, -327667, 1, 131073, -327666, 1, 131073, -327665, 1, 131073, -327664, 1, 131073, -327663, 1, 131073, -327662, 1, 131073, -327661, 1, 131073, -327660, 1, 131073, -327659, 1, 131073, -327658, 1, 131073, -327657, 1, 131073, -327656, 1, 131073, -327655, 1, 131073, -327654, 1, 131073, -327653, 1, 131073, -327652, 1, 131073, -327651, 1, 131073, -327650, 1, 131073, -327649, 1, 131073, -327648, 1, 131073, -327647, 1, 131073, -327646, 1, 131073, -327645, 1, 131073, -327644, 1, 131073, -327643, 1, 131073, -327642, 1, 131073, -327641, 1, 4, -327640, 1, 65537, -327639, 1, 65538, -196610, 1, 65536, -196609, 1, 65537, -262144, 1, 65538, -262134, 1, 65536, -262133, 1, 65538, -262105, 1, 65536, -262104, 1, 65537, -262103, 1, 65538, -131074, 1, 65536, -131073, 1, 65537, -196608, 1, 65538, -196598, 1, 65536, -196597, 1, 65538, -196569, 1, 65536, -196568, 1, 65537, -196567, 1, 65538, -65538, 1, 65536, -65537, 1, 65537, -131072, 1, 65538, -131062, 1, 65536, -131061, 1, 65538, -131033, 1, 65536, -131032, 1, 65537, -131031, 1, 65538, -2, 1, 131072, -1, 1, 131073, -65536, 1, 131074, -65526, 1, 131072, -65525, 1, 131074, -65497, 1, 131072, -65496, 1, 131073, -65495, 1, 131074, 65534, 0, 0, 65535, 0, 1, 0, 0, 2, 10, 0, 0, 11, 0, 2, 39, 0, 0, 40, 0, 1, 41, 0, 2, 131070, 0, 65536, 131071, 0, 65537, 65536, 0, 65538, 65546, 0, 65536, 65547, 0, 65538, 65572, 4, 0, 65573, 4, 1, 65574, 4, 2, 65575, 0, 65536, 65576, 0, 65537, 65577, 0, 65538, 196606, 0, 65536, 196607, 0, 65537, 131072, 0, 65538, 131082, 0, 65536, 131083, 0, 65538, 131111, 0, 65536, 131112, 0, 65537, 131113, 0, 65538, 262142, 0, 65536, 262143, 0, 65537, 196608, 0, 65539, 196609, 0, 1, 196610, 0, 1, 196611, 0, 2, 196615, 0, 0, 196616, 0, 1, 196617, 0, 1, 196618, 0, 65540, 196619, 0, 65539, 196620, 0, 1, 196621, 0, 1, 196622, 0, 1, 196623, 0, 2, 196647, 0, 65536, 196648, 0, 65537, 196649, 0, 65538, 327678, 0, 65536, 327679, 0, 65537, 262144, 0, 3, 262145, 0, 131073, 262146, 0, 131073, 262147, 0, 131074, 262151, 0, 131072, 262152, 0, 131073, 262153, 0, 131073, 262154, 0, 4, 262155, 0, 65537, 262156, 0, 65537, 262157, 0, 65537, 262158, 0, 65537, 262159, 0, 65539, 262160, 0, 1, 262161, 0, 1, 262162, 0, 1, 262163, 0, 1, 262164, 0, 2, 262171, 0, 0, 262172, 0, 1, 262173, 0, 1, 262174, 0, 2, 262175, 4, 0, 262176, 4, 1, 262177, 4, 2, 262183, 0, 65536, 262184, 0, 65537, 262185, 0, 65538, 393214, 0, 65536, 393215, 0, 65537, 327680, 0, 65538, 327690, 0, 65536, 327691, 0, 3, 327692, 0, 131073, 327693, 0, 131073, 327694, 0, 131073, 327695, 0, 131073, 327696, 0, 131073, 327697, 0, 131073, 327698, 0, 131073, 327699, 0, 131073, 327700, 0, 131074, 327707, 0, 131072, 327708, 0, 131073, 327709, 0, 4, 327710, 0, 65538, 327719, 0, 65536, 327720, 0, 65537, 327721, 0, 65538, 458750, 0, 65536, 458751, 0, 65537, 393216, 0, 65538, 393226, 0, 65536, 393227, 0, 65538, 393245, 0, 65536, 393246, 0, 65538, 393255, 0, 65536, 393256, 0, 65537, 393257, 0, 65538, 524286, 0, 65536, 524287, 0, 65537, 458752, 0, 65538, 458762, 0, 65536, 458763, 0, 65538, 458781, 0, 65536, 458782, 0, 65538, 458788, 4, 0, 458789, 4, 1, 458790, 4, 2, 458791, 0, 65536, 458792, 0, 65537, 458793, 0, 65538, 589822, 0, 65536, 589823, 0, 65537, 524288, 0, 65538, 524298, 0, 65536, 524299, 0, 65538, 524317, 0, 65536, 524318, 0, 65538, 524327, 0, 65536, 524328, 0, 65537, 524329, 0, 65538, 655358, 0, 65536, 655359, 0, 65537, 589824, 0, 65538, 589827, 4, 0, 589828, 4, 1, 589829, 4, 1, 589830, 4, 1, 589831, 4, 2, 589834, 0, 65536, 589835, 0, 65538, 589853, 0, 65536, 589854, 0, 65538, 589863, 0, 65536, 589864, 0, 65537, 589865, 0, 65538, 720894, 0, 65536, 720895, 0, 65537, 655360, 0, 65538, 655370, 0, 65536, 655371, 0, 65538, 655372, 4, 0, 655373, 4, 1, 655374, 4, 2, 655379, 0, 0, 655380, 0, 1, 655381, 0, 1, 655382, 0, 2, 655386, 4, 0, 655387, 4, 1, 655388, 4, 2, 655389, 0, 65536, 655390, 0, 65538, 655391, 4, 0, 655392, 4, 1, 655393, 4, 2, 655399, 0, 65536, 655400, 0, 65537, 655401, 0, 65538, 786430, 0, 65536, 786431, 0, 65537, 720896, 0, 65538, 720906, 0, 65536, 720907, 0, 65538, 720915, 0, 65536, 720916, 0, 65537, 720917, 0, 65537, 720918, 0, 65538, 720925, 0, 65536, 720926, 0, 65538, 720935, 0, 65536, 720936, 0, 65537, 720937, 0, 65538, 851966, 0, 65536, 851967, 0, 65537, 786432, 0, 65538, 786442, 0, 65536, 786443, 0, 65538, 786451, 0, 65536, 786452, 0, 65537, 786453, 0, 65537, 786454, 0, 65538, 786461, 0, 65536, 786462, 0, 65538, 786471, 0, 65536, 786472, 0, 65537, 786473, 0, 65538, 917502, 0, 65536, 917503, 0, 65537, 851968, 0, 65538, 851978, 0, 65536, 851979, 0, 65538, 851987, 0, 65536, 851988, 0, 65537, 851989, 0, 65537, 851990, 0, 65538, 851991, 4, 0, 851992, 4, 2, 851997, 0, 65536, 851998, 0, 65538, 852004, 4, 0, 852005, 4, 1, 852006, 4, 2, 852007, 0, 65536, 852008, 0, 65537, 852009, 0, 65538, 983038, 0, 65536, 983039, 0, 65537, 917504, 0, 65539, 917505, 0, 1, 917506, 0, 1, 917507, 0, 2, 917511, 0, 0, 917512, 0, 1, 917513, 0, 1, 917514, 0, 65540, 917515, 0, 65539, 917516, 0, 1, 917517, 0, 1, 917518, 0, 2, 917521, 0, 0, 917522, 0, 1, 917523, 0, 65540, 917524, 0, 65537, 917525, 0, 65537, 917526, 0, 65538, 917533, 0, 65536, 917534, 0, 65538, 917543, 0, 65536, 917544, 0, 65537, 917545, 0, 65538, 1048574, 0, 65536, 1048575, 0, 65537, 983040, 0, 3, 983041, 0, 131073, 983042, 0, 131073, 983043, 0, 131074, 983047, 0, 131072, 983048, 0, 131073, 983049, 0, 131073, 983050, 0, 131073, 983051, 0, 131073, 983052, 0, 131073, 983053, 0, 131073, 983054, 0, 131074, 983057, 0, 131072, 983058, 0, 131073, 983059, 0, 131073, 983060, 0, 131073, 983061, 0, 131073, 983062, 0, 131074, 983069, 0, 65536, 983070, 0, 65538, 983079, 0, 65536, 983080, 0, 65537, 983081, 0, 65538, 1114110, 0, 65536, 1114111, 0, 65537, 1048576, 0, 65538, 1048602, 4, 0, 1048603, 4, 1, 1048604, 4, 2, 1048605, 0, 131072, 1048606, 0, 131074, 1048607, 4, 0, 1048608, 4, 1, 1048609, 4, 2, 1048615, 0, 65536, 1048616, 0, 65537, 1048617, 0, 65538, 1179646, 0, 65536, 1179647, 0, 65537, 1114112, 0, 65538, 1114151, 0, 65536, 1114152, 0, 65537, 1114153, 0, 65538, 1245182, 0, 65536, 1245183, 0, 65537, 1179648, 0, 65538, 1179687, 0, 65536, 1179688, 0, 65537, 1179689, 0, 65538, 1310718, 0, 65536, 1310719, 0, 65537, 1245184, 0, 65538, 1245201, 0, 0, 1245202, 0, 1, 1245203, 0, 1, 1245204, 0, 1, 1245205, 0, 2, 1245220, 0, 0, 1245221, 0, 1, 1245222, 0, 1, 1245223, 0, 65540, 1245224, 0, 65537, 1245225, 0, 65538, 1376254, 0, 65536, 1376255, 0, 65537, 1310720, 0, 65538, 1310737, 0, 65536, 1310738, 0, 65537, 1310739, 0, 65537, 1310740, 0, 65537, 1310741, 0, 65538, 1310756, 0, 65536, 1310757, 0, 65537, 1310758, 0, 65537, 1310759, 0, 65537, 1310760, 0, 65537, 1310761, 0, 65538, 1441790, 0, 65536, 1441791, 0, 65537, 1376256, 0, 65539, 1376257, 0, 1, 1376258, 0, 1, 1376259, 0, 1, 1376260, 0, 1, 1376261, 0, 1, 1376262, 0, 1, 1376263, 0, 1, 1376264, 0, 1, 1376265, 0, 1, 1376266, 0, 1, 1376267, 0, 1, 1376268, 0, 1, 1376269, 0, 1, 1376270, 0, 1, 1376271, 0, 1, 1376272, 0, 1, 1376273, 0, 65540, 1376274, 0, 65537, 1376275, 0, 65537, 1376276, 0, 65537, 1376277, 0, 65539, 1376278, 0, 1, 1376279, 0, 1, 1376280, 0, 1, 1376281, 0, 1, 1376282, 0, 1, 1376283, 0, 1, 1376284, 0, 1, 1376285, 0, 1, 1376286, 0, 1, 1376287, 0, 1, 1376288, 0, 1, 1376289, 0, 1, 1376290, 0, 1, 1376291, 0, 1, 1376292, 0, 65540, 1376293, 0, 65537, 1376294, 0, 65537, 1376295, 0, 65537, 1376296, 0, 65537, 1376297, 0, 65538, 1507326, 0, 65536, 1507327, 0, 65537, 1441792, 0, 65537, 1441793, 0, 65537, 1441794, 0, 65537, 1441795, 0, 65537, 1441796, 0, 65537, 1441797, 0, 65537, 1441798, 0, 65537, 1441799, 0, 65537, 1441800, 0, 65537, 1441801, 0, 65537, 1441802, 0, 65537, 1441803, 0, 65537, 1441804, 0, 65537, 1441805, 0, 65537, 1441806, 0, 65537, 1441807, 0, 65537, 1441808, 0, 65537, 1441809, 0, 65537, 1441810, 0, 65537, 1441811, 0, 65537, 1441812, 0, 65537, 1441813, 0, 65537, 1441814, 0, 65537, 1441815, 0, 65537, 1441816, 0, 65537, 1441817, 0, 65537, 1441818, 0, 65537, 1441819, 0, 65537, 1441820, 0, 65537, 1441821, 0, 65537, 1441822, 0, 65537, 1441823, 0, 65537, 1441824, 0, 65537, 1441825, 0, 65537, 1441826, 0, 65537, 1441827, 0, 65537, 1441828, 0, 65537, 1441829, 0, 65537, 1441830, 0, 65537, 1441831, 0, 65537, 1441832, 0, 65537, 1441833, 0, 65538, 1572862, 0, 131072, 1572863, 0, 131073, 1507328, 0, 131073, 1507329, 0, 131073, 1507330, 0, 131073, 1507331, 0, 131073, 1507332, 0, 131073, 1507333, 0, 131073, 1507334, 0, 131073, 1507335, 0, 131073, 1507336, 0, 131073, 1507337, 0, 131073, 1507338, 0, 131073, 1507339, 0, 131073, 1507340, 0, 131073, 1507341, 0, 131073, 1507342, 0, 131073, 1507343, 0, 131073, 1507344, 0, 131073, 1507345, 0, 131073, 1507346, 0, 131073, 1507347, 0, 131073, 1507348, 0, 131073, 1507349, 0, 131073, 1507350, 0, 131073, 1507351, 0, 131073, 1507352, 0, 131073, 1507353, 0, 131073, 1507354, 0, 131073, 1507355, 0, 131073, 1507356, 0, 131073, 1507357, 0, 131073, 1507358, 0, 131073, 1507359, 0, 131073, 1507360, 0, 131073, 1507361, 0, 131073, 1507362, 0, 131073, 1507363, 0, 131073, 1507364, 0, 131073, 1507365, 0, 131073, 1507366, 0, 131073, 1507367, 0, 131073, 1507368, 0, 131073, 1507369, 0, 131074 )
+
+[node name="Pendulum" parent="Traps" index="0" instance=ExtResource( 2 )]
+position = Vector2( 88, 160 )
+rotation = 0.493616
+fluctuation_duration = 0.75
+pause_duration = 0.5
+angle_min_default = 0.0
+angle_max_default = 180.0
+
+[node name="Pendulum2" parent="Traps" index="1" instance=ExtResource( 2 )]
+position = Vector2( 176, 256 )
+rotation = 0.493616
+fluctuation_duration = 0.75
+pause_duration = 0.5
+angle_min_default = 0.0
+angle_max_default = 180.0
+
+[node name="Pendulum3" parent="Traps" index="2" instance=ExtResource( 2 )]
+position = Vector2( 480, 272 )
+rotation = 0.493616
+fluctuation_duration = 0.75
+pause_duration = 0.5
+angle_min_default = 0.0
+angle_max_default = 180.0
+
+[node name="Pendulum4" parent="Traps" index="3" instance=ExtResource( 2 )]
+position = Vector2( 384, 0 )
+rotation = 0.493616
+fluctuation_duration = 0.75
+pause_duration = 0.5
+angle_min_default = 0.0
+angle_max_default = 180.0
+
+[node name="HalfSpikedPlatform" parent="Traps" index="4" instance=ExtResource( 3 )]
+position = Vector2( 360, 68.5 )
+is_clockwise = true
+
+[node name="HalfSpikedPlatform2" parent="Traps" index="5" instance=ExtResource( 3 )]
+position = Vector2( 408, 68.5 )
+
+[node name="Saw" parent="Traps" index="6" instance=ExtResource( 4 )]
+position = Vector2( 160, 224 )
+
+[node name="AnimatedSprite" parent="Traps/Saw" index="0"]
+frame = 7
+
+[node name="ObjectMover" parent="Traps/Saw" index="2"]
+is_cycled = true
+is_active = true
+
+[node name="Position0" parent="Traps/Saw/ObjectMover/TargetPoints" index="0"]
+position = Vector2( 160, 80 )
+
+[node name="Position1" parent="Traps/Saw/ObjectMover/TargetPoints" index="1"]
+position = Vector2( 160, 224 )
+
+[node name="Saw2" parent="Traps" index="7" instance=ExtResource( 4 )]
+position = Vector2( 16, 80 )
+
+[node name="AnimatedSprite" parent="Traps/Saw2" index="0"]
+frame = 6
+
+[node name="ObjectMover" parent="Traps/Saw2" index="2"]
+is_cycled = true
+is_active = true
+
+[node name="Position0" parent="Traps/Saw2/ObjectMover/TargetPoints" index="0"]
+position = Vector2( 16, 224 )
+
+[node name="Position1" parent="Traps/Saw2/ObjectMover/TargetPoints" index="1"]
+position = Vector2( 16, 80 )
+
+[node name="Saw3" parent="Traps" index="8" instance=ExtResource( 4 )]
+position = Vector2( 272, 384 )
+
+[node name="AnimatedSprite" parent="Traps/Saw3" index="0"]
+frame = 6
+
+[node name="ObjectMover" parent="Traps/Saw3" index="2"]
+is_cycled = true
+is_active = true
+
+[node name="Position0" parent="Traps/Saw3/ObjectMover/TargetPoints" index="0"]
+position = Vector2( 272, 304 )
+
+[node name="Position1" parent="Traps/Saw3/ObjectMover/TargetPoints" index="1"]
+position = Vector2( 352, 304 )
+
+[node name="Position2" type="Position2D" parent="Traps/Saw3/ObjectMover/TargetPoints" index="2"]
+position = Vector2( 352, 384 )
+
+[node name="Position3" type="Position2D" parent="Traps/Saw3/ObjectMover/TargetPoints" index="3"]
+position = Vector2( 272, 384 )
+
+[node name="Saw4" parent="Traps" index="9" instance=ExtResource( 4 )]
+position = Vector2( 464, 99 )
+
+[node name="AnimatedSprite" parent="Traps/Saw4" index="0"]
+frame = 5
+
+[node name="ObjectMover" parent="Traps/Saw4" index="2"]
+is_cycled = true
+is_active = true
+
+[node name="Position0" parent="Traps/Saw4/ObjectMover/TargetPoints" index="0"]
+position = Vector2( 464, 253 )
+
+[node name="Position1" parent="Traps/Saw4/ObjectMover/TargetPoints" index="1"]
+position = Vector2( 464, 99 )
+
+[node name="Saw5" parent="Traps" index="10" instance=ExtResource( 4 )]
+position = Vector2( 336, 256 )
+
+[node name="AnimatedSprite" parent="Traps/Saw5" index="0"]
+frame = 5
+
+[node name="ObjectMover" parent="Traps/Saw5" index="2"]
+is_cycled = true
+is_active = true
+
+[node name="Position0" parent="Traps/Saw5/ObjectMover/TargetPoints" index="0"]
+position = Vector2( 336, 160 )
+
+[node name="Position1" parent="Traps/Saw5/ObjectMover/TargetPoints" index="1"]
+position = Vector2( 336, 256 )
+
+[node name="Saw6" parent="Traps" index="11" instance=ExtResource( 4 )]
+position = Vector2( 624, 227 )
+
+[node name="AnimatedSprite" parent="Traps/Saw6" index="0"]
+frame = 4
+
+[node name="ObjectMover" parent="Traps/Saw6" index="2"]
+is_cycled = true
+is_active = true
+
+[node name="Position0" parent="Traps/Saw6/ObjectMover/TargetPoints" index="0"]
+position = Vector2( 624, 301 )
+
+[node name="Position1" parent="Traps/Saw6/ObjectMover/TargetPoints" index="1"]
+position = Vector2( 624, 227 )
+
+[node name="Saw7" parent="Traps" index="12" instance=ExtResource( 4 )]
+position = Vector2( 496, 179 )
+
+[node name="AnimatedSprite" parent="Traps/Saw7" index="0"]
+frame = 3
+
+[node name="ObjectMover" parent="Traps/Saw7" index="2"]
+is_cycled = true
+is_active = true
+
+[node name="Position0" parent="Traps/Saw7/ObjectMover/TargetPoints" index="0"]
+position = Vector2( 496, 253 )
+
+[node name="Position1" parent="Traps/Saw7/ObjectMover/TargetPoints" index="1"]
+position = Vector2( 496, 179 )
+
+[node name="Saw8" parent="Traps" index="13" instance=ExtResource( 4 )]
+position = Vector2( 496, 83 )
+
+[node name="AnimatedSprite" parent="Traps/Saw8" index="0"]
+frame = 3
+
+[node name="ObjectMover" parent="Traps/Saw8" index="2"]
+is_cycled = true
+is_active = true
+
+[node name="Position0" parent="Traps/Saw8/ObjectMover/TargetPoints" index="0"]
+position = Vector2( 496, 157 )
+
+[node name="Position1" parent="Traps/Saw8/ObjectMover/TargetPoints" index="1"]
+position = Vector2( 496, 83 )
+
+[node name="Saw9" parent="Traps" index="14" instance=ExtResource( 4 )]
+position = Vector2( 624, 132 )
+
+[node name="AnimatedSprite" parent="Traps/Saw9" index="0"]
+frame = 3
+
+[node name="ObjectMover" parent="Traps/Saw9" index="2"]
+is_cycled = true
+is_active = true
+
+[node name="Position0" parent="Traps/Saw9/ObjectMover/TargetPoints" index="0"]
+position = Vector2( 624, 205 )
+
+[node name="Position1" parent="Traps/Saw9/ObjectMover/TargetPoints" index="1"]
+position = Vector2( 624, 132 )
+
+[node name="Saw10" parent="Traps" index="15" instance=ExtResource( 4 )]
+position = Vector2( 624, 35 )
+
+[node name="AnimatedSprite" parent="Traps/Saw10" index="0"]
+frame = 3
+
+[node name="ObjectMover" parent="Traps/Saw10" index="2"]
+is_cycled = true
+is_active = true
+
+[node name="Position0" parent="Traps/Saw10/ObjectMover/TargetPoints" index="0"]
+position = Vector2( 624, 109 )
+
+[node name="Position1" parent="Traps/Saw10/ObjectMover/TargetPoints" index="1"]
+position = Vector2( 624, 35 )
+
+[node name="SpikesTriple" parent="Traps" index="16" instance=ExtResource( 6 )]
+position = Vector2( 177, 336 )
+
+[node name="SpikesTriple2" parent="Traps" index="17" instance=ExtResource( 6 )]
+position = Vector2( 480, 336 )
+
+[node name="SpikesTriple3" parent="Traps" index="18" instance=ExtResource( 6 )]
+position = Vector2( 280, 64 )
+
+[node name="SpikesDouble" parent="Traps" index="19" instance=ExtResource( 5 )]
+position = Vector2( 480, 64 )
+
+[node name="Player" parent="." index="6"]
+position = Vector2( 24, 48 )
+
+[node name="Egg" parent="." index="7"]
+position = Vector2( 208, 160 )
+
+[node name="FinishPoint" parent="." index="8"]
+position = Vector2( 208, 48 )
+scale = Vector2( -1, 1 )
+
+[node name="AnimatedSprite" parent="FinishPoint" index="1"]
+frame = 5
+
+[editable path="Traps/Saw"]
+
+[editable path="Traps/Saw/ObjectMover"]
+
+[editable path="Traps/Saw2"]
+
+[editable path="Traps/Saw2/ObjectMover"]
+
+[editable path="Traps/Saw3"]
+
+[editable path="Traps/Saw3/ObjectMover"]
+
+[editable path="Traps/Saw4"]
+
+[editable path="Traps/Saw4/ObjectMover"]
+
+[editable path="Traps/Saw5"]
+
+[editable path="Traps/Saw5/ObjectMover"]
+
+[editable path="Traps/Saw6"]
+
+[editable path="Traps/Saw6/ObjectMover"]
+
+[editable path="Traps/Saw7"]
+
+[editable path="Traps/Saw7/ObjectMover"]
+
+[editable path="Traps/Saw8"]
+
+[editable path="Traps/Saw8/ObjectMover"]
+
+[editable path="Traps/Saw9"]
+
+[editable path="Traps/Saw9/ObjectMover"]
+
+[editable path="Traps/Saw10"]
+
+[editable path="Traps/Saw10/ObjectMover"]
+
+[editable path="FinishPoint"]
