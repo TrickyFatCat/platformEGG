@@ -5,7 +5,8 @@
 [ext_resource path="res://src/Traps/Pendulum/Pendulum.gd" type="Script" id=3]
 
 [node name="Pendulum" type="Node2D"]
-rotation = 0.785398
+rotation = 0.712738
+z_index = -1
 script = ExtResource( 3 )
 is_rotation_endless = false
 is_clockwise = true
@@ -30,18 +31,19 @@ texture = ExtResource( 1 )
 polygon = PoolVector2Array( -3, 10, 4, 10, 6, 9, 9, 6, 10, 4, 10, -3, 9, -5, 6, -8, 4, -9, -3, -9, -5, -8, -8, -5, -9, -3, -9, 4, -8, 6, -5, 9 )
 
 [node name="Tween" type="Tween" parent="."]
+playback/active = true
 
 [node name="PauseTimer" type="Timer" parent="."]
 wait_time = 0.25
 
 [node name="MinAngle" type="Line2D" parent="."]
-rotation = 1.56127
+rotation = 0.0726601
 points = PoolVector2Array( 0, 0, 66, 0 )
 width = 4.0
 default_color = Color( 0.00784314, 1, 0, 1 )
 
 [node name="MaxAngle" type="Line2D" parent="."]
-rotation = -0.00952819
+rotation = -1.49814
 points = PoolVector2Array( 0, 0, 66, 0 )
 width = 4.0
 default_color = Color( 1, 0, 0, 1 )
