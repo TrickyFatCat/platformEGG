@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/Main/Levels/BaseLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Traps/Pendulum/Pendulum.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/Traps/Saw/Saw.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Traps/Spikes/SpikesDouble.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/Traps/Spikes/SpikesTriple.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Fruits/Fruit.tscn" type="PackedScene" id=7]
 
 [node name="W01L01" instance=ExtResource( 1 )]
 
@@ -14,7 +15,7 @@ tile_data = PoolIntArray( -327682, 1, 0, -327681, 1, 1, -393216, 1, 1, -393215, 
 
 [node name="Pendulum" parent="Traps" index="0" instance=ExtResource( 2 )]
 position = Vector2( 88, 160 )
-rotation = 0.493616
+rotation = 3.14159
 fluctuation_duration = 0.75
 pause_duration = 0.5
 angle_min_default = 0.0
@@ -22,7 +23,7 @@ angle_max_default = 180.0
 
 [node name="Pendulum2" parent="Traps" index="1" instance=ExtResource( 2 )]
 position = Vector2( 176, 256 )
-rotation = 0.493616
+rotation = 3.14159
 fluctuation_duration = 0.75
 pause_duration = 0.5
 angle_min_default = 0.0
@@ -30,7 +31,7 @@ angle_max_default = 180.0
 
 [node name="Pendulum3" parent="Traps" index="2" instance=ExtResource( 2 )]
 position = Vector2( 480, 272 )
-rotation = 0.493616
+rotation = 3.14159
 fluctuation_duration = 0.75
 pause_duration = 0.5
 angle_min_default = 0.0
@@ -38,7 +39,7 @@ angle_max_default = 180.0
 
 [node name="Pendulum4" parent="Traps" index="3" instance=ExtResource( 2 )]
 position = Vector2( 384, 0 )
-rotation = 0.493616
+rotation = 3.14159
 fluctuation_duration = 0.75
 pause_duration = 0.5
 angle_min_default = 0.0
@@ -55,9 +56,11 @@ position = Vector2( 408, 68.5 )
 position = Vector2( 160, 224 )
 
 [node name="AnimatedSprite" parent="Traps/Saw" index="0"]
-frame = 7
+frame = 1
 
 [node name="ObjectMover" parent="Traps/Saw" index="2"]
+travel_duration = 0.5
+waiting_duration = 1.5
 is_cycled = true
 is_active = true
 
@@ -67,13 +70,18 @@ position = Vector2( 160, 80 )
 [node name="Position1" parent="Traps/Saw/ObjectMover/TargetPoints" index="1"]
 position = Vector2( 160, 224 )
 
+[node name="MovementTween" parent="Traps/Saw/ObjectMover" index="1"]
+playback/active = true
+
 [node name="Saw2" parent="Traps" index="7" instance=ExtResource( 4 )]
 position = Vector2( 16, 80 )
 
 [node name="AnimatedSprite" parent="Traps/Saw2" index="0"]
-frame = 6
+frame = 0
 
 [node name="ObjectMover" parent="Traps/Saw2" index="2"]
+travel_duration = 0.5
+waiting_duration = 1.5
 is_cycled = true
 is_active = true
 
@@ -83,13 +91,18 @@ position = Vector2( 16, 224 )
 [node name="Position1" parent="Traps/Saw2/ObjectMover/TargetPoints" index="1"]
 position = Vector2( 16, 80 )
 
+[node name="MovementTween" parent="Traps/Saw2/ObjectMover" index="1"]
+playback/active = true
+
 [node name="Saw3" parent="Traps" index="8" instance=ExtResource( 4 )]
-position = Vector2( 272, 384 )
+position = Vector2( 352, 304 )
 
 [node name="AnimatedSprite" parent="Traps/Saw3" index="0"]
-frame = 6
+frame = 0
 
 [node name="ObjectMover" parent="Traps/Saw3" index="2"]
+travel_duration = 0.5
+waiting_duration = 1.5
 is_cycled = true
 is_active = true
 
@@ -105,13 +118,18 @@ position = Vector2( 352, 384 )
 [node name="Position3" type="Position2D" parent="Traps/Saw3/ObjectMover/TargetPoints" index="3"]
 position = Vector2( 272, 384 )
 
+[node name="MovementTween" parent="Traps/Saw3/ObjectMover" index="1"]
+playback/active = true
+
 [node name="Saw4" parent="Traps" index="9" instance=ExtResource( 4 )]
 position = Vector2( 464, 99 )
 
 [node name="AnimatedSprite" parent="Traps/Saw4" index="0"]
-frame = 5
+frame = 7
 
 [node name="ObjectMover" parent="Traps/Saw4" index="2"]
+travel_duration = 0.5
+waiting_duration = 1.5
 is_cycled = true
 is_active = true
 
@@ -121,13 +139,18 @@ position = Vector2( 464, 253 )
 [node name="Position1" parent="Traps/Saw4/ObjectMover/TargetPoints" index="1"]
 position = Vector2( 464, 99 )
 
+[node name="MovementTween" parent="Traps/Saw4/ObjectMover" index="1"]
+playback/active = true
+
 [node name="Saw5" parent="Traps" index="10" instance=ExtResource( 4 )]
 position = Vector2( 336, 256 )
 
 [node name="AnimatedSprite" parent="Traps/Saw5" index="0"]
-frame = 5
+frame = 7
 
 [node name="ObjectMover" parent="Traps/Saw5" index="2"]
+travel_duration = 0.5
+waiting_duration = 1.5
 is_cycled = true
 is_active = true
 
@@ -137,13 +160,18 @@ position = Vector2( 336, 160 )
 [node name="Position1" parent="Traps/Saw5/ObjectMover/TargetPoints" index="1"]
 position = Vector2( 336, 256 )
 
+[node name="MovementTween" parent="Traps/Saw5/ObjectMover" index="1"]
+playback/active = true
+
 [node name="Saw6" parent="Traps" index="11" instance=ExtResource( 4 )]
 position = Vector2( 624, 227 )
 
 [node name="AnimatedSprite" parent="Traps/Saw6" index="0"]
-frame = 4
+frame = 6
 
 [node name="ObjectMover" parent="Traps/Saw6" index="2"]
+travel_duration = 0.5
+waiting_duration = 1.5
 is_cycled = true
 is_active = true
 
@@ -153,13 +181,18 @@ position = Vector2( 624, 301 )
 [node name="Position1" parent="Traps/Saw6/ObjectMover/TargetPoints" index="1"]
 position = Vector2( 624, 227 )
 
+[node name="MovementTween" parent="Traps/Saw6/ObjectMover" index="1"]
+playback/active = true
+
 [node name="Saw7" parent="Traps" index="12" instance=ExtResource( 4 )]
 position = Vector2( 496, 179 )
 
 [node name="AnimatedSprite" parent="Traps/Saw7" index="0"]
-frame = 3
+frame = 5
 
 [node name="ObjectMover" parent="Traps/Saw7" index="2"]
+travel_duration = 0.5
+waiting_duration = 1.5
 is_cycled = true
 is_active = true
 
@@ -169,13 +202,18 @@ position = Vector2( 496, 253 )
 [node name="Position1" parent="Traps/Saw7/ObjectMover/TargetPoints" index="1"]
 position = Vector2( 496, 179 )
 
+[node name="MovementTween" parent="Traps/Saw7/ObjectMover" index="1"]
+playback/active = true
+
 [node name="Saw8" parent="Traps" index="13" instance=ExtResource( 4 )]
 position = Vector2( 496, 83 )
 
 [node name="AnimatedSprite" parent="Traps/Saw8" index="0"]
-frame = 3
+frame = 5
 
 [node name="ObjectMover" parent="Traps/Saw8" index="2"]
+travel_duration = 0.5
+waiting_duration = 1.5
 is_cycled = true
 is_active = true
 
@@ -185,13 +223,18 @@ position = Vector2( 496, 157 )
 [node name="Position1" parent="Traps/Saw8/ObjectMover/TargetPoints" index="1"]
 position = Vector2( 496, 83 )
 
+[node name="MovementTween" parent="Traps/Saw8/ObjectMover" index="1"]
+playback/active = true
+
 [node name="Saw9" parent="Traps" index="14" instance=ExtResource( 4 )]
 position = Vector2( 624, 132 )
 
 [node name="AnimatedSprite" parent="Traps/Saw9" index="0"]
-frame = 3
+frame = 5
 
 [node name="ObjectMover" parent="Traps/Saw9" index="2"]
+travel_duration = 0.5
+waiting_duration = 1.5
 is_cycled = true
 is_active = true
 
@@ -201,13 +244,18 @@ position = Vector2( 624, 205 )
 [node name="Position1" parent="Traps/Saw9/ObjectMover/TargetPoints" index="1"]
 position = Vector2( 624, 132 )
 
+[node name="MovementTween" parent="Traps/Saw9/ObjectMover" index="1"]
+playback/active = true
+
 [node name="Saw10" parent="Traps" index="15" instance=ExtResource( 4 )]
 position = Vector2( 624, 35 )
 
 [node name="AnimatedSprite" parent="Traps/Saw10" index="0"]
-frame = 3
+frame = 5
 
 [node name="ObjectMover" parent="Traps/Saw10" index="2"]
+travel_duration = 0.5
+waiting_duration = 1.5
 is_cycled = true
 is_active = true
 
@@ -216,6 +264,9 @@ position = Vector2( 624, 109 )
 
 [node name="Position1" parent="Traps/Saw10/ObjectMover/TargetPoints" index="1"]
 position = Vector2( 624, 35 )
+
+[node name="MovementTween" parent="Traps/Saw10/ObjectMover" index="1"]
+playback/active = true
 
 [node name="SpikesTriple" parent="Traps" index="16" instance=ExtResource( 6 )]
 position = Vector2( 177, 336 )
@@ -229,6 +280,168 @@ position = Vector2( 280, 64 )
 [node name="SpikesDouble" parent="Traps" index="19" instance=ExtResource( 5 )]
 position = Vector2( 480, 64 )
 
+[node name="Fruit" parent="Fruits" index="0" instance=ExtResource( 7 )]
+position = Vector2( 128, 32 )
+
+[node name="Fruit2" parent="Fruits" index="1" instance=ExtResource( 7 )]
+position = Vector2( 148, 32 )
+
+[node name="Fruit3" parent="Fruits" index="2" instance=ExtResource( 7 )]
+position = Vector2( 76, 64 )
+
+[node name="Fruit4" parent="Fruits" index="3" instance=ExtResource( 7 )]
+position = Vector2( 100, 64 )
+
+[node name="Fruit5" parent="Fruits" index="4" instance=ExtResource( 7 )]
+position = Vector2( 76, 97 )
+
+[node name="Fruit6" parent="Fruits" index="5" instance=ExtResource( 7 )]
+position = Vector2( 76, 128 )
+
+[node name="Fruit7" parent="Fruits" index="6" instance=ExtResource( 7 )]
+position = Vector2( 100, 128 )
+
+[node name="Fruit8" parent="Fruits" index="7" instance=ExtResource( 7 )]
+position = Vector2( 100, 97 )
+
+[node name="Fruit9" parent="Fruits" index="8" instance=ExtResource( 7 )]
+position = Vector2( 30, 208 )
+
+[node name="Fruit10" parent="Fruits" index="9" instance=ExtResource( 7 )]
+position = Vector2( 50, 208 )
+
+[node name="Fruit11" parent="Fruits" index="10" instance=ExtResource( 7 )]
+position = Vector2( 126, 208 )
+
+[node name="Fruit12" parent="Fruits" index="11" instance=ExtResource( 7 )]
+position = Vector2( 146, 208 )
+
+[node name="Fruit13" parent="Fruits" index="12" instance=ExtResource( 7 )]
+position = Vector2( 76, 288 )
+
+[node name="Fruit14" parent="Fruits" index="13" instance=ExtResource( 7 )]
+position = Vector2( 100, 288 )
+
+[node name="Fruit15" parent="Fruits" index="14" instance=ExtResource( 7 )]
+position = Vector2( 76, 264 )
+
+[node name="Fruit16" parent="Fruits" index="15" instance=ExtResource( 7 )]
+position = Vector2( 100, 264 )
+
+[node name="Fruit17" parent="Fruits" index="16" instance=ExtResource( 7 )]
+position = Vector2( 76, 240 )
+
+[node name="Fruit18" parent="Fruits" index="17" instance=ExtResource( 7 )]
+position = Vector2( 100, 240 )
+
+[node name="Fruit19" parent="Fruits" index="18" instance=ExtResource( 7 )]
+position = Vector2( 76, 312 )
+
+[node name="Fruit20" parent="Fruits" index="19" instance=ExtResource( 7 )]
+position = Vector2( 101, 312 )
+
+[node name="Fruit21" parent="Fruits" index="20" instance=ExtResource( 7 )]
+position = Vector2( 176, 296 )
+
+[node name="Fruit22" parent="Fruits" index="21" instance=ExtResource( 7 )]
+position = Vector2( 288, 288 )
+
+[node name="Fruit23" parent="Fruits" index="22" instance=ExtResource( 7 )]
+position = Vector2( 312, 288 )
+
+[node name="Fruit24" parent="Fruits" index="23" instance=ExtResource( 7 )]
+position = Vector2( 336, 288 )
+
+[node name="Fruit25" parent="Fruits" index="24" instance=ExtResource( 7 )]
+position = Vector2( 440, 240 )
+
+[node name="Fruit26" parent="Fruits" index="25" instance=ExtResource( 7 )]
+position = Vector2( 384, 192 )
+
+[node name="Fruit27" parent="Fruits" index="26" instance=ExtResource( 7 )]
+position = Vector2( 440, 144 )
+
+[node name="Fruit28" parent="Fruits" index="27" instance=ExtResource( 7 )]
+position = Vector2( 360, 144 )
+
+[node name="Fruit29" parent="Fruits" index="28" instance=ExtResource( 7 )]
+position = Vector2( 336, 144 )
+
+[node name="Fruit30" parent="Fruits" index="29" instance=ExtResource( 7 )]
+position = Vector2( 312, 144 )
+
+[node name="Fruit31" parent="Fruits" index="30" instance=ExtResource( 7 )]
+position = Vector2( 216, 112 )
+
+[node name="Fruit32" parent="Fruits" index="31" instance=ExtResource( 7 )]
+position = Vector2( 228, 208 )
+
+[node name="Fruit33" parent="Fruits" index="32" instance=ExtResource( 7 )]
+position = Vector2( 204, 208 )
+
+[node name="Fruit34" parent="Fruits" index="33" instance=ExtResource( 7 )]
+position = Vector2( 288, 208 )
+
+[node name="Fruit35" parent="Fruits" index="34" instance=ExtResource( 7 )]
+position = Vector2( 480, 296 )
+
+[node name="Fruit36" parent="Fruits" index="35" instance=ExtResource( 7 )]
+position = Vector2( 600, 288 )
+
+[node name="Fruit37" parent="Fruits" index="36" instance=ExtResource( 7 )]
+position = Vector2( 600, 264 )
+
+[node name="Fruit38" parent="Fruits" index="37" instance=ExtResource( 7 )]
+position = Vector2( 520, 240 )
+
+[node name="Fruit39" parent="Fruits" index="38" instance=ExtResource( 7 )]
+position = Vector2( 520, 216 )
+
+[node name="Fruit40" parent="Fruits" index="39" instance=ExtResource( 7 )]
+position = Vector2( 600, 192 )
+
+[node name="Fruit41" parent="Fruits" index="40" instance=ExtResource( 7 )]
+position = Vector2( 600, 168 )
+
+[node name="Fruit42" parent="Fruits" index="41" instance=ExtResource( 7 )]
+position = Vector2( 520, 144 )
+
+[node name="Fruit43" parent="Fruits" index="42" instance=ExtResource( 7 )]
+position = Vector2( 520, 120 )
+
+[node name="Fruit44" parent="Fruits" index="43" instance=ExtResource( 7 )]
+position = Vector2( 600, 96 )
+
+[node name="Fruit45" parent="Fruits" index="44" instance=ExtResource( 7 )]
+position = Vector2( 600, 72 )
+
+[node name="Fruit46" parent="Fruits" index="45" instance=ExtResource( 7 )]
+position = Vector2( 520, 48 )
+
+[node name="Fruit47" parent="Fruits" index="46" instance=ExtResource( 7 )]
+position = Vector2( 520, 24 )
+
+[node name="Fruit48" parent="Fruits" index="47" instance=ExtResource( 7 )]
+position = Vector2( 584, 8 )
+
+[node name="Fruit49" parent="Fruits" index="48" instance=ExtResource( 7 )]
+position = Vector2( 600, 8 )
+
+[node name="Fruit50" parent="Fruits" index="49" instance=ExtResource( 7 )]
+position = Vector2( 616, 8 )
+
+[node name="Fruit51" parent="Fruits" index="50" instance=ExtResource( 7 )]
+position = Vector2( 448, 48 )
+
+[node name="Fruit52" parent="Fruits" index="51" instance=ExtResource( 7 )]
+position = Vector2( 448, 24 )
+
+[node name="Fruit53" parent="Fruits" index="52" instance=ExtResource( 7 )]
+position = Vector2( 320, 48 )
+
+[node name="Fruit54" parent="Fruits" index="53" instance=ExtResource( 7 )]
+position = Vector2( 320, 24 )
+
 [node name="Player" parent="." index="6"]
 position = Vector2( 24, 48 )
 
@@ -240,7 +453,7 @@ position = Vector2( 208, 48 )
 scale = Vector2( -1, 1 )
 
 [node name="AnimatedSprite" parent="FinishPoint" index="1"]
-frame = 5
+frame = 11
 
 [editable path="Traps/Saw"]
 
