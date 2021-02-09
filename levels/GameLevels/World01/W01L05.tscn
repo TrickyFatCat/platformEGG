@@ -18,7 +18,7 @@ tile_data = PoolIntArray( -327682, 1, 0, -327681, 1, 1, -393216, 1, 1, -393215, 
 
 [node name="Pendulum" parent="Traps" index="0" instance=ExtResource( 2 )]
 position = Vector2( 88, 160 )
-rotation = 3.14159
+rotation = 0.0
 fluctuation_duration = 0.75
 pause_duration = 0.5
 angle_min_default = 0.0
@@ -26,7 +26,7 @@ angle_max_default = 180.0
 
 [node name="Pendulum2" parent="Traps" index="1" instance=ExtResource( 2 )]
 position = Vector2( 176, 256 )
-rotation = 3.14159
+rotation = 0.0
 fluctuation_duration = 0.75
 pause_duration = 0.5
 angle_min_default = 0.0
@@ -34,7 +34,7 @@ angle_max_default = 180.0
 
 [node name="Pendulum3" parent="Traps" index="2" instance=ExtResource( 2 )]
 position = Vector2( 480, 272 )
-rotation = 3.14159
+rotation = 0.0
 fluctuation_duration = 0.75
 pause_duration = 0.5
 angle_min_default = 0.0
@@ -42,7 +42,7 @@ angle_max_default = 180.0
 
 [node name="Pendulum4" parent="Traps" index="3" instance=ExtResource( 2 )]
 position = Vector2( 384, 0 )
-rotation = 3.14159
+rotation = 0.0
 fluctuation_duration = 0.75
 pause_duration = 0.5
 angle_min_default = 0.0
@@ -56,10 +56,7 @@ is_clockwise = true
 position = Vector2( 408, 68.5 )
 
 [node name="Saw" parent="Traps" index="6" instance=ExtResource( 4 )]
-position = Vector2( 160, 224 )
-
-[node name="AnimatedSprite" parent="Traps/Saw" index="0"]
-frame = 4
+position = Vector2( 160, 80 )
 
 [node name="ObjectMover" parent="Traps/Saw" index="2"]
 travel_duration = 0.5
@@ -77,10 +74,10 @@ position = Vector2( 160, 224 )
 wait_time = 1.5
 
 [node name="Saw2" parent="Traps" index="7" instance=ExtResource( 4 )]
-position = Vector2( 16, 80 )
+position = Vector2( 16, 224 )
 
 [node name="AnimatedSprite" parent="Traps/Saw2" index="0"]
-frame = 3
+frame = 1
 
 [node name="ObjectMover" parent="Traps/Saw2" index="2"]
 travel_duration = 0.5
@@ -98,10 +95,10 @@ position = Vector2( 16, 80 )
 wait_time = 1.5
 
 [node name="Saw3" parent="Traps" index="8" instance=ExtResource( 4 )]
-position = Vector2( 352, 304 )
+position = Vector2( 352, 384 )
 
 [node name="AnimatedSprite" parent="Traps/Saw3" index="0"]
-frame = 3
+frame = 1
 
 [node name="ObjectMover" parent="Traps/Saw3" index="2"]
 travel_duration = 0.5
@@ -125,7 +122,10 @@ position = Vector2( 272, 384 )
 wait_time = 1.5
 
 [node name="Saw4" parent="Traps" index="9" instance=ExtResource( 4 )]
-position = Vector2( 464, 99 )
+position = Vector2( 464, 253 )
+
+[node name="AnimatedSprite" parent="Traps/Saw4" index="0"]
+frame = 0
 
 [node name="ObjectMover" parent="Traps/Saw4" index="2"]
 travel_duration = 0.5
@@ -143,7 +143,10 @@ position = Vector2( 464, 99 )
 wait_time = 1.5
 
 [node name="Saw5" parent="Traps" index="10" instance=ExtResource( 4 )]
-position = Vector2( 336, 256 )
+position = Vector2( 336, 160 )
+
+[node name="AnimatedSprite" parent="Traps/Saw5" index="0"]
+frame = 0
 
 [node name="ObjectMover" parent="Traps/Saw5" index="2"]
 travel_duration = 0.5
@@ -161,10 +164,10 @@ position = Vector2( 336, 256 )
 wait_time = 1.5
 
 [node name="Saw6" parent="Traps" index="11" instance=ExtResource( 4 )]
-position = Vector2( 624, 227 )
+position = Vector2( 624, 301 )
 
 [node name="AnimatedSprite" parent="Traps/Saw6" index="0"]
-frame = 1
+frame = 7
 
 [node name="ObjectMover" parent="Traps/Saw6" index="2"]
 travel_duration = 0.5
@@ -182,10 +185,10 @@ position = Vector2( 624, 227 )
 wait_time = 1.5
 
 [node name="Saw7" parent="Traps" index="12" instance=ExtResource( 4 )]
-position = Vector2( 496, 179 )
+position = Vector2( 496, 253 )
 
 [node name="AnimatedSprite" parent="Traps/Saw7" index="0"]
-frame = 0
+frame = 6
 
 [node name="ObjectMover" parent="Traps/Saw7" index="2"]
 travel_duration = 0.5
@@ -203,10 +206,10 @@ position = Vector2( 496, 179 )
 wait_time = 1.5
 
 [node name="Saw8" parent="Traps" index="13" instance=ExtResource( 4 )]
-position = Vector2( 496, 83 )
+position = Vector2( 496, 157 )
 
 [node name="AnimatedSprite" parent="Traps/Saw8" index="0"]
-frame = 0
+frame = 6
 
 [node name="ObjectMover" parent="Traps/Saw8" index="2"]
 travel_duration = 0.5
@@ -224,10 +227,10 @@ position = Vector2( 496, 83 )
 wait_time = 1.5
 
 [node name="Saw9" parent="Traps" index="14" instance=ExtResource( 4 )]
-position = Vector2( 624, 132 )
+position = Vector2( 624, 205 )
 
 [node name="AnimatedSprite" parent="Traps/Saw9" index="0"]
-frame = 0
+frame = 6
 
 [node name="ObjectMover" parent="Traps/Saw9" index="2"]
 travel_duration = 0.5
@@ -245,10 +248,10 @@ position = Vector2( 624, 132 )
 wait_time = 1.5
 
 [node name="Saw10" parent="Traps" index="15" instance=ExtResource( 4 )]
-position = Vector2( 624, 35 )
+position = Vector2( 624, 109 )
 
 [node name="AnimatedSprite" parent="Traps/Saw10" index="0"]
-frame = 0
+frame = 6
 
 [node name="ObjectMover" parent="Traps/Saw10" index="2"]
 travel_duration = 0.5
@@ -450,7 +453,7 @@ position = Vector2( 208, 48 )
 scale = Vector2( -1, 1 )
 
 [node name="AnimatedSprite" parent="FinishPoint" index="1"]
-frame = 9
+frame = 12
 
 [editable path="Traps/Saw"]
 

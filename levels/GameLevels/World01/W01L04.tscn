@@ -99,7 +99,7 @@ position = Vector2( 624, 80 )
 wait_time = 1.5
 
 [node name="Saw5" parent="Traps" index="4" instance=ExtResource( 3 )]
-position = Vector2( 560, 256 )
+position = Vector2( 495.3, 256 )
 
 [node name="AnimatedSprite" parent="Traps/Saw5" index="0"]
 frame = 7
@@ -117,10 +117,10 @@ position = Vector2( 384, 256 )
 position = Vector2( 560, 256 )
 
 [node name="WaitingTimer" parent="Traps/Saw5/ObjectMover" index="2"]
-wait_time = 0.75
+wait_time = 0.5
 
 [node name="Saw6" parent="Traps" index="5" instance=ExtResource( 3 )]
-position = Vector2( 266.825, 224 )
+position = Vector2( 207.3, 224 )
 
 [node name="AnimatedSprite" parent="Traps/Saw6" index="0"]
 frame = 6
@@ -137,14 +137,11 @@ position = Vector2( 96, 224 )
 [node name="Position1" parent="Traps/Saw6/ObjectMover/TargetPoints" index="1"]
 position = Vector2( 272, 224 )
 
-[node name="MovementTween" parent="Traps/Saw6/ObjectMover" index="1"]
-playback/active = true
-
 [node name="WaitingTimer" parent="Traps/Saw6/ObjectMover" index="2"]
-wait_time = 0.75
+wait_time = 0.5
 
 [node name="Saw7" parent="Traps" index="6" instance=ExtResource( 3 )]
-position = Vector2( 101.896, 256 )
+position = Vector2( 160.7, 256 )
 
 [node name="AnimatedSprite" parent="Traps/Saw7" index="0"]
 frame = 5
@@ -161,14 +158,11 @@ position = Vector2( 272, 256 )
 [node name="Position1" parent="Traps/Saw7/ObjectMover/TargetPoints" index="1"]
 position = Vector2( 96, 256 )
 
-[node name="MovementTween" parent="Traps/Saw7/ObjectMover" index="1"]
-playback/active = true
-
 [node name="WaitingTimer" parent="Traps/Saw7/ObjectMover" index="2"]
-wait_time = 0.75
+wait_time = 0.5
 
 [node name="Saw8" parent="Traps" index="7" instance=ExtResource( 3 )]
-position = Vector2( 208, 144 )
+position = Vector2( 336, 112 )
 
 [node name="AnimatedSprite" parent="Traps/Saw8" index="0"]
 frame = 4
