@@ -129,7 +129,7 @@ position = Vector2( 40, 304.566 )
 position = Vector2( 768, 228.536 )
 
 [node name="AnimatedSprite" parent="Traps/Saw" index="0"]
-frame = 7
+frame = 3
 
 [node name="Position0" parent="Traps/Saw/ObjectMover/TargetPoints" index="0"]
 position = Vector2( 768, 228.507 )
@@ -141,25 +141,22 @@ position = Vector2( 768, 228.536 )
 position = Vector2( 913.6, 227.9 )
 
 [node name="AnimatedSprite" parent="Traps/Saw2" index="0"]
-frame = 7
+frame = 3
 
 [node name="Saw3" parent="Traps" index="38" instance=ExtResource( 6 )]
 position = Vector2( 1064, 227.9 )
-
-[node name="AnimatedSprite" parent="Traps/Saw3" index="0"]
-frame = 6
 
 [node name="Saw4" parent="Traps" index="39" instance=ExtResource( 6 )]
 position = Vector2( 1064, 80 )
 
 [node name="AnimatedSprite" parent="Traps/Saw4" index="0"]
-frame = 5
+frame = 1
 
 [node name="Saw7" parent="Traps" index="40" instance=ExtResource( 6 )]
-position = Vector2( 1454.4, 40 )
+position = Vector2( 1454.4, 182.277 )
 
 [node name="AnimatedSprite" parent="Traps/Saw7" index="0"]
-frame = 7
+frame = 3
 
 [node name="ObjectMover" parent="Traps/Saw7" index="2"]
 travel_duration = 2.0
@@ -173,10 +170,10 @@ position = Vector2( 1454.4, 40 )
 position = Vector2( 1454.4, 224.566 )
 
 [node name="Saw9" parent="Traps" index="41" instance=ExtResource( 6 )]
-position = Vector2( 1528, 218.179 )
+position = Vector2( 1528, 40.031 )
 
 [node name="AnimatedSprite" parent="Traps/Saw9" index="0"]
-frame = 4
+frame = 0
 
 [node name="ObjectMover" parent="Traps/Saw9" index="2"]
 travel_duration = 3.0
@@ -190,10 +187,10 @@ position = Vector2( 1528, 224.566 )
 position = Vector2( 1528, 40.0295 )
 
 [node name="Saw10" parent="Traps" index="42" instance=ExtResource( 6 )]
-position = Vector2( 1592, 40 )
+position = Vector2( 1592, 182.277 )
 
 [node name="AnimatedSprite" parent="Traps/Saw10" index="0"]
-frame = 4
+frame = 0
 
 [node name="ObjectMover" parent="Traps/Saw10" index="2"]
 travel_duration = 2.0
@@ -207,10 +204,10 @@ position = Vector2( 1592, 40 )
 position = Vector2( 1592, 224.566 )
 
 [node name="Saw11" parent="Traps" index="43" instance=ExtResource( 6 )]
-position = Vector2( 1672, 222.227 )
+position = Vector2( 1672, 40.0173 )
 
 [node name="AnimatedSprite" parent="Traps/Saw11" index="0"]
-frame = 4
+frame = 0
 
 [node name="ObjectMover" parent="Traps/Saw11" index="2"]
 travel_duration = 2.0
@@ -224,23 +221,26 @@ position = Vector2( 1672, 224.566 )
 [node name="Position1" parent="Traps/Saw11/ObjectMover/TargetPoints" index="1"]
 position = Vector2( 1672, 40 )
 
+[node name="WaitingTimer" parent="Traps/Saw11/ObjectMover" index="2"]
+wait_time = 2.0
+
 [node name="Saw5" parent="Traps" index="44" instance=ExtResource( 6 )]
 position = Vector2( 913.6, 80 )
 
 [node name="AnimatedSprite" parent="Traps/Saw5" index="0"]
-frame = 5
+frame = 1
 
 [node name="Saw6" parent="Traps" index="45" instance=ExtResource( 6 )]
 position = Vector2( 768, 80 )
 
 [node name="AnimatedSprite" parent="Traps/Saw6" index="0"]
-frame = 4
+frame = 0
 
 [node name="Saw8" parent="Traps" index="46" instance=ExtResource( 6 )]
 position = Vector2( 984, 152 )
 
 [node name="AnimatedSprite" parent="Traps/Saw8" index="0"]
-frame = 4
+frame = 0
 
 [node name="SpikesDouble" parent="Traps" index="47" instance=ExtResource( 3 )]
 position = Vector2( 1232, 304.566 )
@@ -252,7 +252,7 @@ position = Vector2( 600, 31.434 )
 position = Vector2( 1064, 152 )
 
 [node name="PlatformShort" parent="Platforms" index="1" instance=ExtResource( 2 )]
-position = Vector2( 264, 228.536 )
+position = Vector2( 552, 228.536 )
 
 [node name="Collision" parent="Platforms/PlatformShort" index="1"]
 position = Vector2( 0, -0.0145874 )
@@ -273,7 +273,7 @@ position = Vector2( 552, 228.536 )
 wait_time = 6.0
 
 [node name="PlatformShort4" parent="Platforms" index="2" instance=ExtResource( 2 )]
-position = Vector2( 504, 144 )
+position = Vector2( 264, 143.985 )
 
 [node name="Collision" parent="Platforms/PlatformShort4" index="1"]
 position = Vector2( 0, -0.0145874 )
@@ -294,7 +294,7 @@ position = Vector2( 264, 143.985 )
 wait_time = 6.0
 
 [node name="PlatformShort5" parent="Platforms" index="3" instance=ExtResource( 2 )]
-position = Vector2( 696, 228.522 )
+position = Vector2( 1008, 228.536 )
 
 [node name="Collision" parent="Platforms/PlatformShort5" index="1"]
 position = Vector2( 0, -0.0145874 )
@@ -315,7 +315,7 @@ position = Vector2( 1008, 228.536 )
 wait_time = 6.0
 
 [node name="PlatformShort7" parent="Platforms" index="4" instance=ExtResource( 2 )]
-position = Vector2( 696, 48 )
+position = Vector2( 1120, 48 )
 
 [node name="Collision" parent="Platforms/PlatformShort7" index="1"]
 position = Vector2( 0, -0.0145874 )
@@ -336,7 +336,7 @@ position = Vector2( 1120, 48 )
 wait_time = 6.0
 
 [node name="PlatformShort6" parent="Platforms" index="5" instance=ExtResource( 2 )]
-position = Vector2( 840, 192 )
+position = Vector2( 1120.5, 192 )
 
 [node name="Collision" parent="Platforms/PlatformShort6" index="1"]
 position = Vector2( 0, -0.0145874 )
@@ -357,7 +357,7 @@ position = Vector2( 1120.5, 192 )
 wait_time = 6.0
 
 [node name="PlatformShort2" parent="Platforms" index="6" instance=ExtResource( 2 )]
-position = Vector2( 120, 224.5 )
+position = Vector2( 120, 64 )
 
 [node name="Collision" parent="Platforms/PlatformShort2" index="1"]
 position = Vector2( 4.52697e-05, 0 )
@@ -378,7 +378,7 @@ position = Vector2( 120, 64 )
 wait_time = 6.0
 
 [node name="PlatformShort3" parent="Platforms" index="7" instance=ExtResource( 2 )]
-position = Vector2( 192, 64 )
+position = Vector2( 192, 85.5571 )
 
 [node name="Collision" parent="Platforms/PlatformShort3" index="1"]
 position = Vector2( -5.06632e-07, -3.27418e-11 )

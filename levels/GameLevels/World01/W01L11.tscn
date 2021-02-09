@@ -13,50 +13,62 @@ tile_data = PoolIntArray( -131073, 1, 0, -196608, 1, 2, -196579, 1, 0, -196578, 
 
 [node name="Pendulum" parent="Traps" index="0" instance=ExtResource( 3 )]
 position = Vector2( 444.953, 45 )
-rotation = 0.221761
+rotation = 3.14159
 angle_min_default = 0.0
 angle_max_default = 180.0
 
+[node name="Tween" parent="Traps/Pendulum" index="2"]
+playback/active = false
+
 [node name="MinAngle" parent="Traps/Pendulum" index="4"]
-rotation = -0.221761
+rotation = -3.14159
 
 [node name="MaxAngle" parent="Traps/Pendulum" index="5"]
-rotation = 2.91983
+rotation = 6.12527e-06
 
 [node name="Pendulum2" parent="Traps" index="1" instance=ExtResource( 3 )]
 position = Vector2( 360, 104 )
-rotation = 0.221761
+rotation = 3.14159
 angle_min_default = 0.0
 angle_max_default = 180.0
 
+[node name="Tween" parent="Traps/Pendulum2" index="2"]
+playback/active = false
+
 [node name="MinAngle" parent="Traps/Pendulum2" index="4"]
-rotation = -0.221761
+rotation = -3.14159
 
 [node name="MaxAngle" parent="Traps/Pendulum2" index="5"]
-rotation = 2.91983
+rotation = 6.12527e-06
 
 [node name="Pendulum3" parent="Traps" index="2" instance=ExtResource( 3 )]
 position = Vector2( 213, 149 )
-rotation = 0.221761
+rotation = 3.14159
 angle_min_default = 0.0
 angle_max_default = 180.0
 
+[node name="Tween" parent="Traps/Pendulum3" index="2"]
+playback/active = false
+
 [node name="MinAngle" parent="Traps/Pendulum3" index="4"]
-rotation = -0.221761
+rotation = -3.14159
 
 [node name="MaxAngle" parent="Traps/Pendulum3" index="5"]
-rotation = 2.91983
+rotation = 6.12527e-06
 
 [node name="Pendulum4" parent="Traps" index="3" instance=ExtResource( 3 )]
 position = Vector2( 128, 232 )
-rotation = 2.09931
+rotation = 2.35619
 angle_max_default = 135.0
 
+[node name="Tween" parent="Traps/Pendulum4" index="2"]
+playback/active = false
+
 [node name="MinAngle" parent="Traps/Pendulum4" index="4"]
-rotation = -1.31391
+rotation = -1.57079
 
 [node name="MaxAngle" parent="Traps/Pendulum4" index="5"]
-rotation = 0.256884
+rotation = 2.92948e-06
 
 [node name="PlatformShort" parent="Platforms" index="0" instance=ExtResource( 2 )]
 position = Vector2( 301, 160 )

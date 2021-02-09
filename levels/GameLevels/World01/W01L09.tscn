@@ -17,27 +17,27 @@ tile_data = PoolIntArray( -131073, 1, 0, -196608, 1, 2, -65537, 1, 65536, -13107
 
 [node name="Pendulum" parent="Traps" index="0" instance=ExtResource( 2 )]
 position = Vector2( 130.109, 265.872 )
-rotation = 0.13735
+rotation = 4.46715
 is_rotation_endless = true
 angle_min_default = 0.0
 angle_max_default = 0.0
 
 [node name="Pendulum2" parent="Traps" index="1" instance=ExtResource( 2 )]
 position = Vector2( 265.166, 265.165 )
-rotation = 0.13735
+rotation = 4.46715
 is_rotation_endless = true
 angle_min_default = 0.0
 angle_max_default = 0.0
 
 [node name="Pendulum3" parent="Traps" index="2" instance=ExtResource( 2 )]
 position = Vector2( 482.248, 263.751 )
-rotation = 0.13735
+rotation = 4.46715
 is_rotation_endless = true
 angle_min_default = 0.0
 angle_max_default = 0.0
 
 [node name="MoivingSpikedPlatformLong" parent="Traps" index="3" instance=ExtResource( 3 )]
-position = Vector2( 384.731, 265.676 )
+position = Vector2( 385.213, 322.467 )
 
 [node name="ObjectMover" parent="Traps/MoivingSpikedPlatformLong" index="2"]
 is_active = true
@@ -48,41 +48,38 @@ position = Vector2( 384.667, 258.095 )
 [node name="Position1" parent="Traps/MoivingSpikedPlatformLong/ObjectMover/TargetPoints" index="1"]
 position = Vector2( 385.291, 331.634 )
 
-[node name="MovementTween" parent="Traps/MoivingSpikedPlatformLong/ObjectMover" index="1"]
-playback/active = true
-
 [node name="Pendulum4" parent="Traps" index="4" instance=ExtResource( 2 )]
 position = Vector2( 777.621, 272.692 )
-rotation = -1.20654
+rotation = 0.55582
 angle_min_default = -90.0
 angle_max_default = 270.0
 
 [node name="Tween" parent="Traps/Pendulum4" index="2"]
-playback/active = true
+playback/active = false
 
 [node name="MinAngle" parent="Traps/Pendulum4" index="4"]
-rotation = -0.364256
+rotation = -2.12662
 
 [node name="MaxAngle" parent="Traps/Pendulum4" index="5"]
-rotation = 5.91893
+rotation = 4.15657
 
 [node name="Pendulum5" parent="Traps" index="5" instance=ExtResource( 2 )]
 position = Vector2( 1094.49, 269.542 )
-rotation = -1.20654
+rotation = 0.55582
 angle_min_default = -90.0
 angle_max_default = 270.0
 
 [node name="Tween" parent="Traps/Pendulum5" index="2"]
-playback/active = true
+playback/active = false
 
 [node name="MinAngle" parent="Traps/Pendulum5" index="4"]
-rotation = -0.364256
+rotation = -2.12662
 
 [node name="MaxAngle" parent="Traps/Pendulum5" index="5"]
-rotation = 5.91893
+rotation = 4.15657
 
 [node name="MoivingSpikedPlatformShort" parent="Traps" index="6" instance=ExtResource( 4 )]
-position = Vector2( 882.804, 257.052 )
+position = Vector2( 881.302, 315.671 )
 
 [node name="ObjectMover" parent="Traps/MoivingSpikedPlatformShort" index="2"]
 is_active = true
@@ -93,11 +90,8 @@ position = Vector2( 883.005, 249.227 )
 [node name="Position1" parent="Traps/MoivingSpikedPlatformShort/ObjectMover/TargetPoints" index="1"]
 position = Vector2( 881.059, 325.133 )
 
-[node name="MovementTween" parent="Traps/MoivingSpikedPlatformShort/ObjectMover" index="1"]
-playback/active = true
-
 [node name="MoivingSpikedPlatformShort2" parent="Traps" index="7" instance=ExtResource( 4 )]
-position = Vector2( 942.719, 317.189 )
+position = Vector2( 941.694, 257.916 )
 
 [node name="ObjectMover" parent="Traps/MoivingSpikedPlatformShort2" index="2"]
 is_active = true
@@ -108,11 +102,8 @@ position = Vector2( 942.856, 325.102 )
 [node name="Position1" parent="Traps/MoivingSpikedPlatformShort2/ObjectMover/TargetPoints" index="1"]
 position = Vector2( 941.528, 248.349 )
 
-[node name="MovementTween" parent="Traps/MoivingSpikedPlatformShort2/ObjectMover" index="1"]
-playback/active = true
-
 [node name="MoivingSpikedPlatformShort3" parent="Traps" index="8" instance=ExtResource( 4 )]
-position = Vector2( 1001.5, 255.826 )
+position = Vector2( 1001.91, 316.35 )
 
 [node name="ObjectMover" parent="Traps/MoivingSpikedPlatformShort3" index="2"]
 is_active = true
@@ -123,14 +114,11 @@ position = Vector2( 1001.45, 247.746 )
 [node name="Position1" parent="Traps/MoivingSpikedPlatformShort3/ObjectMover/TargetPoints" index="1"]
 position = Vector2( 1001.98, 326.119 )
 
-[node name="MovementTween" parent="Traps/MoivingSpikedPlatformShort3/ObjectMover" index="1"]
-playback/active = true
-
 [node name="Saw" parent="Traps" index="9" instance=ExtResource( 5 )]
-position = Vector2( 161.772, 109.384 )
+position = Vector2( 519.514, 104.951 )
 
 [node name="AnimatedSprite" parent="Traps/Saw" index="0"]
-frame = 1
+frame = 7
 
 [node name="ObjectMover" parent="Traps/Saw" index="2"]
 is_cycled = true
@@ -148,14 +136,11 @@ position = Vector2( 531.212, 138.156 )
 [node name="Position3" type="Position2D" parent="Traps/Saw/ObjectMover/TargetPoints" index="3"]
 position = Vector2( 111.405, 134.151 )
 
-[node name="MovementTween" parent="Traps/Saw/ObjectMover" index="1"]
-playback/active = true
-
 [node name="Saw2" parent="Traps" index="10" instance=ExtResource( 5 )]
-position = Vector2( 529.906, 134.379 )
+position = Vector2( 164.018, 134.126 )
 
 [node name="AnimatedSprite" parent="Traps/Saw2" index="0"]
-frame = 3
+frame = 1
 
 [node name="ObjectMover" parent="Traps/Saw2" index="2"]
 is_cycled = true
@@ -172,9 +157,6 @@ position = Vector2( 160.133, 105.833 )
 
 [node name="Position3" type="Position2D" parent="Traps/Saw2/ObjectMover/TargetPoints" index="3"]
 position = Vector2( 570.867, 105.203 )
-
-[node name="MovementTween" parent="Traps/Saw2/ObjectMover" index="1"]
-playback/active = true
 
 [node name="Fruit" parent="Fruits" index="0" instance=ExtResource( 6 )]
 position = Vector2( 170, 324 )
@@ -305,13 +287,13 @@ position = Vector2( 187.191, 103.882 )
 [node name="Fruit43" parent="Fruits" index="42" instance=ExtResource( 6 )]
 position = Vector2( 25.8259, 85.5904 )
 
-[node name="Player" parent="." index="5"]
+[node name="Player" parent="." index="6"]
 position = Vector2( 25.1022, 332.34 )
 
-[node name="Egg" parent="." index="6"]
+[node name="Egg" parent="." index="7"]
 position = Vector2( 49.8438, 333.465 )
 
-[node name="FinishPoint" parent="." index="7"]
+[node name="FinishPoint" parent="." index="8"]
 position = Vector2( 1495.75, 336.21 )
 
 [editable path="Traps/MoivingSpikedPlatformLong"]

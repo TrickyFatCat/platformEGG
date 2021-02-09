@@ -17,21 +17,21 @@ tile_data = PoolIntArray( 65534, 2, 0, 65535, 2, 1, 0, 2, 2, 39, 2, 0, 131070, 2
 
 [node name="Pendulum" parent="Traps" index="0" instance=ExtResource( 2 )]
 position = Vector2( 259.566, 116.097 )
-rotation = 6.14786
+rotation = 4.98768
 is_rotation_endless = true
 angle_min_default = 0.0
 angle_max_default = 0.0
 
 [node name="Tween" parent="Traps/Pendulum" index="2"]
 repeat = true
-playback/active = true
+playback/active = false
 playback/repeat = true
 
 [node name="MinAngle" parent="Traps/Pendulum" index="4"]
-rotation = -6.14786
+rotation = -4.98768
 
 [node name="MaxAngle" parent="Traps/Pendulum" index="5"]
-rotation = 0.135323
+rotation = 1.2955
 
 [node name="SpikesTriple" parent="Traps" index="1" instance=ExtResource( 5 )]
 position = Vector2( 86.477, 361.878 )
@@ -58,7 +58,7 @@ position = Vector2( 376.218, 360.964 )
 position = Vector2( 424.355, 362.462 )
 
 [node name="Saw" parent="Traps" index="9" instance=ExtResource( 6 )]
-position = Vector2( 190.364, 195.765 )
+position = Vector2( 267.561, 226.436 )
 
 [node name="AnimatedSprite" parent="Traps/Saw" index="0"]
 frame = 7
@@ -79,11 +79,8 @@ position = Vector2( 267.448, 226.994 )
 [node name="Position3" type="Position2D" parent="Traps/Saw/ObjectMover/TargetPoints" index="3"]
 position = Vector2( 177.549, 229.99 )
 
-[node name="MovementTween" parent="Traps/Saw/ObjectMover" index="1"]
-playback/active = true
-
 [node name="PlatformLong" parent="Platforms" index="0" instance=ExtResource( 3 )]
-position = Vector2( 97.0821, 323.637 )
+position = Vector2( 98.151, 101.617 )
 
 [node name="ObjectMover" parent="Platforms/PlatformLong" index="2"]
 waiting_duration = 2.0
@@ -99,7 +96,7 @@ position = Vector2( 97.0816, 323.75 )
 wait_time = 2.0
 
 [node name="PlatformLong2" parent="Platforms" index="1" instance=ExtResource( 3 )]
-position = Vector2( 234.366, 327.257 )
+position = Vector2( 213.832, 327.497 )
 
 [node name="ObjectMover" parent="Platforms/PlatformLong2" index="2"]
 is_active = true
@@ -110,11 +107,8 @@ position = Vector2( 211.428, 327.525 )
 [node name="Position1" parent="Platforms/PlatformLong2/ObjectMover/TargetPoints" index="1"]
 position = Vector2( 372.694, 325.638 )
 
-[node name="MovementTween" parent="Platforms/PlatformLong2/ObjectMover" index="1"]
-playback/active = true
-
 [node name="PlatformLong3" parent="Platforms" index="2" instance=ExtResource( 3 )]
-position = Vector2( 418.89, 64.1598 )
+position = Vector2( 413.491, 345.438 )
 
 [node name="ObjectMover" parent="Platforms/PlatformLong3" index="2"]
 waiting_duration = 1.5
@@ -138,13 +132,13 @@ position = Vector2( 232.194, 180.281 )
 [node name="Fruit3" parent="Fruits" index="2" instance=ExtResource( 4 )]
 position = Vector2( 164.235, 303.928 )
 
-[node name="Player" parent="." index="5"]
+[node name="Player" parent="." index="6"]
 position = Vector2( 34.9233, 85.8926 )
 
-[node name="Egg" parent="." index="6"]
+[node name="Egg" parent="." index="7"]
 position = Vector2( 36.8111, 308.647 )
 
-[node name="FinishPoint" parent="." index="7"]
+[node name="FinishPoint" parent="." index="8"]
 position = Vector2( 544.615, 79.2854 )
 
 [editable path="Traps/Pendulum"]
