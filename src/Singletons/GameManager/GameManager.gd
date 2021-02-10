@@ -11,6 +11,7 @@ enum difficulty{
 
 const START_TRANSITION_DELAY: float = 0.5
 const START_TIMER_DURATION: float = 0.25
+const MUSIC_FADE_DURATION : float = 0.5
 
 var game_difficulty = difficulty.NORMAL
 
@@ -27,6 +28,7 @@ func _ready() -> void:
 	Events.connect("player_dead", self, "restart_session")
 	TransitionScreen.connect("screen_opened", self, "start_session")
 	Events.connect("level_finished", self, "stop_session")
+	Events.connect("open_finish_screen", self, "_play_finish_track")
 	startTimer.wait_time = START_TIMER_DURATION
 
 
@@ -42,6 +44,9 @@ func start_session() -> void:
 func stop_session() -> void:
 	stateMachine.transition_to("Inactive")
 	start_transition()
+	
+	if MusicPlayer.playing:
+		MusicPlayer.stop_track(MUSIC_FADE_DURATION)
 
 
 func restart_session() -> void:
@@ -54,3 +59,7 @@ func is_difficulty_normal() -> bool:
 
 func is_difficulty_hard() -> bool:
 	return game_difficulty == difficulty.HARD
+
+
+func _play_finish_track() -> void:
+	MusicPlayer.stop_track(MUSIC_FADE_DURATION)	
