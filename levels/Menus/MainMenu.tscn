@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/Main/Levels/BaseMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/MenuTriggers/NewGame/NewGame.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/MenuTriggers/ExitGame/ExitGame.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Platforms/PlatformLong.tscn" type="PackedScene" id=4]
 [ext_resource path="res://sounds/Music/bgm_MainMenu.wav" type="AudioStream" id=5]
-[ext_resource path="res://temp/MainMenuPlayer.gd" type="Script" id=6]
 [ext_resource path="res://levels/Menus/MainMenu.gd" type="Script" id=7]
 [ext_resource path="res://levels/Menus/LevelData.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/Fonts/CompassPro.ttf" type="DynamicFontData" id=9]
@@ -18,9 +17,10 @@ font_data = ExtResource( 9 )
 [node name="MainMenu" instance=ExtResource( 1 )]
 script = ExtResource( 7 )
 is_hud_active = false
+music = [ ExtResource( 5 ) ]
 
 [node name="PlatformLong" parent="." index="0" instance=ExtResource( 4 )]
-position = Vector2( 480, 244 )
+position = Vector2( 480, 212.611 )
 
 [node name="Collision" parent="PlatformLong" index="1"]
 one_way_collision_margin = 8.0
@@ -43,7 +43,7 @@ position = Vector2( 480, 164 )
 wait_time = 2.0
 
 [node name="PlatformLong2" parent="." index="1" instance=ExtResource( 4 )]
-position = Vector2( 160, 244 )
+position = Vector2( 160, 275.389 )
 
 [node name="ObjectMover" parent="PlatformLong2" index="2"]
 travel_duration = 0.75
@@ -156,14 +156,9 @@ __meta__ = {
 [node name="Player" parent="." index="5"]
 position = Vector2( 64, 320 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="6"]
-stream = ExtResource( 5 )
-autoplay = true
-script = ExtResource( 6 )
+[node name="LevelData" parent="." index="6" instance=ExtResource( 8 )]
 
-[node name="LevelData" parent="." index="7" instance=ExtResource( 8 )]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="8"]
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="7"]
 
 [node name="Label" type="Label" parent="CanvasLayer" index="0"]
 margin_left = 248.0
@@ -177,6 +172,8 @@ text = "platformEGG"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Tween" type="Tween" parent="." index="8"]
 
 [editable path="PlatformLong"]
 
