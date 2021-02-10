@@ -97,6 +97,7 @@ GameCamera="*res://src/Singletons/GameCamera/GameCamera.tscn"
 Hud="*res://src/Singletons/Hud/Hud.tscn"
 GameSaver="*res://src/Singletons/GameSaver.gd"
 InputManager="*res://src/Singletons/InputManager.gd"
+MusicPlayer="*res://src/Singletons/MusicPlayer.gd"
 
 [display]
 
