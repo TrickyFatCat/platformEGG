@@ -4,6 +4,7 @@ extends CanvasLayer
 signal screen_opened()
 # warning-ignore:unused_signal
 signal screen_closed()
+signal screen_transit()
 
 const MIN_CUTOFF: float = 0.0
 const MAX_CUTOFF: float = 1.0
@@ -16,6 +17,7 @@ var masks: Array = [
 	"res://materials/TransitionScreen/TransitionMasks/shader_mask_shards_3.png",
 	"res://materials/TransitionScreen/TransitionMasks/shader_mask_shards_4.png"
 ]
+var current_cutoff : float = 0.0
 
 onready var stateMachine: StateMachine = $StateMachine
 onready var transitionTween: Tween = $TransitionTween
@@ -32,6 +34,7 @@ func _on_TransitionTween_tween_all_completed() -> void:
 
 func _ready() -> void:
 	stateMachine.set_physics_process(false)
+	transitionTween.connect("tween_step", self, "_on_screen_transit")
 
 
 func start_transition() -> void:
@@ -55,6 +58,7 @@ func start_transition() -> void:
 func set_cutoff(value: float) -> void:
 	value = clamp(value, MIN_CUTOFF, MAX_CUTOFF)
 	screen_shader.set_shader_param("cutoff", value)
+	current_cutoff = value
 
 
 func activate_tween(initial_value: float, target_value: float) -> void:
@@ -74,3 +78,7 @@ func activate_tween(initial_value: float, target_value: float) -> void:
 
 func set_transition_mask(new_mask: Texture) -> void:
 	screen_shader.set_shader_param("mask", new_mask)
+
+
+func _on_screen_transit(object, key, elapsed, value) -> void:
+	emit_signal("screen_transit")
