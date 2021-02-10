@@ -158,6 +158,7 @@ position = Vector2( 64, 320 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="6"]
 stream = ExtResource( 5 )
+volume_db = -14.915
 script = ExtResource( 6 )
 
 [node name="LevelData" parent="." index="7" instance=ExtResource( 8 )]
@@ -176,6 +177,8 @@ text = "platformEGG"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Tween" type="Tween" parent="." index="9"]
 
 [editable path="PlatformLong"]
 
