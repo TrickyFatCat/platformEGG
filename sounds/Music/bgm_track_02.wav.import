@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bgm_track_02.wav-72a2521e2a1fe9477da8582d0bf222fa.sample"
+
+[deps]
+
+source_file="res://sounds/Music/bgm_track_02.wav"
+dest_files=[ "res://.import/bgm_track_02.wav-72a2521e2a1fe9477da8582d0bf222fa.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
