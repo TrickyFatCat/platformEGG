@@ -32,6 +32,10 @@ func play_track(track : AudioStream, fade_time : float = FADE_TIME) -> void:
 	_fade_in(fade_time)
 
 
+func stop_track(fade_time : float = FADE_TIME) -> void:
+	_fade_out(fade_time)
+
+
 func set_volume(value: float) -> void:
 	volume_factor = value
 	volume_db = lerp(MIN_VOLUME, _default_volume, volume_factor)
