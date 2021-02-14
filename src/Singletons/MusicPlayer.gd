@@ -5,7 +5,6 @@ const FADE_TIME : float = 0.25
 
 var _fade_tween : Tween
 var volume_factor : float = 0.0 setget set_volume
-
 var _default_volume : float
 
 

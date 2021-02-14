@@ -1,20 +1,14 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Egg/Egg.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/FinishPoint/FinishPoint.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Main/Levels/Level.gd" type="Script" id=4]
 [ext_resource path="res://assets/Tilesets/terrain.tres" type="TileSet" id=5]
-[ext_resource path="res://sounds/Music/bgm_track_06.wav" type="AudioStream" id=6]
-[ext_resource path="res://sounds/Music/bgm_track_05.wav" type="AudioStream" id=7]
-[ext_resource path="res://sounds/Music/bgm_track_03.wav" type="AudioStream" id=8]
-[ext_resource path="res://sounds/Music/bgm_track_02.wav" type="AudioStream" id=9]
-[ext_resource path="res://sounds/Music/bgm_track_01.wav" type="AudioStream" id=10]
-[ext_resource path="res://sounds/Music/bgm_track_04.wav" type="AudioStream" id=11]
 
 [node name="BaseLevel" type="Node"]
 script = ExtResource( 4 )
-music = [ ExtResource( 10 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 6 ) ]
+music = [ "res://sounds/Music/bgm_track_01.wav", "res://sounds/Music/bgm_track_02.wav", "res://sounds/Music/bgm_track_03.wav", "res://sounds/Music/bgm_track_04.wav", "res://sounds/Music/bgm_track_05.wav", "res://sounds/Music/bgm_track_06.wav" ]
 
 [node name="Background" type="TileMap" parent="."]
 self_modulate = Color( 0.505882, 0.505882, 0.505882, 1 )
