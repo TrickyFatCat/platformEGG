@@ -5,9 +5,10 @@ const MUSIC_FADE_DURATION : float = 1.5
 
 export(bool) var is_hud_active := true
 export(Vector2) var camera_zoom := Vector2(1, 1)
-export(Array, String, FILE, "*.wav") var music := []
+export(Array, AudioStream) var music := []
 
 var level_time : float = 0
+var _music_track : AudioStream
 
 
 func _init() -> void:
@@ -25,8 +26,10 @@ func _start_playing_music() -> void:
 	if music.empty():
 		return
 	elif music.size() == 1:
-		var track = load(music[0])
-		MusicPlayer.play_track(track, MUSIC_FADE_DURATION)
+		_music_track = load(music[0])
+		MusicPlayer.play_track(_music_track, MUSIC_FADE_DURATION)
+		music = []
 	else:
-		var track = load(music[randi() % music.size()])
-		MusicPlayer.play_track(track, MUSIC_FADE_DURATION)
+		_music_track = load(music[randi() % music.size()])
+		MusicPlayer.play_track(_music_track, MUSIC_FADE_DURATION)
+		music = []
