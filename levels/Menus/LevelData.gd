@@ -13,7 +13,6 @@ func _ready() -> void:
 
 
 func show_level_data(level_id: int, difficulty) -> void:
-	print_debug(difficulty)
 	levelNumber.text = "LEVEL %02d" % (level_id + 1) if difficulty == 0 else set_levels_cleared()
 	set_fruits_count(level_id, difficulty)
 	set_level_time(level_id, difficulty)

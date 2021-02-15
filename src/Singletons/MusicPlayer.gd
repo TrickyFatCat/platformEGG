@@ -25,7 +25,6 @@ func play_track(track : AudioStream, fade_time : float = FADE_TIME) -> void:
 	if playing:
 		playing = false
 	
-	print_debug(fade_time)
 	stream = track
 	playing = true
 	_fade_in(fade_time)

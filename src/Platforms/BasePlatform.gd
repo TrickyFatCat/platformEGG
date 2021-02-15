@@ -5,8 +5,7 @@ onready var collision : CollisionShape2D = $Collision
 
 
 func _process(_delta: float) -> void:
-    if playerCheck.is_colliding():
-        print_debug("colliding")
-        collision.disabled = true
-    elif collision.disabled == true:
-        collision.disabled = false
+	if playerCheck.is_colliding():
+		collision.disabled = true
+	elif collision.disabled == true:
+		collision.disabled = false
