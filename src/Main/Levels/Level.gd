@@ -26,10 +26,10 @@ func _start_playing_music() -> void:
 	if music.empty():
 		return
 	elif music.size() == 1:
-		_music_track = load(music[0])
+		_music_track = music[0]
 		MusicPlayer.play_track(_music_track, MUSIC_FADE_DURATION)
 		music = []
 	else:
-		_music_track = load(music[randi() % music.size()])
+		_music_track = music[randi() % music.size()]
 		MusicPlayer.play_track(_music_track, MUSIC_FADE_DURATION)
 		music = []
