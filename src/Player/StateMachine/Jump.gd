@@ -1,6 +1,6 @@
 extends State
 
-const INTERRUPT_FACTOR: float = 0.25
+const INTERRUPT_FACTOR: float = 0.2
 
 var velocity_x: float = 0.0
 
