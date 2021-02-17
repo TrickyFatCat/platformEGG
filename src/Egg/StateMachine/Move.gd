@@ -13,14 +13,17 @@ onready var on_damage_impulse: Vector2 = egg.on_damage_impulse
 
 
 func _on_DamageDetector_area_entered(area: Area2D) -> void:
+	var is_death_trigger = false
+	
 	if area is DeathTrigger:
 		Global.egg.global_position = area.teleportation_position
+		is_death_trigger = true
 		
-	on_damage_throw(area.global_position)
+	on_damage_throw(area.global_position, is_death_trigger)
 
 
 func _on_DamageDetector_body_entered(body: PhysicsBody2D) -> void:
-	on_damage_throw(body.global_position)
+	on_damage_throw(body.global_position, false)
 
 
 func physics_process(delta: float) -> void:
@@ -51,8 +54,8 @@ func apply_bounce() -> void:
 	egg.velocity = velocity
 
 
-func on_damage_throw(hazard_position: Vector2) -> void:
-	if direction == Vector2.ZERO:
+func on_damage_throw(hazard_position: Vector2, is_death_trigger: bool) -> void:
+	if direction == Vector2.ZERO and not is_death_trigger:
 		var is_hazard_beneath = hazard_position.y <= egg.global_position.y
 		direction.x = sign(velocity.x) if is_hazard_beneath else -sign(velocity.x)
 		direction.y = 1 if is_hazard_beneath else -1

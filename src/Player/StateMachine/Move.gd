@@ -20,10 +20,13 @@ onready var air_control_factor : float = AIR_CONTROL_DEFAULT
 
 
 func _on_DamageDetector_area_entered(area: Area2D) -> void:
+	var is_death_trigger = false
+	
 	if area is DeathTrigger:
 		Global.player.global_position = area.teleportation_position
+		is_death_trigger = true
 		
-	transit_to_stunlock(area.global_position)
+	transit_to_stunlock(area.global_position, is_death_trigger)
 
 
 func _on_DamageDetector_body_entered(body: PhysicsBody2D) -> void:
@@ -84,11 +87,12 @@ func calculate_jump_velocity(velocity_new: Vector2, direction: Vector2) -> void:
 	velocity = velocity_new * direction
 
 
-func transit_to_stunlock(hazard_position: Vector2) -> void:
+func transit_to_stunlock(hazard_position: Vector2, is_death_trigger : bool = false) -> void:
 	stateMachine.transition_to("Move/Stunlock", { 
 		velocity = velocity_stunlock,
 		direction = get_move_direction(),
-		hazard_position = hazard_position
+		hazard_position = hazard_position,
+		is_death_trigger = is_death_trigger
 	})
 
 

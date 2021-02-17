@@ -29,21 +29,22 @@ func enter(msg: Dictionary = {}) -> void:
 	move.gravity = 0
 	move.velocity_max.x = player.velocity_stunlock.x
 	
-	if "hazard_position" and "velocity" and "direction" in msg:
-		var player_position: = player.global_position
-		var hazard_position = msg.hazard_position
-		var is_hazard_beneath: bool = hazard_position.y < player_position.y
-		
-		# if is_hazard_beneath:
-		var direction_to_hazard = (player.position - hazard_position).normalized()
-		stunlock_direction.x = sign(direction_to_hazard.x)
-		# else:
-		# 	stunlock_direction.x = 1.0 if sprite.flip_h else -1.0
-		
-		move.calculate_jump_velocity(msg.velocity, stunlock_direction)
-		
-		# if is_hazard_beneath:
-		# move.velocity.y = 0
+	if "hazard_position" and "velocity" and "direction" and "is_death_trigger" in msg:
+		if not msg.is_death_trigger:
+			var player_position: = player.global_position
+			var hazard_position = msg.hazard_position
+			var is_hazard_beneath: bool = hazard_position.y < player_position.y
+			
+			# if is_hazard_beneath:
+			var direction_to_hazard = (player.position - hazard_position).normalized()
+			stunlock_direction.x = sign(direction_to_hazard.x)
+			# else:
+			# 	stunlock_direction.x = 1.0 if sprite.flip_h else -1.0
+			
+			move.calculate_jump_velocity(msg.velocity, stunlock_direction)
+			
+			# if is_hazard_beneath:
+			# move.velocity.y = 0
 	
 	yield(get_tree(), "idle_frame")
 	move.gravity = Global.GRAVITY
