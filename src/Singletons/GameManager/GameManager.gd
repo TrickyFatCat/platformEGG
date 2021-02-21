@@ -17,6 +17,11 @@ var game_difficulty = difficulty.NORMAL
 
 onready var stateMachine: StateMachine = $StateMachine
 onready var startTimer: Timer = $StartTimer
+onready var finish_track : AudioStream = preload("res://sounds/sfx_goose.wav")
+onready var damage_sound : String = "res://sounds/sfx_goose.wav"
+onready var take_sound : String = "res://sounds/sfx_goose.wav"
+onready var throw_sound : String = "res://sounds/sfx_goose.wav"
+onready var fruit_sound : String = "res://sounds/sfx_goose.wav"
 
 
 func _on_StartTimer_timeout():
@@ -29,6 +34,12 @@ func _ready() -> void:
 	TransitionScreen.connect("screen_opened", self, "start_session")
 	Events.connect("level_finished", self, "stop_session")
 	Events.connect("open_finish_screen", self, "_play_finish_track")
+	Events.connect("egg_took_damage", self, "_play_damage_sound")
+	Events.connect("player_took_damage", self, "_play_damage_sound")
+	Events.connect("player_took_egg", self, "_play_take_sound")
+	Events.connect("player_threw_egg", self, "_play_take_sound")
+	Events.connect("fruit_earned", self, "_play_fruit_sound")
+
 	startTimer.wait_time = START_TIMER_DURATION
 
 
@@ -41,6 +52,7 @@ func start_session() -> void:
 	stateMachine.transition_to("Starting")
 
 
+	
 func stop_session() -> void:
 	stateMachine.transition_to("Inactive")
 	start_transition()
@@ -62,4 +74,20 @@ func is_difficulty_hard() -> bool:
 
 
 func _play_finish_track() -> void:
-	MusicPlayer.stop_track(MUSIC_FADE_DURATION)	
+	MusicPlayer.play_track(finish_track, 0.0)
+
+
+func _play_damage_sound() -> void:
+	AudioPlayer.play(damage_sound)
+
+
+func _play_take_sound() -> void:
+	AudioPlayer.play(take_sound)
+
+
+func _play_throw_sound() -> void:
+	AudioPlayer.play(throw_sound)
+
+
+func _play_fruit_sound() -> void:
+	AudioPlayer.play(fruit_sound)
