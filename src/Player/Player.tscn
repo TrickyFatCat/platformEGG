@@ -26,7 +26,6 @@ extents = Vector2( 8, 11 )
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 60
 script = ExtResource( 7 )
-velocity_max = Vector2( 250, 600 )
 velocity_jump = Vector2( 250, 600 )
 velocity_stunlock = Vector2( 100, 400 )
 acceleration = Vector2( 1200, 3000 )
@@ -74,6 +73,9 @@ script = ExtResource( 4 )
 [node name="Run" type="Node" parent="StateMachine/Move"]
 script = ExtResource( 5 )
 
+[node name="MoveTimer" type="Timer" parent="StateMachine/Move/Run"]
+one_shot = true
+
 [node name="Jump" type="Node" parent="StateMachine/Move"]
 script = ExtResource( 6 )
 
@@ -96,8 +98,8 @@ visible = false
 
 [node name="HitPoints" parent="." instance=ExtResource( 13 )]
 [connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
-[connection signal="area_entered" from="DamageDetector" to="StateMachine/Move" method="_on_DamageDetector_area_entered"]
 [connection signal="area_entered" from="DamageDetector" to="." method="_on_DamageDetector_area_entered"]
-[connection signal="body_entered" from="DamageDetector" to="StateMachine/Move" method="_on_DamageDetector_body_entered"]
+[connection signal="area_entered" from="DamageDetector" to="StateMachine/Move" method="_on_DamageDetector_area_entered"]
 [connection signal="body_entered" from="DamageDetector" to="." method="_on_DamageDetector_body_entered"]
+[connection signal="body_entered" from="DamageDetector" to="StateMachine/Move" method="_on_DamageDetector_body_entered"]
 [connection signal="timeout" from="StateMachine/Move/Fall/CoyoteTimer" to="StateMachine/Move/Fall" method="_on_CoyoteTimer_timeout"]
