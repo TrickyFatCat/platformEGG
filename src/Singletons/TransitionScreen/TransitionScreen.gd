@@ -26,6 +26,7 @@ onready var screen_shader: ShaderMaterial = screen.material
 onready var state_opened: String = get_node("StateMachine/Opened").name
 onready var state_closed: String = get_node("StateMachine/Closed").name
 onready var state_transition: String = get_node("StateMachine/Transition").name
+onready var transition_sound: String = "res://sounds/sfx_goose.wav"
 
 
 func _on_TransitionTween_tween_all_completed() -> void:
@@ -53,6 +54,7 @@ func start_transition() -> void:
 				activate_tween(MAX_CUTOFF, MIN_CUTOFF)
 		
 		stateMachine.transition_to(state_transition)
+		AudioPlayer.play(transition_sound)
 
 
 func set_cutoff(value: float) -> void:
