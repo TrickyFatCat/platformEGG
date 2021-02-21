@@ -6,3 +6,6 @@ export.cfg
 # Mono-specific ignores
 .mono/
 game_data.bin
+
+# VS Code
+.vscode
