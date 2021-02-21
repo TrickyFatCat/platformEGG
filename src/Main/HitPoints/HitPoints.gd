@@ -10,7 +10,7 @@ const DEFAULT_DAMAGE: int = 1
 export(int) var hitpoints_max: = 3
 export(float) var invulnerability_duration: = 2.0
 
-var is_invulnerable: bool = false setget set_is_invulnerable
+var is_invulnerable: bool = false setget set_is_invulnerable, get_is_invulnerable
 
 onready var hitpoints: int = hitpoints_max
 onready var timer: Timer = $Timer
@@ -45,3 +45,5 @@ func set_is_invulnerable(value: bool) -> void:
 		timer.start()
 
 
+func get_is_invulnerable() -> bool:
+	return is_invulnerable

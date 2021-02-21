@@ -76,9 +76,10 @@ func set_is_active(value: bool) -> void:
 
 
 func apply_damage() -> void:
-	hitPoints.decrease_hitpoints()
-	sync_hitpoints()
-	Events.emit_signal("player_took_damage")
+	if not hitPoints.is_invulnerable:
+		hitPoints.decrease_hitpoints()
+		sync_hitpoints()
+		Events.emit_signal("player_took_damage")
 
 
 func start_flash() -> void:
