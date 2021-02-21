@@ -17,6 +17,7 @@ onready var velocity_stunlock : Vector2 = player.velocity_stunlock
 onready var gravity : float = Global.GRAVITY
 onready var friction : float = player.ground_friction
 onready var air_control_factor : float = AIR_CONTROL_DEFAULT
+onready var jump_sound : String = "res://sounds/sfx_goose.wav"
 
 
 func _on_DamageDetector_area_entered(area: Area2D) -> void:
@@ -69,6 +70,7 @@ func calculate_velocity_x(delta: float, direction: Vector2) -> void:
 
 func apply_jump() -> void:
 	stateMachine.transition_to("Move/Jump", { velocity = velocity_jump, direction = get_move_direction() })
+	AudioPlayer.play(jump_sound)
 
 
 func apply_gravity(delta: float) -> void:
