@@ -18,10 +18,11 @@ var game_difficulty = difficulty.NORMAL
 onready var stateMachine: StateMachine = $StateMachine
 onready var startTimer: Timer = $StartTimer
 onready var finish_track : AudioStream = preload("res://sounds/sfx_goose.wav")
-onready var damage_sound : String = "res://sounds/sfx_goose.wav"
-onready var take_sound : String = "res://sounds/sfx_goose.wav"
-onready var throw_sound : String = "res://sounds/sfx_goose.wav"
-onready var fruit_sound : String = "res://sounds/sfx_goose.wav"
+onready var damage_sound_player : String = "res://sounds/sfx/sfx_player_take_damage.wav"
+onready var damage_sound_egg : String = "res://sounds/sfx/sfx_egg_take_damage.wav"
+onready var take_sound : String = "res://sounds/sfx/sfx_egg_grab.wav"
+onready var throw_sound : String = "res://sounds/sfx/sfx_egg_throw.wav"
+onready var fruit_sound : String = "res://sounds/sfx/sfx_fruit_earn.wav"
 
 
 func _on_StartTimer_timeout():
@@ -34,8 +35,8 @@ func _ready() -> void:
 	TransitionScreen.connect("screen_opened", self, "start_session")
 	Events.connect("level_finished", self, "stop_session")
 	Events.connect("open_finish_screen", self, "_play_finish_track")
-	Events.connect("egg_took_damage", self, "_play_damage_sound")
-	Events.connect("player_took_damage", self, "_play_damage_sound")
+	Events.connect("egg_took_damage", self, "_play_damage_sound_egg")
+	Events.connect("player_took_damage", self, "_play_damage_sound_player")
 	Events.connect("player_took_egg", self, "_play_take_sound")
 	Events.connect("player_threw_egg", self, "_play_take_sound")
 	Events.connect("fruit_earned", self, "_play_fruit_sound")
@@ -77,8 +78,13 @@ func _play_finish_track() -> void:
 	MusicPlayer.play_track(finish_track, 0.0)
 
 
-func _play_damage_sound() -> void:
-	AudioPlayer.play(damage_sound)
+func _play_damage_sound_player() -> void:
+	AudioPlayer.play(damage_sound_player)
+
+
+func _play_damage_sound_egg() -> void:
+	print_debug("play this sound")
+	AudioPlayer.play(damage_sound_egg)
 
 
 func _play_take_sound() -> void:

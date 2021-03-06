@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_player_take_damage.wav-5b2efe1b7816acf0cac827d8e4f7b479.sample"
+
+[deps]
+
+source_file="res://sounds/sfx/sfx_player_take_damage.wav"
+dest_files=[ "res://.import/sfx_player_take_damage.wav-5b2efe1b7816acf0cac827d8e4f7b479.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

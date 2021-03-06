@@ -2,7 +2,11 @@ extends State
 
 const MOVE_SOUND_DELAY : float = 0.2
 
-var step_sound : String = "res://sounds/sfx_goose.wav"
+var step_sounds : Array = [
+	"res://sounds/sfx/sfx_footstep_1.wav",
+	"res://sounds/sfx/sfx_footstep_2.wav"
+]
+var sound_index : int = 0
 
 onready var player: Player = Global.player
 onready var move: State = get_parent()
@@ -38,6 +42,7 @@ func exit() -> void:
 
 
 func _play_step_sound() -> void:
-	AudioPlayer.play(step_sound)
+	sound_index = 1 if sound_index == 0 else 0
+	AudioPlayer.play(step_sounds[sound_index])
 	move_timer.start()
 	pass
