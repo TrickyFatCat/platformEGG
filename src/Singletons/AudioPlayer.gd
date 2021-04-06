@@ -3,7 +3,7 @@ extends Node
 
 const NUM_PLAYERS : int = 10
 
-var bus : String = "master"
+#var bus : String = "master"
 
 var available : Array = []  # The available players.
 
@@ -18,7 +18,7 @@ func _ready() -> void:
 		audio_player.name = "AudioPlayer%d" % i
 		available.append(audio_player)
 		audio_player.connect("finished", self, "_on_stream_finished", [audio_player])
-		audio_player.bus = bus
+		audio_player.bus = "SFX"
 
 
 func _on_stream_finished(stream: AudioStreamPlayer) -> void:
