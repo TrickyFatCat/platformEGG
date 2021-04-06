@@ -6,6 +6,7 @@ const FADE_TIME : float = 0.25
 var _fade_tween : Tween
 var volume_factor : float = 0.0 setget set_volume
 var _default_volume : float
+var _bus = "music"
 
 
 func _init() -> void:
@@ -14,6 +15,7 @@ func _init() -> void:
 	_fade_tween.connect("tween_all_completed", self, "_on_fade_ended")
 	_default_volume = volume_db
 	set_volume(0.0)
+	bus = _bus;
 
 
 func _on_fade_ended() -> void:
