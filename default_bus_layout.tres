@@ -1,4 +1,11 @@
-[gd_resource type="AudioBusLayout" format=2]
+[gd_resource type="AudioBusLayout" load_steps=2 format=2]
+
+[sub_resource type="AudioEffectCompressor" id=1]
+resource_name = "Compressor"
+threshold = -10.5
+ratio = 5.4
+release_ms = 50.0
+sidechain = "SFX"
 
 [resource]
 bus/1/name = "SFX"
@@ -11,5 +18,7 @@ bus/2/name = "music"
 bus/2/solo = false
 bus/2/mute = false
 bus/2/bypass_fx = false
-bus/2/volume_db = -29.2258
+bus/2/volume_db = -1.91699
 bus/2/send = "Master"
+bus/2/effect/0/effect = SubResource( 1 )
+bus/2/effect/0/enabled = true
